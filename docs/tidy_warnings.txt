@@ -131,7 +131,7 @@ line 5 column 2935 - Warning: discarding unexpected </summary>
 line 5 column 3012 - Warning: missing </summary> before <section>
 line 5 column 3405 - Warning: discarding unexpected </summary>
 line 6 column 60 - Warning: missing </summary> before <section>
-line 6 column 428 - Warning: discarding unexpected </summary>
+line 6 column 449 - Warning: discarding unexpected </summary>
 line 7 column 60 - Warning: missing </summary> before <section>
 line 11 column 17 - Warning: discarding unexpected </summary>
 line 14 column 2715 - Warning: missing </summary> before <section>
@@ -391,12 +391,12 @@ line 21 column 2015 - Warning: trimming empty <summary>
 ./docs/podman_ssh_auth_lib/secrets_always_local_mod/decrypt_mod/index.html
 Document: "2" is not a file!
 
-line 1 column 2885 - Warning: trimming empty <button>
+line 1 column 2899 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/secrets_always_local_mod/docker_hub_mod/index.html
 Document: "2" is not a file!
 
-line 1 column 2692 - Warning: trimming empty <button>
+line 1 column 2706 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/secrets_always_local_mod/docker_hub_mod/struct.DockerHubClient.html
 Document: "2" is not a file!
@@ -404,13 +404,13 @@ Document: "2" is not a file!
 line 11 column 202 - Warning: missing </summary> before <section>
 line 11 column 637 - Warning: discarding unexpected </summary>
 line 11 column 714 - Warning: missing </summary> before <section>
-line 11 column 1050 - Warning: discarding unexpected </summary>
+line 11 column 1071 - Warning: discarding unexpected </summary>
 line 13 column 60 - Warning: missing </summary> before <section>
-line 13 column 347 - Warning: discarding unexpected </summary>
+line 13 column 368 - Warning: discarding unexpected </summary>
 line 14 column 60 - Warning: missing </summary> before <section>
-line 14 column 593 - Warning: discarding unexpected </summary>
+line 14 column 614 - Warning: discarding unexpected </summary>
 line 19 column 60 - Warning: missing </summary> before <section>
-line 19 column 539 - Warning: discarding unexpected </summary>
+line 19 column 560 - Warning: discarding unexpected </summary>
 line 20 column 60 - Warning: missing </summary> before <section>
 line 20 column 585 - Warning: discarding unexpected </summary>
 line 23 column 2875 - Warning: missing </summary> before <section>
@@ -599,11 +599,6 @@ Document: "2" is not a file!
 
 line 1 column 2168 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
-./docs/podman_ssh_auth_lib/fn.login.html
-Document: "2" is not a file!
-
-line 1 column 2219 - Warning: trimming empty <button>
-line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/error_mod/type.ResultWithLibError.html
 Document: "2" is not a file!
 
@@ -651,10 +646,10 @@ line 9 column 10441 - Warning: discarding unexpected </summary>
 line 9 column 10596 - Warning: missing </summary> before <section>
 line 9 column 11270 - Warning: discarding unexpected </summary>
 line 9 column 11347 - Warning: missing </summary> before <section>
-line 9 column 11859 - Warning: discarding unexpected </summary>
-line 9 column 12014 - Warning: missing </summary> before <section>
-line 9 column 12714 - Warning: discarding unexpected </summary>
-line 9 column 12791 - Warning: missing </summary> before <section>
+line 9 column 11855 - Warning: discarding unexpected </summary>
+line 9 column 12010 - Warning: missing </summary> before <section>
+line 9 column 12710 - Warning: discarding unexpected </summary>
+line 9 column 12787 - Warning: missing </summary> before <section>
 line 9 column 13319 - Warning: discarding unexpected </summary>
 line 9 column 15909 - Warning: missing </summary> before <section>
 line 9 column 16267 - Warning: <div> isn't allowed in <h3> elements
@@ -732,8 +727,8 @@ line 9 column 9204 - Warning: trimming empty <summary>
 line 9 column 9937 - Warning: trimming empty <summary>
 line 9 column 10596 - Warning: trimming empty <summary>
 line 9 column 11347 - Warning: trimming empty <summary>
-line 9 column 12014 - Warning: trimming empty <summary>
-line 9 column 12791 - Warning: trimming empty <summary>
+line 9 column 12010 - Warning: trimming empty <summary>
+line 9 column 12787 - Warning: trimming empty <summary>
 line 9 column 15909 - Warning: trimming empty <summary>
 line 10 column 247 - Warning: trimming empty <summary>
 line 10 column 1008 - Warning: trimming empty <summary>
@@ -755,15 +750,10 @@ line 19 column 1825 - Warning: trimming empty <summary>
 line 20 column 239 - Warning: trimming empty <summary>
 line 20 column 1020 - Warning: trimming empty <summary>
 line 20 column 2015 - Warning: trimming empty <summary>
-./docs/podman_ssh_auth_lib/podman_mod/fn.login.html
-Document: "2" is not a file!
-
-line 1 column 2276 - Warning: trimming empty <button>
-line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/podman_mod/fn.push.html
 Document: "2" is not a file!
 
-line 1 column 2266 - Warning: trimming empty <button>
+line 1 column 2273 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/podman_mod/index.html
 Document: "2" is not a file!
@@ -783,7 +773,7 @@ line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/fn.push.html
 Document: "2" is not a file!
 
-line 1 column 2209 - Warning: trimming empty <button>
+line 1 column 2216 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/index.html
 Document: "2" is not a file!

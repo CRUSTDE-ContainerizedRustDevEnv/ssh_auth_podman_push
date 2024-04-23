@@ -29,7 +29,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">0.0.27</span></h2>
+      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
     </div>
     <h2 class="location"><a href="#">Module secrets_always_local_mod</a></h2>
     <div class="sidebar-elems">
@@ -77,11 +77,11 @@
               "Restricted Visibility">&nbsp;🔒</span>
             </div>
             <div class="desc docblock-short">
-              Secrets like GitHub API token, docker hub token, SSH private key passphrase and similar must never go out of this crate. Never pass any secret to
-              an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody will mess with
-              this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder. The simple
-              program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal is achieved.
-              The secrets never leave this crate.
+              Secrets like GitHub API secret_token, docker hub secret_token, SSH private key passphrase and similar must never go out of this crate. Never pass
+              any secret to an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody
+              will mess with this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder.
+              The simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal
+              is achieved. The secrets never leave this crate.
             </div>
           </li>
           <li>
@@ -90,9 +90,9 @@
               "mod podman_ssh_auth_lib::secrets_always_local_mod::docker_hub_mod">docker_hub_mod</a><span title="Restricted Visibility">&nbsp;🔒</span>
             </div>
             <div class="desc docblock-short">
-              Push to docker-hub needs the docker hub token. This is a secret important just like a password. I don’t want to pass this secret to an “obscure”
-              library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead of the
-              token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret token will be encapsulated.
+              Push to docker-hub needs the docker hub secret_token. This is a secret important just like a password. I don’t want to pass this secret to an
+              “obscure” library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead
+              of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret_token will be encapsulated.
             </div>
           </li>
           <li>

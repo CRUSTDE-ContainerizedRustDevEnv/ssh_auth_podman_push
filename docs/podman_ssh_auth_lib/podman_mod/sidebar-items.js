@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["login","push"]};
+window.SIDEBAR_ITEMS = {"fn":["push"]};

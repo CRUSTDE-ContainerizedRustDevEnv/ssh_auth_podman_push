@@ -29,7 +29,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../podman_ssh_auth/index.html">podman_ssh_auth</a><span class="version">0.0.27</span></h2>
+      <h2><a href="../podman_ssh_auth/index.html">podman_ssh_auth</a><span class="version">1.0.1</span></h2>
     </div>
     <div class="sidebar-elems">
       <ul class="block">
@@ -67,7 +67,7 @@
         <div class="main-heading">
           <h1>Crate <a class="mod" href="#">podman_ssh_auth</a><button id="copy-path" title="Copy item path to clipboard"><img src=
           "../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="src"
-          href="../src/podman_ssh_auth/main.rs.html#1-193">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>−</span>]</button></span>
+          href="../src/podman_ssh_auth/main.rs.html#1-183">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>−</span>]</button></span>
         </div>
         <details class="toggle top-doc" open="">
           <summary class="hideme">
@@ -76,8 +76,8 @@
           <div class="docblock">
             <p>src/bin/podman_ssh_auth/main.rs</p>
             <h2 id="podman_ssh_auth"><a class="doc-anchor" href="#podman_ssh_auth">§</a>podman_ssh_auth</h2>
-            <p><strong>Store and use encrypted docker-hub token with SSH key</strong><br>
-            <em><strong>version: 0.0.27 date: 2024-04-23 author: <a href="https://bestia.dev">bestia.dev</a> repository: <a href=
+            <p><strong>Store and use encrypted docker-hub secret_token with SSH key</strong><br>
+            <em><strong>version: 1.0.1 date: 2024-04-23 author: <a href="https://bestia.dev">bestia.dev</a> repository: <a href=
             "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth">GitHub</a></strong></em></p>
             <p><img src="https://img.shields.io/badge/work_in_progress-yellow" alt="work-in-progress"> <img src="https://img.shields.io/badge/rustlang-orange"
             alt="rustlang"> <img src="https://img.shields.io/badge/docker_hub-orange" alt="docker-hub"></p>
@@ -86,10 +86,10 @@
             "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src=
             "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/workflows/rust_fmt_auto_build_test/badge.svg" alt="Rust"></a></p>
             <p><a href="https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src=
-            "https://img.shields.io/badge/Lines_in_Rust-396-green.svg" alt="Lines in Rust code"></a> <a href=
-            "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src="https://img.shields.io/badge/Lines_in_Doc_comments-299-blue.svg"
+            "https://img.shields.io/badge/Lines_in_Rust-390-green.svg" alt="Lines in Rust code"></a> <a href=
+            "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src="https://img.shields.io/badge/Lines_in_Doc_comments-312-blue.svg"
             alt="Lines in Doc comments"></a> <a href="https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src=
-            "https://img.shields.io/badge/Lines_in_comments-62-purple.svg" alt="Lines in Comments"></a> <a href=
+            "https://img.shields.io/badge/Lines_in_comments-61-purple.svg" alt="Lines in Comments"></a> <a href=
             "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src="https://img.shields.io/badge/Lines_in_examples-0-yellow.svg" alt=
             "Lines in examples"></a> <a href="https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/"><img src=
             "https://img.shields.io/badge/Lines_in_tests-183-orange.svg" alt="Lines in tests"></a></p>
@@ -99,25 +99,32 @@
             I recommend using the <a href="https://github.com/CRUSTDE-ContainerizedRustDevEnv/crustde_cnt_img_pod">CRUSTDE - Containerized Rust Development
             Environment</a> to write Rust projects on Linux, isolated from your system.</p>
             <h3 id="motivation"><a class="doc-anchor" href="#motivation">§</a>Motivation</h3>
-            <p>To access docker-hub you need a username+password or an access token.<br>
-            IMPORTANT: Treat access tokens like your password and keep them secret. Store your tokens securely in a credential manager for example.<br>
-            Access tokens are impossible to remember for an average human. We need to store them somewhere.<br>
+            <p>To access docker-hub you need a username+password or an access secret_token.<br>
+            IMPORTANT: Treat access secret_tokens like your password and keep them secret. Store your secret_tokens securely in a credential manager for
+            example.<br>
+            Access secret_tokens are impossible to remember for an average human. We need to store them somewhere.<br>
             FYI: Podman is an alternative “drop-in replacement” for Docker.<br>
-            I am sure they both store the docker-hub token for login with the command:</p>
+            I am sure they both store the docker-hub secret_token for login with the command:</p>
             <div class="example-wrap">
               <pre class="language-bash"><code>podman login --username user_name docker.io
 docker login --username user_name docker.io
 </code></pre>
             </div>
-            <p>WARNING: Be aware that they store the token in “plain-text” in the file: <code>${XDG_RUNTIME_DIR}/containers/auth.json</code>.<br>
+            <p>WARNING: Be aware that they store the secret_token in “plain-text” in the file: <code>${XDG_RUNTIME_DIR}/containers/auth.json</code>.<br>
             Ok, it is not really plain-text, but base64 encoding is not a security feature.<br>
             This means that every attacker that can get to this well-known file, can log in to our Docker Hub account. No bueno!!!</p>
-            <p>I want to secure this token with encryption with an SSH key.<br>
+            <p>I want to secure this secret_token with encryption with an SSH key.<br>
             We have already a lot of experience creating, managing and securing our SSH keys. The private key is secured by a passphrase we can remember and
-            type. Every use of the token will need user interaction to type the passphrase. Very secure.</p>
+            type. Every use of the secret_token will need user interaction to type the passphrase. Very secure.</p>
             <p>If we are very self-confident in our current session, we can store the SSH key in ssh-agent and write our passphrase only once.<br>
-            WARNING: a dedicated attacker could read from ssh-agent and discover the access token without our user interaction. Use this at your
+            WARNING: a dedicated attacker could read from ssh-agent and discover the access secret_token without our user interaction. Use this at your
             discretion.</p>
+            <h3 id="replacement-command"><a class="doc-anchor" href="#replacement-command">§</a>Replacement command</h3>
+            <p>Put the executable <code>podman_ssh_auth</code> into the folder you intend to use it.<br>
+            After copying, make it executable with <code>chmod +x podman_ssh_auth</code>.<br>
+            Instead of <code>podman push...</code> use <code>podman_ssh_auth push</code>.<br>
+            If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key. Else it will ask you to store the
+            secret_token.</p>
             <h3 id="development-details"><a class="doc-anchor" href="#development-details">§</a>Development details</h3>
             <p>Read the development details in a separate md file: <a href="DEVELOPMENT.md">DEVELOPMENT.md</a></p>
             <h3 id="releases-changelog"><a class="doc-anchor" href="#releases-changelog">§</a>Releases changelog</h3>

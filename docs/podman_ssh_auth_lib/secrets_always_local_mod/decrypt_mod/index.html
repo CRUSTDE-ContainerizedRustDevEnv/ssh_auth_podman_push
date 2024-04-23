@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="rustdoc">
   <meta name="description" content=
-  "Secrets like GitHub API token, docker hub token, SSH private key passphrase and similar must never go out of this crate. Never pass any secret to an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody will mess with this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder. The simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal is achieved. The secrets never leave this crate.">
+  "Secrets like GitHub API secret_token, docker hub secret_token, SSH private key passphrase and similar must never go out of this crate. Never pass any secret to an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody will mess with this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder. The simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal is achieved. The secrets never leave this crate.">
   <title>podman_ssh_auth_lib::secrets_always_local_mod::decrypt_mod - Rust</title>
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2">
@@ -30,7 +30,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">0.0.27</span></h2>
+      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
     </div>
     <h2 class="location"><a href="#">Module decrypt_mod</a></h2>
     <div class="sidebar-elems">
@@ -75,11 +75,11 @@
             <span>Expand description</span>
           </summary>
           <div class="docblock">
-            <p>Secrets like GitHub API token, docker hub token, SSH private key passphrase and similar must never go out of this crate. Never pass any secret
-            to an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody will mess with
-            this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder. The simple program
-            flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal is achieved. The
-            secrets never leave this crate.</p>
+            <p>Secrets like GitHub API secret_token, docker hub secret_token, SSH private key passphrase and similar must never go out of this crate. Never
+            pass any secret to an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody
+            will mess with this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder. The
+            simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal is
+            achieved. The secrets never leave this crate.</p>
           </div>
         </details>
         <h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2>

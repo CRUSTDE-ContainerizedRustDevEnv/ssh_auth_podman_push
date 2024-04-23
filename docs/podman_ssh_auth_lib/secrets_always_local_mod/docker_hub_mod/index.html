@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="rustdoc">
   <meta name="description" content=
-  "Push to docker-hub needs the docker hub token. This is a secret important just like a password. I don’t want to pass this secret to an “obscure” library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead of the token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret token will be encapsulated.">
+  "Push to docker-hub needs the docker hub secret_token. This is a secret important just like a password. I don’t want to pass this secret to an “obscure” library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret_token will be encapsulated.">
   <title>podman_ssh_auth_lib::secrets_always_local_mod::docker_hub_mod - Rust</title>
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2">
@@ -30,7 +30,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">0.0.27</span></h2>
+      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
     </div>
     <h2 class="location"><a href="#">Module docker_hub_mod</a></h2>
     <div class="sidebar-elems">
@@ -75,9 +75,9 @@
             <span>Expand description</span>
           </summary>
           <div class="docblock">
-            <p>Push to docker-hub needs the docker hub token. This is a secret important just like a password. I don’t want to pass this secret to an “obscure”
-            library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead of the
-            token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret token will be encapsulated.</p>
+            <p>Push to docker-hub needs the docker hub secret_token. This is a secret important just like a password. I don’t want to pass this secret to an
+            “obscure” library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead
+            of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret_token will be encapsulated.</p>
           </div>
         </details>
         <h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2>

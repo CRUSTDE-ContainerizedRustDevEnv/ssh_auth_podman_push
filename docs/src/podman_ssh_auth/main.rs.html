@@ -235,16 +235,6 @@
 <a href="#181" id="181">181</a>
 <a href="#182" id="182">182</a>
 <a href="#183" id="183">183</a>
-<a href="#184" id="184">184</a>
-<a href="#185" id="185">185</a>
-<a href="#186" id="186">186</a>
-<a href="#187" id="187">187</a>
-<a href="#188" id="188">188</a>
-<a href="#189" id="189">189</a>
-<a href="#190" id="190">190</a>
-<a href="#191" id="191">191</a>
-<a href="#192" id="192">192</a>
-<a href="#193" id="193">193</a>
 </pre>
         </div>
         <pre class="rust"><code><span class="doccomment">//! src/bin/podman_ssh_auth/main.rs
@@ -252,8 +242,8 @@
 </span><span class="comment">// region: auto_md_to_doc_comments include README.md A //!
 </span><span class="doccomment">//! # podman_ssh_auth
 //!
-//! **Store and use encrypted docker-hub token with SSH key**  
-//! ***version: 0.0.27 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
+//! **Store and use encrypted docker-hub secret_token with SSH key**  
+//! ***version: 1.0.1 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
 //!
 //!  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
 //!  ![rustlang](https://img.shields.io/badge/rustlang-orange)
@@ -262,9 +252,9 @@
 //!   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/blob/main/LICENSE)
 //!   [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //!
-//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-396-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
-//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-299-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
-//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-62-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-390-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-312-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-61-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-183-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //!
@@ -274,28 +264,34 @@
 //!
 //! ## Motivation
 //!
-//! To access docker-hub you need a username+password or an access token.  
-//! IMPORTANT: Treat access tokens like your password and keep them secret. Store your tokens securely in a credential manager for example.  
-//! Access tokens are impossible to remember for an average human. We need to store them somewhere.  
+//! To access docker-hub you need a username+password or an access secret_token.  
+//! IMPORTANT: Treat access secret_tokens like your password and keep them secret. Store your secret_tokens securely in a credential manager for example.  
+//! Access secret_tokens are impossible to remember for an average human. We need to store them somewhere.  
 //! FYI: Podman is an alternative "drop-in replacement" for Docker.  
-//! I am sure they both store the docker-hub token for login with the command:
+//! I am sure they both store the docker-hub secret_token for login with the command:
 //!
 //! ```bash
 //! podman login --username user_name docker.io
 //! docker login --username user_name docker.io
 //! ```
 //!
-//!
-//!
-//! WARNING: Be aware that they store the token in "plain-text" in the file: `${XDG_RUNTIME_DIR}/containers/auth.json`.  
+//! WARNING: Be aware that they store the secret_token in "plain-text" in the file: `${XDG_RUNTIME_DIR}/containers/auth.json`.  
 //! Ok, it is not really plain-text, but base64 encoding is not a security feature.  
 //! This means that every attacker that can get to this well-known file, can log in to our Docker Hub account. No bueno!!!
 //!
-//! I want to secure this token with encryption with an SSH key.  
-//! We have already a lot of experience creating, managing and securing our SSH keys. The private key is secured by a passphrase we can remember and type. Every use of the token will need user interaction to type the passphrase. Very secure.  
+//! I want to secure this secret_token with encryption with an SSH key.  
+//! We have already a lot of experience creating, managing and securing our SSH keys. The private key is secured by a passphrase we can remember and type. Every use of the secret_token will need user interaction to type the passphrase. Very secure.  
 //!
 //! If we are very self-confident in our current session, we can store the SSH key in ssh-agent and write our passphrase only once.  
-//! WARNING: a dedicated attacker could read from ssh-agent and discover the access token without our user interaction. Use this at your discretion.  
+//! WARNING: a dedicated attacker could read from ssh-agent and discover the access secret_token without our user interaction. Use this at your discretion.  
+//!
+//! ## Replacement command
+//!
+//! Put the executable `podman_ssh_auth` into the folder you intend to use it.  
+//! After copying, make it executable with `chmod +x podman_ssh_auth`.  
+//! Instead of `podman push...` use `podman_ssh_auth push`.  
+//! If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.
+//! Else it will ask you to store the secret_token.
 //!
 //! ## Development details
 //!
@@ -338,31 +334,9 @@
     <span class="kw">let </span><span class="prelude-val">Some</span>(shell_command) = std::env::args().nth(<span class="number">1</span>) <span class=
 "kw">else </span>{
         <span class="macro">panic!</span>(<span class=
-"string">"The command arguments are not correct. It should look like: 'podman_ssh_auth login --username user_name registry' or 'podman_ssh_auth push registry/user_name/image_name:image_label'"</span>)
+"string">"The command arguments are not correct. It should look like: 'podman_ssh_auth push registry/user_name/image_name:image_label'"</span>)
     };
-    <span class="kw">if </span>shell_command == <span class="string">"login" </span>{
-        <span class="comment">// podman_ssh_auth login --username user_name docker.io
-        </span><span class="kw">let </span><span class="prelude-val">Some</span>(username_option) = std::env::args().nth(<span class=
-"number">2</span>) <span class="kw">else </span>{
-            <span class="macro">panic!</span>(<span class=
-"string">"The command arguments are not correct. It should look like: 'podman_ssh_auth login --username user_name registry'"</span>)
-        };
-        <span class="kw">if </span>username_option != <span class="string">"--username" </span>{
-            <span class="macro">panic!</span>(<span class=
-"string">"The command arguments are not correct. It should look like: 'podman_ssh_auth login --username user_name registry'"</span>)
-        }
-        <span class="kw">let </span><span class="prelude-val">Some</span>(user_name) = std::env::args().nth(<span class="number">3</span>) <span class=
-"kw">else </span>{
-            <span class="macro">panic!</span>(<span class=
-"string">"The command arguments are not correct. It should look like: 'podman_ssh_auth login --username user_name registry'"</span>)
-        };
-        <span class="kw">let </span><span class="prelude-val">Some</span>(registry) = std::env::args().nth(<span class="number">4</span>) <span class=
-"kw">else </span>{
-            <span class="macro">panic!</span>(<span class=
-"string">"The command arguments are not correct. It should look like: 'podman_ssh_auth login --username user_name registry'"</span>)
-        };
-        podman_ssh_auth_lib::login(<span class="kw-2">&</span>user_name, <span class="kw-2">&</span>registry);
-    } <span class="kw">else if </span>shell_command == <span class="string">"push" </span>{
+    <span class="kw">if </span>shell_command == <span class="string">"push" </span>{
         <span class="comment">// podman_ssh_auth push docker.io/bestiadev/crustde_cargo_img:cargo-xxx
         </span><span class="kw">let </span><span class="prelude-val">Some</span>(image_url) = std::env::args().nth(<span class="number">2</span>) <span class=
 "kw">else </span>{
@@ -446,9 +420,8 @@
 </span><span class="kw">fn </span>print_help() {
     <span class="macro">println!</span>(
         <span class="string">r#"
-    {YELLOW}Use podman_ssh_auth to securely store and retrieve docker hub tokens !
+    {YELLOW}Use podman_ssh_auth to securely store and retrieve docker hub secret_tokens !
 {GREEN}podman_ssh_auth --help{RESET}
-{GREEN}podman_ssh_auth login --username user_name docker.io{RESET}
 {GREEN}podman_ssh_auth push docker.io/user_name/image_name:image_label{RESET}
   
     {YELLOW}© 2024 bestia.dev  MIT License github.com/automation-tasks-rs/cargo-auto{RESET}

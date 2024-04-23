@@ -30,7 +30,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">0.0.27</span></h2>
+      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
     </div>
     <h2 class="location"><a href="#">DockerHubClient</a></h2>
     <div class="sidebar-elems">
@@ -47,16 +47,16 @@
         <h3><a href="#implementations">Methods</a></h3>
         <ul class="block method">
           <li>
-            <a href="#method.decrypt_token_in_memory">decrypt_token_in_memory</a>
+            <a href="#method.decrypt_secret_token_in_memory">decrypt_secret_token_in_memory</a>
           </li>
           <li>
-            <a href="#method.new_interactive_input_token">new_interactive_input_token</a>
+            <a href="#method.new_interactive_input_secret_token">new_interactive_input_secret_token</a>
           </li>
           <li>
-            <a href="#method.new_with_stored_token">new_with_stored_token</a>
+            <a href="#method.new_with_stored_secret_token">new_with_stored_secret_token</a>
           </li>
           <li>
-            <a href="#method.new_wo_token">new_wo_token</a>
+            <a href="#method.new_wo_secret_token">new_wo_secret_token</a>
           </li>
           <li>
             <a href="#method.push_to_docker_hub">push_to_docker_hub</a>
@@ -160,8 +160,8 @@
         "https://docs.rs/secrecy/0.8.0/secrecy/vec/type.SecretVec.html" title="type secrecy::vec::SecretVec">SecretVec</a>&lt;<a class="primitive" href=
         "https://doc.rust-lang.org/1.77.2/std/primitive.u8.html">u8</a>&gt;</code></span>
         <div class="docblock">
-          <p>Passcode for encrypt the token_is_a_secret to encrypted_token in memory. So that the secret is in memory as little as possible as plain text. For
-          every session (program start) a new random passcode is created.</p>
+          <p>Passcode for encrypt the secret_token to encrypted_token in memory. So that the secret is in memory as little as possible as plain text. For every
+          session (program start) a new random passcode is created.</p>
         </div><span id="structfield.encrypted_token" class="structfield section-header"><a href="#structfield.encrypted_token" class=
         "anchor field">§</a><code>encrypted_token: <a class="struct" href="../secrecy_mod/struct.SecretEncryptedString.html" title=
         "struct podman_ssh_auth_lib::secrets_always_local_mod::secrecy_mod::SecretEncryptedString">SecretEncryptedString</a></code></span>
@@ -179,47 +179,48 @@
             </section>
             <div class="impl-items">
               <details class="toggle method-toggle" open="">
-                <section id="method.new_interactive_input_token" class="method">
+                <section id="method.new_interactive_input_secret_token" class="method">
                   <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#327-336">source</a>
-                  <h4 class="code-header">pub fn <a href="#method.new_interactive_input_token" class="fn">new_interactive_input_token</a>() -&gt; Self</h4>
+                  <h4 class="code-header">pub fn <a href="#method.new_interactive_input_secret_token" class="fn">new_interactive_input_secret_token</a>() -&gt;
+                  Self</h4>
                 </section>
                 <div class="docblock">
                   <p>Create new DockerHub client</p>
-                  <p>Interactively ask the user to input the docker hub token.</p>
+                  <p>Interactively ask the user to input the docker hub secret_token.</p>
                 </div>
               </details>
               <details class="toggle method-toggle" open="">
-                <section id="method.new_wo_token" class="method">
+                <section id="method.new_wo_secret_token" class="method">
                   <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#340-353">source</a>
-                  <h4 class="code-header">fn <a href="#method.new_wo_token" class="fn">new_wo_token</a>() -&gt; Self</h4>
+                  <h4 class="code-header">fn <a href="#method.new_wo_secret_token" class="fn">new_wo_secret_token</a>() -&gt; Self</h4>
                 </section>
                 <div class="docblock">
-                  <p>Create new DockerHub client without token</p>
+                  <p>Create new DockerHub client without secret_token</p>
                 </div>
               </details>
               <details class="toggle method-toggle" open="">
-                <section id="method.new_with_stored_token" class="method">
+                <section id="method.new_with_stored_secret_token" class="method">
                   <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#362-403">source</a>
-                  <h4 class="code-header">pub fn <a href="#method.new_with_stored_token" class="fn">new_with_stored_token</a>(user_name: &<a class="primitive"
-                  href="https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>, registry: &<a class="primitive" href=
+                  <h4 class="code-header">pub fn <a href="#method.new_with_stored_secret_token" class="fn">new_with_stored_secret_token</a>(user_name:
+                  &<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>, registry: &<a class="primitive" href=
                   "https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>) -&gt; Self</h4>
                 </section>
                 <div class="docblock">
-                  <p>Use the stored docker hub token</p>
-                  <p>If the token not exists ask user to interactively input the token. To decrypt it, use the SSH passphrase. That is much easier to type than
-                  typing the token. It is then possible also to have the ssh key in ssh-agent and write the passphrase only once. But this great user
-                  experience comes with security concerns. The token is accessible if the attacker is very dedicated.</p>
+                  <p>Use the stored docker hub secret_token</p>
+                  <p>If the secret_token not exists ask user to interactively input the secret_token. To decrypt it, use the SSH passphrase. That is much
+                  easier to type than typing the secret_token. It is then possible also to have the ssh key in ssh-agent and write the passphrase only once.
+                  But this great user experience comes with security concerns. The secret_token is accessible if the attacker is very dedicated.</p>
                 </div>
               </details>
               <details class="toggle method-toggle" open="">
-                <section id="method.decrypt_token_in_memory" class="method">
+                <section id="method.decrypt_secret_token_in_memory" class="method">
                   <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#407-409">source</a>
-                  <h4 class="code-header">pub fn <a href="#method.decrypt_token_in_memory" class="fn">decrypt_token_in_memory</a>(&amp;self) -&gt; <a class=
-                  "type" href="https://docs.rs/secrecy/0.8.0/secrecy/string/type.SecretString.html" title=
+                  <h4 class="code-header">pub fn <a href="#method.decrypt_secret_token_in_memory" class="fn">decrypt_secret_token_in_memory</a>(&amp;self)
+                  -&gt; <a class="type" href="https://docs.rs/secrecy/0.8.0/secrecy/string/type.SecretString.html" title=
                   "type secrecy::string::SecretString">SecretString</a></h4>
                 </section>
                 <div class="docblock">
-                  <p>decrypts the secret token in memory</p>
+                  <p>decrypts the secret secret_token in memory</p>
                 </div>
               </details>
               <details class="toggle method-toggle" open="">
@@ -231,7 +232,8 @@
                 </section>
                 <div class="docblock">
                   <p>Push to docker hub</p>
-                  <p>This function encapsulates the secret docker hub token. The client can be passed to the library. It will not reveal the secret token.</p>
+                  <p>This function encapsulates the secret docker hub secret_token. The client can be passed to the library. It will not reveal the
+                  secret_token.</p>
                 </div>
               </details>
             </div>

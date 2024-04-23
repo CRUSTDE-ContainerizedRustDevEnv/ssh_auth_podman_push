@@ -75,29 +75,54 @@
 <a href="#21" id="21">21</a>
 <a href="#22" id="22">22</a>
 <a href="#23" id="23">23</a>
+<a href="#24" id="24">24</a>
+<a href="#25" id="25">25</a>
+<a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
+<a href="#29" id="29">29</a>
+<a href="#30" id="30">30</a>
+<a href="#31" id="31">31</a>
+<a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
 </pre>
         </div>
         <pre class="rust"><code><span class="comment">// podman_ssh_auth/src/podman_mod.rs
 
 </span><span class="kw">use </span><span class="kw">crate</span>::secrets_always_local_mod::docker_hub_mod;
 
-<span class="doccomment">/// store the docker hub token securely encrypted with a SSH private key
-</span><span class="kw">pub fn </span>login(user_name: <span class="kw-2">&</span>str, registry: <span class="kw-2">&</span>str) {
-    <span class="macro">log::info!</span>(<span class="string">"start login()"</span>);
-    <span class="comment">// save token for registry and username
-    </span><span class="kw">let </span>_docker_hub_client = docker_hub_mod::DockerHubClient::new_with_stored_token(user_name, registry);
-}
+<span class="kw">use </span><span class="kw">crate</span>::RED;
+<span class="kw">use </span><span class="kw">crate</span>::RESET;
 
-<span class="doccomment">/// push to docker hub retrieving the token from encrypted file
+<span class="doccomment">/// push to docker hub retrieving the secret_token from encrypted file
+///
+/// If the secret_token is not stored ask user to interactively input the secret_token, encrypt and store.
 </span><span class="kw">pub fn </span>push(image_url: <span class="kw-2">&</span>str) {
-    <span class="macro">log::info!</span>(<span class="string">"start push()"</span>);
-    <span class="comment">// parse image_url to find the token for registry and user_name
+    <span class="comment">// check if the plain-text file from `podman login` exists and warn the user because it is a security vulnerability.
+    </span><span class="kw">let </span>file_auth = <span class="string">"${XDG_RUNTIME_DIR}/containers/auth.json"</span>;
+    <span class="kw">let </span>xdg_runtime_dir = std::env::var_os(<span class="string">"XDG_RUNTIME_DIR"</span>)
+        .unwrap_or_else(|| <span class="macro">panic!</span>(<span class=
+"string">"{RED}Error: The env var XDG_RUNTIME_DIR does not exist. This OS cannot run podman.{RESET}"</span>))
+        .to_string_lossy()
+        .to_string();
+    <span class="kw">let </span>file_auth_expanded = file_auth.replace(<span class="string">"${XDG_RUNTIME_DIR}"</span>, <span class=
+"kw-2">&</span>xdg_runtime_dir);
+    <span class="macro">dbg!</span>(<span class="kw-2">&</span>file_auth_expanded);
+    <span class="kw">let </span>file_auth_expanded = camino::Utf8Path::new(<span class="kw-2">&</span>file_auth_expanded);
+
+    <span class="kw">if </span>file_auth_expanded.exists() {
+        <span class="macro">panic!</span>(<span class=
+"string">"{RED}Error: Security vulnerability: Found the file with plain-text secret_token: {file_auth_expanded} {RESET}"</span>)
+    }
+
+    <span class="comment">// parse image_url to find the secret_token for registry and user_name
     // docker.io/bestiadev/crustde_cargo_img:cargo-xxx
     </span><span class="kw">let </span><span class="kw-2">mut </span>splitted = image_url.split(<span class="string">"/"</span>);
     <span class="kw">let </span>registry = splitted.next().unwrap();
     <span class="kw">let </span>user_name = splitted.next().unwrap();
 
-    <span class="kw">let </span>docker_hub_client = docker_hub_mod::DockerHubClient::new_with_stored_token(user_name, registry);
+    <span class="kw">let </span>docker_hub_client = docker_hub_mod::DockerHubClient::new_with_stored_secret_token(user_name, registry);
     docker_hub_client.push_to_docker_hub(image_url, user_name);
 }
 </code></pre>
