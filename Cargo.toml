@@ -12,7 +12,7 @@ repository = "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth
 keywords = ["work-in-progress", "rustlang", "docker-hub"]
 categories = ["command-line-interface"]
 # publish as a cargo tool. Only this files.
-publish = false
+publish = true
 include = [
     "Cargo.toml",
     "LICENSE",

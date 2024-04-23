@@ -14,6 +14,8 @@ The TODO section is part of the [README.md](https://github.com/CRUSTDE-Container
 
 - secret_token only push
 
+- publish true
+
 ## Version 0.0.26 (2024-04-23)
 
 - docs
