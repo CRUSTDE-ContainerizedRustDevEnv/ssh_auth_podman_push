@@ -10,7 +10,7 @@ The TODO section is part of the [README.md](https://github.com/CRUSTDE-Container
 
 ## Unreleased
 
-- cargo_auto_lib
+## Version 1.0.3 (2024-04-23)
 
 - cargo_auto_lib
 
