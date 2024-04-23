@@ -29,7 +29,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
+      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.3</span></h2>
     </div>
     <h2 class="location"><a href="#">Module secrets_always_local_mod</a></h2>
     <div class="sidebar-elems">
@@ -37,6 +37,15 @@
         <ul class="block">
           <li>
             <a href="#modules">Modules</a>
+          </li>
+          <li>
+            <a href="#structs">Structs</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#traits">Traits</a>
           </li>
         </ul>
       </section>
@@ -76,13 +85,6 @@
               <a class="mod" href="decrypt_mod/index.html" title="mod podman_ssh_auth_lib::secrets_always_local_mod::decrypt_mod">decrypt_mod</a><span title=
               "Restricted Visibility">&nbsp;🔒</span>
             </div>
-            <div class="desc docblock-short">
-              Secrets like GitHub API secret_token, docker hub secret_token, SSH private key passphrase and similar must never go out of this crate. Never pass
-              any secret to an external crate library as much as possible. The user has the source code under his fingers in this crate. So he knows nobody
-              will mess with this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the automation_tasks_rs folder.
-              The simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks like a mess, but the goal
-              is achieved. The secrets never leave this crate.
-            </div>
           </li>
           <li>
             <div class="item-name">
@@ -115,6 +117,76 @@
             <div class="item-name">
               <a class="mod" href="ssh_mod/index.html" title="mod podman_ssh_auth_lib::secrets_always_local_mod::ssh_mod">ssh_mod</a><span title=
               "Restricted Visibility">&nbsp;🔒</span>
+            </div>
+          </li>
+        </ul>
+        <h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2>
+        <ul class="item-table">
+          <li>
+            <div class="item-name">
+              <a class="struct" href="struct.EncryptedString.html" title=
+              "struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a>
+            </div>
+            <div class="desc docblock-short">
+              A simple wrapper new-type around String just to show intent that it is already encrypted
+            </div>
+          </li>
+        </ul>
+        <h2 id="constants" class="section-header">Constants<a href="#constants" class="anchor">§</a></h2>
+        <ul class="item-table">
+          <li>
+            <div class="item-name">
+              <a class="constant" href="constant.BLUE.html" title="constant podman_ssh_auth_lib::secrets_always_local_mod::BLUE">BLUE</a>
+            </div>
+            <div class="desc docblock-short">
+              ANSI color
+            </div>
+          </li>
+          <li>
+            <div class="item-name">
+              <a class="constant" href="constant.GREEN.html" title="constant podman_ssh_auth_lib::secrets_always_local_mod::GREEN">GREEN</a>
+            </div>
+            <div class="desc docblock-short">
+              ANSI color
+            </div>
+          </li>
+          <li>
+            <div class="item-name">
+              <a class="constant" href="constant.RED.html" title="constant podman_ssh_auth_lib::secrets_always_local_mod::RED">RED</a>
+            </div>
+            <div class="desc docblock-short">
+              Secrets like GitHub API secret_token, crates.io secret token, docker hub secret_token, SSH private key passphrase and similar must never go out
+              of this crate. Never pass any secret to an external crate library as much as possible. The user has the source code under his fingers in this
+              crate. So he knows nobody will mess with this code once he inspected and reviewed it. All the modules are in one file to avoid clutter in the
+              automation_tasks_rs folder. The simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate. Now it looks
+              like a mess, but the goal is achieved. The secrets never leave this crate. ANSI color
+            </div>
+          </li>
+          <li>
+            <div class="item-name">
+              <a class="constant" href="constant.RESET.html" title="constant podman_ssh_auth_lib::secrets_always_local_mod::RESET">RESET</a>
+            </div>
+            <div class="desc docblock-short">
+              ANSI color
+            </div>
+          </li>
+          <li>
+            <div class="item-name">
+              <a class="constant" href="constant.YELLOW.html" title="constant podman_ssh_auth_lib::secrets_always_local_mod::YELLOW">YELLOW</a>
+            </div>
+            <div class="desc docblock-short">
+              ANSI color
+            </div>
+          </li>
+        </ul>
+        <h2 id="traits" class="section-header">Traits<a href="#traits" class="anchor">§</a></h2>
+        <ul class="item-table">
+          <li>
+            <div class="item-name">
+              <a class="trait" href="trait.ExposeSecret.html" title="trait podman_ssh_auth_lib::secrets_always_local_mod::ExposeSecret">ExposeSecret</a>
+            </div>
+            <div class="desc docblock-short">
+              Expose a reference to an inner secret
             </div>
           </li>
         </ul>

@@ -29,7 +29,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
+      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.3</span></h2>
     </div>
     <h2 class="location"><a href="#">LibError</a></h2>
     <div class="sidebar-elems">
@@ -106,6 +106,9 @@
             <a href="#impl-From%3CT%3E-for-T">From&lt;T&gt;</a>
           </li>
           <li>
+            <a href="#impl-Instrument-for-T">Instrument</a>
+          </li>
+          <li>
             <a href="#impl-Into%3CU%3E-for-T">Into&lt;U&gt;</a>
           </li>
           <li>
@@ -122,6 +125,9 @@
           </li>
           <li>
             <a href="#impl-VZip%3CV%3E-for-T">VZip&lt;V&gt;</a>
+          </li>
+          <li>
+            <a href="#impl-WithSubscriber-for-T">WithSubscriber</a>
           </li>
         </ul>
       </section>
@@ -151,7 +157,7 @@
           <h1>Enum <a href="../index.html">podman_ssh_auth_lib</a>::<wbr><a href="index.html">error_mod</a>::<wbr><a class="enum" href=
           "#">LibError</a><button id="copy-path" title="Copy item path to clipboard"><img src="../../static.files/clipboard-7571035ce49a181d.svg" width="19"
           height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="src" href=
-          "../../src/podman_ssh_auth_lib/error_mod.rs.html#13-31">source</a> · <button id="toggle-all-docs" title=
+          "../../src/podman_ssh_auth_lib/error_mod.rs.html#13-32">source</a> · <button id="toggle-all-docs" title=
           "collapse all docs">[<span>−</span>]</button></span>
         </div>
         <pre class="rust item-decl"><code>pub enum LibError {
@@ -350,8 +356,8 @@
             </section>
             <div class="impl-items">
               <details class="toggle method-toggle" open="">
-                <section id="method.from" class="method trait-impl">
-                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/error_mod.rs.html#12">source</a><a href="#method.from" class="anchor">§</a>
+                <section id="method.from-1" class="method trait-impl">
+                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/error_mod.rs.html#12">source</a><a href="#method.from-1" class="anchor">§</a>
                   <h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.77.2/core/convert/trait.From.html#tymethod.from" class="fn">from</a>(source:
                   <a class="enum" href="https://doc.rust-lang.org/1.77.2/core/convert/enum.Infallible.html" title=
                   "enum core::convert::Infallible">Infallible</a>) -&gt; Self</h4>
@@ -373,8 +379,8 @@
             </section>
             <div class="impl-items">
               <details class="toggle method-toggle" open="">
-                <section id="method.from-1" class="method trait-impl">
-                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/error_mod.rs.html#12">source</a><a href="#method.from-1" class="anchor">§</a>
+                <section id="method.from" class="method trait-impl">
+                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/error_mod.rs.html#12">source</a><a href="#method.from" class="anchor">§</a>
                   <h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.77.2/core/convert/trait.From.html#tymethod.from" class="fn">from</a>(source:
                   <a class="struct" href="https://doc.rust-lang.org/1.77.2/core/num/error/struct.ParseIntError.html" title=
                   "struct core::num::error::ParseIntError">ParseIntError</a>) -&gt; Self</h4>
@@ -517,6 +523,33 @@
                 </section>
                 <div class="docblock">
                   <p>Returns the argument unchanged.</p>
+                </div>
+              </details>
+            </div>
+          </details>
+          <details class="toggle implementors-toggle">
+            <section id="impl-Instrument-for-T" class="impl">
+              <a href="#impl-Instrument-for-T" class="anchor">§</a>
+              <h3 class="code-header">impl&lt;T&gt; Instrument for T</h3>
+            </section>
+            <div class="impl-items">
+              <details class="toggle method-toggle" open="">
+                <section id="method.instrument" class="method trait-impl">
+                  <a href="#method.instrument" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">instrument</a>(self, span: Span) -&gt; Instrumented&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Instruments this type with the provided [<code>Span</code>], returning an <code>Instrumented</code> wrapper. <a>Read more</a>
+                </div>
+              </details>
+              <details class="toggle method-toggle" open="">
+                <section id="method.in_current_span" class="method trait-impl">
+                  <a href="#method.in_current_span" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">in_current_span</a>(self) -&gt; Instrumented&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Instruments this type with the <a href="super::Span::current()">current</a> <a href="crate::Span"><code>Span</code></a>, returning an
+                  <code>Instrumented</code> wrapper. <a>Read more</a>
                 </div>
               </details>
             </div>
@@ -691,6 +724,38 @@
                 <a href="#method.vzip" class="anchor">§</a>
                 <h4 class="code-header">fn <a class="fn">vzip</a>(self) -&gt; V</h4>
               </section>
+            </div>
+          </details>
+          <details class="toggle implementors-toggle">
+            <section id="impl-WithSubscriber-for-T" class="impl">
+              <a href="#impl-WithSubscriber-for-T" class="anchor">§</a>
+              <h3 class="code-header">impl&lt;T&gt; WithSubscriber for T</h3>
+            </section>
+            <div class="impl-items">
+              <details class="toggle method-toggle" open="">
+                <section id="method.with_subscriber" class="method trait-impl">
+                  <a href="#method.with_subscriber" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">with_subscriber</a>&lt;S&gt;(self, subscriber: S) -&gt; WithDispatch&lt;Self&gt;</h4>
+                  <div class="where">
+                    <h4 class="code-header">where S: <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/convert/trait.Into.html" title=
+                    "trait core::convert::Into">Into</a>&lt;Dispatch&gt;,</h4>
+                  </div>
+                </section>
+                <div class='docblock'>
+                  Attaches the provided <a href="super::Subscriber"><code>Subscriber</code></a> to this type, returning a [<code>WithDispatch</code>] wrapper.
+                  <a>Read more</a>
+                </div>
+              </details>
+              <details class="toggle method-toggle" open="">
+                <section id="method.with_current_subscriber" class="method trait-impl">
+                  <a href="#method.with_current_subscriber" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">with_current_subscriber</a>(self) -&gt; WithDispatch&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Attaches the current <a href="crate::dispatcher#setting-the-default-subscriber">default</a> <a href=
+                  "super::Subscriber"><code>Subscriber</code></a> to this type, returning a [<code>WithDispatch</code>] wrapper. <a>Read more</a>
+                </div>
+              </details>
             </div>
           </details>
         </div>

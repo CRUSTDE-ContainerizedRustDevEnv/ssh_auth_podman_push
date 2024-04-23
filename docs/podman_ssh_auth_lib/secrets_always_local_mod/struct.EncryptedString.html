@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="rustdoc">
-  <meta name="description" content="Shell command builder with simple but limited sanitizer">
-  <title>ShellCommandLimitedDoubleQuotesSanitizer in podman_ssh_auth_lib::shell_mod - Rust</title>
+  <meta name="description" content="A simple wrapper new-type around String just to show intent that it is already encrypted">
+  <title>EncryptedString in podman_ssh_auth_lib::secrets_always_local_mod - Rust</title>
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2">
@@ -29,46 +29,33 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
+      <h2><a href="../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.3</span></h2>
     </div>
-    <h2 class="location"><a href="#">ShellCommandLimitedDoubleQuotesSanitizer</a></h2>
+    <h2 class="location"><a href="#">EncryptedString</a></h2>
     <div class="sidebar-elems">
       <section>
-        <h3><a href="#fields">Fields</a></h3>
+        <h3><a href="#fields">Tuple Fields</a></h3>
         <ul class="block structfield">
           <li>
-            <a href="#structfield.string_to_echo">string_to_echo</a>
-          </li>
-          <li>
-            <a href="#structfield.string_to_execute">string_to_execute</a>
-          </li>
-          <li>
-            <a href="#structfield.template">template</a>
-          </li>
-        </ul>
-        <h3><a href="#trait-implementations">Trait Implementations</a></h3>
-        <ul class="block trait-implementation">
-          <li>
-            <a href=
-            "#impl-ShellCommandLimitedDoubleQuotesSanitizerTrait-for-ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizerTrait</a>
+            <a href="#structfield.0">0</a>
           </li>
         </ul>
         <h3><a href="#synthetic-implementations">Auto Trait Implementations</a></h3>
         <ul class="block synthetic-implementation">
           <li>
-            <a href="#impl-RefUnwindSafe-for-ShellCommandLimitedDoubleQuotesSanitizer">RefUnwindSafe</a>
+            <a href="#impl-RefUnwindSafe-for-EncryptedString">RefUnwindSafe</a>
           </li>
           <li>
-            <a href="#impl-Send-for-ShellCommandLimitedDoubleQuotesSanitizer">Send</a>
+            <a href="#impl-Send-for-EncryptedString">Send</a>
           </li>
           <li>
-            <a href="#impl-Sync-for-ShellCommandLimitedDoubleQuotesSanitizer">Sync</a>
+            <a href="#impl-Sync-for-EncryptedString">Sync</a>
           </li>
           <li>
-            <a href="#impl-Unpin-for-ShellCommandLimitedDoubleQuotesSanitizer">Unpin</a>
+            <a href="#impl-Unpin-for-EncryptedString">Unpin</a>
           </li>
           <li>
-            <a href="#impl-UnwindSafe-for-ShellCommandLimitedDoubleQuotesSanitizer">UnwindSafe</a>
+            <a href="#impl-UnwindSafe-for-EncryptedString">UnwindSafe</a>
           </li>
         </ul>
         <h3><a href="#blanket-implementations">Blanket Implementations</a></h3>
@@ -86,6 +73,9 @@
             <a href="#impl-From%3CT%3E-for-T">From&lt;T&gt;</a>
           </li>
           <li>
+            <a href="#impl-Instrument-for-T">Instrument</a>
+          </li>
+          <li>
             <a href="#impl-Into%3CU%3E-for-T">Into&lt;U&gt;</a>
           </li>
           <li>
@@ -100,9 +90,12 @@
           <li>
             <a href="#impl-VZip%3CV%3E-for-T">VZip&lt;V&gt;</a>
           </li>
+          <li>
+            <a href="#impl-WithSubscriber-for-T">WithSubscriber</a>
+          </li>
         </ul>
       </section>
-      <h2><a href="index.html">In podman_ssh_auth_lib::shell_mod</a></h2>
+      <h2><a href="index.html">In podman_ssh_auth_lib::secrets_always_local_mod</a></h2>
     </div>
   </nav>
   <div class="sidebar-resizer"></div>
@@ -125,148 +118,55 @@
       </nav>
       <section id="main-content" class="content">
         <div class="main-heading">
-          <h1>Struct <a href="../index.html">podman_ssh_auth_lib</a>::<wbr><a href="index.html">shell_mod</a>::<wbr><a class="struct" href=
-          "#">ShellCommandLimitedDoubleQuotesSanitizer</a><button id="copy-path" title="Copy item path to clipboard"><img src=
-          "../../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class=
-          "src" href="../../src/podman_ssh_auth_lib/shell_mod.rs.html#26-30">source</a> · <button id="toggle-all-docs" title=
+          <h1>Struct <a href="../index.html">podman_ssh_auth_lib</a>::<wbr><a href="index.html">secrets_always_local_mod</a>::<wbr><a class="struct" href=
+          "#">EncryptedString</a><button id="copy-path" title="Copy item path to clipboard"><img src="../../static.files/clipboard-7571035ce49a181d.svg" width=
+          "19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><button id="toggle-all-docs" title=
           "collapse all docs">[<span>−</span>]</button></span>
         </div>
-        <pre class="rust item-decl"><code>pub struct ShellCommandLimitedDoubleQuotesSanitizer {
-    template: <a class="struct" href="https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
-    string_to_echo: <a class="struct" href="https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
-    string_to_execute: <a class="struct" href="https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title=
-"struct alloc::string::String">String</a>,
-}</code></pre>
+        <pre class="rust item-decl"><code>pub struct EncryptedString(pub <a class="struct" href=
+        "https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>);</code></pre>
         <details class="toggle top-doc" open="">
           <summary class="hideme">
             <span>Expand description</span>
           </summary>
           <div class="docblock">
-            <p>Shell command builder with simple but limited sanitizer</p>
-            <p>The limited sanitization will panic if the value contains double quotes. Command injections attack is possible because the shell command mixes
-            executable code and data in a single string. The attacker could format the “user input” data in a way that it transforms it into “executable code”.
-            A true sanitization is hard to do in software. It would mean to understand all the intricacies of bash syntax?! Another solution is to create a
-            complex object model to have every command and data separated. Too complicated and developer unfriendly. Instead here we take that the developer is
-            a trusted person and he knows how to create the template correctly, so that the placeholders are always de-facto delimited with double-quote inside
-            the shell command. This avoids the problem of injection of any other symbol except double-quotes. The injection of double quote would finish the
-            double-quote data and open the door tho write executable code. It would be very complicated to check if “escaped double quotes” are or not correct
-            in the context of the template. So I don’t allow them at all. This covers the vast majority of simple use cases. Placeholders are delimited with
-            curly brackets.</p>
+            <p>A simple wrapper new-type around String just to show intent that it is already encrypted</p>
           </div>
         </details>
-        <h2 id="fields" class="fields section-header">Fields<a href="#fields" class="anchor">§</a></h2><span id="structfield.template" class=
-        "structfield section-header"><a href="#structfield.template" class="anchor field">§</a><code>template: <a class="struct" href=
-        "https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span id=
-        "structfield.string_to_echo" class="structfield section-header"><a href="#structfield.string_to_echo" class="anchor field">§</a><code>string_to_echo:
-        <a class="struct" href="https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title=
-        "struct alloc::string::String">String</a></code></span><span id="structfield.string_to_execute" class="structfield section-header"><a href=
-        "#structfield.string_to_execute" class="anchor field">§</a><code>string_to_execute: <a class="struct" href=
+        <h2 id="fields" class="fields section-header">Tuple Fields<a href="#fields" class="anchor">§</a></h2><span id="structfield.0" class=
+        "structfield section-header"><a href="#structfield.0" class="anchor field">§</a><code>0: <a class="struct" href=
         "https://doc.rust-lang.org/1.77.2/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span>
-        <h2 id="trait-implementations" class="section-header">Trait Implementations<a href="#trait-implementations" class="anchor">§</a></h2>
-        <div id="trait-implementations-list">
-          <details class="toggle implementors-toggle" open="">
-            <section id="impl-ShellCommandLimitedDoubleQuotesSanitizerTrait-for-ShellCommandLimitedDoubleQuotesSanitizer" class="impl">
-              <a class="src rightside" href="../../src/podman_ssh_auth_lib/shell_mod.rs.html#58-152">source</a><a href=
-              "#impl-ShellCommandLimitedDoubleQuotesSanitizerTrait-for-ShellCommandLimitedDoubleQuotesSanitizer" class="anchor">§</a>
-              <h3 class="code-header">impl <a class="trait" href="trait.ShellCommandLimitedDoubleQuotesSanitizerTrait.html" title=
-              "trait podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizerTrait">ShellCommandLimitedDoubleQuotesSanitizerTrait</a> for
-              <a class="struct" href="struct.ShellCommandLimitedDoubleQuotesSanitizer.html" title=
-              "struct podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizer</a></h3>
-            </section>
-            <div class="impl-items">
-              <details class="toggle method-toggle" open="">
-                <section id="method.new" class="method trait-impl">
-                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/shell_mod.rs.html#67-79">source</a><a href="#method.new" class="anchor">§</a>
-                  <h4 class="code-header">fn <a href="trait.ShellCommandLimitedDoubleQuotesSanitizerTrait.html#tymethod.new" class="fn">new</a>(template:
-                  &<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>) -&gt; <a class="enum" href=
-                  "https://doc.rust-lang.org/1.77.2/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self, <a class="enum" href=
-                  "../error_mod/enum.LibError.html" title="enum podman_ssh_auth_lib::error_mod::LibError">LibError</a>&gt;</h4>
-                </section>
-                <div class="docblock">
-                  <p>Template for the shell command with placeholders</p>
-                  <p>The limited sanitization will panic if the value contains double quotes. Placeholders are delimited with curly brackets. The developer
-                  must be super careful to write the template correctly. The placeholders must be inside a block delimited with double quotes. In a way that
-                  only an injection of a double quote can cause problems. There is no software check of the correctness of the template.</p>
-                </div>
-              </details>
-              <details class="toggle method-toggle" open="">
-                <section id="method.arg" class="method trait-impl">
-                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/shell_mod.rs.html#86-114">source</a><a href="#method.arg" class="anchor">§</a>
-                  <h4 class="code-header">fn <a href="trait.ShellCommandLimitedDoubleQuotesSanitizerTrait.html#tymethod.arg" class="fn">arg</a>(&amp;mut self,
-                  placeholder: &<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>, value: &<a class="primitive" href=
-                  "https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>) -&gt; <a class="enum" href=
-                  "https://doc.rust-lang.org/1.77.2/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href=
-                  "https://doc.rust-lang.org/1.77.2/std/primitive.reference.html">&amp;mut Self</a>, <a class="enum" href="../error_mod/enum.LibError.html"
-                  title="enum podman_ssh_auth_lib::error_mod::LibError">LibError</a>&gt;</h4>
-                </section>
-                <div class="docblock">
-                  <p>Replace placeholders with the value</p>
-                  <p>The limited sanitization will panic if the value contains double quotes. Enter the placeholder parameter delimited with curly brackets. It
-                  would be very complicated to check if “escaped double quotes” are or not correct in the context of the template. So I don’t allow them at
-                  all. This covers the vast majority of simple use cases.</p>
-                </div>
-              </details>
-              <details class="toggle method-toggle" open="">
-                <section id="method.arg_secret" class="method trait-impl">
-                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/shell_mod.rs.html#116-139">source</a><a href="#method.arg_secret" class=
-                  "anchor">§</a>
-                  <h4 class="code-header">fn <a href="trait.ShellCommandLimitedDoubleQuotesSanitizerTrait.html#tymethod.arg_secret" class="fn">arg_secret</a>(
-                  &amp;mut self, placeholder: &<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.str.html">str</a>, value: &<a class=
-                  "type" href="https://docs.rs/secrecy/0.8.0/secrecy/string/type.SecretString.html" title="type secrecy::string::SecretString">SecretString</a>
-                  ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.77.2/core/result/enum.Result.html" title=
-                  "enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.reference.html">&amp;mut
-                  Self</a>, <a class="enum" href="../error_mod/enum.LibError.html" title="enum podman_ssh_auth_lib::error_mod::LibError">LibError</a>&gt;</h4>
-                </section>
-                <div class="docblock">
-                  <p>Just like arg(), but for secrets that must be not echoed on the screen</p>
-                </div>
-              </details>
-              <details class="toggle method-toggle" open="">
-                <section id="method.run" class="method trait-impl">
-                  <a class="src rightside" href="../../src/podman_ssh_auth_lib/shell_mod.rs.html#142-151">source</a><a href="#method.run" class="anchor">§</a>
-                  <h4 class="code-header">fn <a href="trait.ShellCommandLimitedDoubleQuotesSanitizerTrait.html#tymethod.run" class="fn">run</a>(&amp;self)
-                  -&gt; <a class="enum" href="https://doc.rust-lang.org/1.77.2/core/result/enum.Result.html" title=
-                  "enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.unit.html">()</a>,
-                  <a class="enum" href="../error_mod/enum.LibError.html" title="enum podman_ssh_auth_lib::error_mod::LibError">LibError</a>&gt;</h4>
-                </section>
-                <div class="docblock">
-                  <p>Run the sanitized command with no additional checks</p>
-                </div>
-              </details>
-            </div>
-          </details>
-        </div>
         <h2 id="synthetic-implementations" class="section-header">Auto Trait Implementations<a href="#synthetic-implementations" class="anchor">§</a></h2>
         <div id="synthetic-implementations-list">
-          <section id="impl-RefUnwindSafe-for-ShellCommandLimitedDoubleQuotesSanitizer" class="impl">
-            <a href="#impl-RefUnwindSafe-for-ShellCommandLimitedDoubleQuotesSanitizer" class="anchor">§</a>
+          <section id="impl-RefUnwindSafe-for-EncryptedString" class="impl">
+            <a href="#impl-RefUnwindSafe-for-EncryptedString" class="anchor">§</a>
             <h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/panic/unwind_safe/trait.RefUnwindSafe.html" title=
-            "trait core::panic::unwind_safe::RefUnwindSafe">RefUnwindSafe</a> for <a class="struct" href="struct.ShellCommandLimitedDoubleQuotesSanitizer.html"
-            title="struct podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizer</a></h3>
+            "trait core::panic::unwind_safe::RefUnwindSafe">RefUnwindSafe</a> for <a class="struct" href="struct.EncryptedString.html" title=
+            "struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a></h3>
           </section>
-          <section id="impl-Send-for-ShellCommandLimitedDoubleQuotesSanitizer" class="impl">
-            <a href="#impl-Send-for-ShellCommandLimitedDoubleQuotesSanitizer" class="anchor">§</a>
+          <section id="impl-Send-for-EncryptedString" class="impl">
+            <a href="#impl-Send-for-EncryptedString" class="anchor">§</a>
             <h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/marker/trait.Send.html" title=
-            "trait core::marker::Send">Send</a> for <a class="struct" href="struct.ShellCommandLimitedDoubleQuotesSanitizer.html" title=
-            "struct podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizer</a></h3>
+            "trait core::marker::Send">Send</a> for <a class="struct" href="struct.EncryptedString.html" title=
+            "struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a></h3>
           </section>
-          <section id="impl-Sync-for-ShellCommandLimitedDoubleQuotesSanitizer" class="impl">
-            <a href="#impl-Sync-for-ShellCommandLimitedDoubleQuotesSanitizer" class="anchor">§</a>
+          <section id="impl-Sync-for-EncryptedString" class="impl">
+            <a href="#impl-Sync-for-EncryptedString" class="anchor">§</a>
             <h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/marker/trait.Sync.html" title=
-            "trait core::marker::Sync">Sync</a> for <a class="struct" href="struct.ShellCommandLimitedDoubleQuotesSanitizer.html" title=
-            "struct podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizer</a></h3>
+            "trait core::marker::Sync">Sync</a> for <a class="struct" href="struct.EncryptedString.html" title=
+            "struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a></h3>
           </section>
-          <section id="impl-Unpin-for-ShellCommandLimitedDoubleQuotesSanitizer" class="impl">
-            <a href="#impl-Unpin-for-ShellCommandLimitedDoubleQuotesSanitizer" class="anchor">§</a>
+          <section id="impl-Unpin-for-EncryptedString" class="impl">
+            <a href="#impl-Unpin-for-EncryptedString" class="anchor">§</a>
             <h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/marker/trait.Unpin.html" title=
-            "trait core::marker::Unpin">Unpin</a> for <a class="struct" href="struct.ShellCommandLimitedDoubleQuotesSanitizer.html" title=
-            "struct podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizer</a></h3>
+            "trait core::marker::Unpin">Unpin</a> for <a class="struct" href="struct.EncryptedString.html" title=
+            "struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a></h3>
           </section>
-          <section id="impl-UnwindSafe-for-ShellCommandLimitedDoubleQuotesSanitizer" class="impl">
-            <a href="#impl-UnwindSafe-for-ShellCommandLimitedDoubleQuotesSanitizer" class="anchor">§</a>
+          <section id="impl-UnwindSafe-for-EncryptedString" class="impl">
+            <a href="#impl-UnwindSafe-for-EncryptedString" class="anchor">§</a>
             <h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/panic/unwind_safe/trait.UnwindSafe.html" title=
-            "trait core::panic::unwind_safe::UnwindSafe">UnwindSafe</a> for <a class="struct" href="struct.ShellCommandLimitedDoubleQuotesSanitizer.html"
-            title="struct podman_ssh_auth_lib::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer">ShellCommandLimitedDoubleQuotesSanitizer</a></h3>
+            "trait core::panic::unwind_safe::UnwindSafe">UnwindSafe</a> for <a class="struct" href="struct.EncryptedString.html" title=
+            "struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a></h3>
           </section>
         </div>
         <h2 id="blanket-implementations" class="section-header">Blanket Implementations<a href="#blanket-implementations" class="anchor">§</a></h2>
@@ -367,6 +267,33 @@
                 </section>
                 <div class="docblock">
                   <p>Returns the argument unchanged.</p>
+                </div>
+              </details>
+            </div>
+          </details>
+          <details class="toggle implementors-toggle">
+            <section id="impl-Instrument-for-T" class="impl">
+              <a href="#impl-Instrument-for-T" class="anchor">§</a>
+              <h3 class="code-header">impl&lt;T&gt; Instrument for T</h3>
+            </section>
+            <div class="impl-items">
+              <details class="toggle method-toggle" open="">
+                <section id="method.instrument" class="method trait-impl">
+                  <a href="#method.instrument" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">instrument</a>(self, span: Span) -&gt; Instrumented&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Instruments this type with the provided [<code>Span</code>], returning an <code>Instrumented</code> wrapper. <a>Read more</a>
+                </div>
+              </details>
+              <details class="toggle method-toggle" open="">
+                <section id="method.in_current_span" class="method trait-impl">
+                  <a href="#method.in_current_span" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">in_current_span</a>(self) -&gt; Instrumented&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Instruments this type with the <a href="super::Span::current()">current</a> <a href="crate::Span"><code>Span</code></a>, returning an
+                  <code>Instrumented</code> wrapper. <a>Read more</a>
                 </div>
               </details>
             </div>
@@ -513,6 +440,38 @@
                 <a href="#method.vzip" class="anchor">§</a>
                 <h4 class="code-header">fn <a class="fn">vzip</a>(self) -&gt; V</h4>
               </section>
+            </div>
+          </details>
+          <details class="toggle implementors-toggle">
+            <section id="impl-WithSubscriber-for-T" class="impl">
+              <a href="#impl-WithSubscriber-for-T" class="anchor">§</a>
+              <h3 class="code-header">impl&lt;T&gt; WithSubscriber for T</h3>
+            </section>
+            <div class="impl-items">
+              <details class="toggle method-toggle" open="">
+                <section id="method.with_subscriber" class="method trait-impl">
+                  <a href="#method.with_subscriber" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">with_subscriber</a>&lt;S&gt;(self, subscriber: S) -&gt; WithDispatch&lt;Self&gt;</h4>
+                  <div class="where">
+                    <h4 class="code-header">where S: <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/convert/trait.Into.html" title=
+                    "trait core::convert::Into">Into</a>&lt;Dispatch&gt;,</h4>
+                  </div>
+                </section>
+                <div class='docblock'>
+                  Attaches the provided <a href="super::Subscriber"><code>Subscriber</code></a> to this type, returning a [<code>WithDispatch</code>] wrapper.
+                  <a>Read more</a>
+                </div>
+              </details>
+              <details class="toggle method-toggle" open="">
+                <section id="method.with_current_subscriber" class="method trait-impl">
+                  <a href="#method.with_current_subscriber" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">with_current_subscriber</a>(self) -&gt; WithDispatch&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Attaches the current <a href="crate::dispatcher#setting-the-default-subscriber">default</a> <a href=
+                  "super::Subscriber"><code>Subscriber</code></a> to this type, returning a [<code>WithDispatch</code>] wrapper. <a>Read more</a>
+                </div>
+              </details>
             </div>
           </details>
         </div>

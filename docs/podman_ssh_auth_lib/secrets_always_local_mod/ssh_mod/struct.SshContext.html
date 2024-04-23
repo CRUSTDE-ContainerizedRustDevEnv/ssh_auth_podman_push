@@ -29,7 +29,7 @@
   <nav class="mobile-topbar"></nav>
   <nav class="sidebar">
     <div class="sidebar-crate">
-      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.1</span></h2>
+      <h2><a href="../../../podman_ssh_auth_lib/index.html">podman_ssh_auth_lib</a><span class="version">1.0.3</span></h2>
     </div>
     <h2 class="location"><a href="#">SshContext</a></h2>
     <div class="sidebar-elems">
@@ -91,6 +91,9 @@
             <a href="#impl-From%3CT%3E-for-T">From&lt;T&gt;</a>
           </li>
           <li>
+            <a href="#impl-Instrument-for-T">Instrument</a>
+          </li>
+          <li>
             <a href="#impl-Into%3CU%3E-for-T">Into&lt;U&gt;</a>
           </li>
           <li>
@@ -104,6 +107,9 @@
           </li>
           <li>
             <a href="#impl-VZip%3CV%3E-for-T">VZip&lt;V&gt;</a>
+          </li>
+          <li>
+            <a href="#impl-WithSubscriber-for-T">WithSubscriber</a>
           </li>
         </ul>
       </section>
@@ -133,7 +139,7 @@
           <h1>Struct <a href="../../index.html">podman_ssh_auth_lib</a>::<wbr><a href="../index.html">secrets_always_local_mod</a>::<wbr><a href=
           "index.html">ssh_mod</a>::<wbr><a class="struct" href="#">SshContext</a><button id="copy-path" title="Copy item path to clipboard"><img src=
           "../../../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class=
-          "src" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#153-156">source</a> · <button id="toggle-all-docs" title=
+          "src" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#154-157">source</a> · <button id="toggle-all-docs" title=
           "collapse all docs">[<span>−</span>]</button></span>
         </div>
         <pre class="rust item-decl"><code>pub struct SshContext {
@@ -152,18 +158,18 @@
         <div id="implementations-list">
           <details class="toggle implementors-toggle" open="">
             <section id="impl-SshContext" class="impl">
-              <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#158-168">source</a><a href="#impl-SshContext"
+              <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#159-169">source</a><a href="#impl-SshContext"
               class="anchor">§</a>
               <h3 class="code-header">impl <a class="struct" href="struct.SshContext.html" title=
               "struct podman_ssh_auth_lib::secrets_always_local_mod::ssh_mod::SshContext">SshContext</a></h3>
             </section>
             <div class="impl-items">
               <section id="method.new" class="method">
-                <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#159-164">source</a>
+                <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#160-165">source</a>
                 <h4 class="code-header">pub fn <a href="#method.new" class="fn">new</a>() -&gt; Self</h4>
               </section>
               <section id="method.get_decrypted_string" class="method">
-                <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#165-167">source</a>
+                <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#166-168">source</a>
                 <h4 class="code-header">pub fn <a href="#method.get_decrypted_string" class="fn">get_decrypted_string</a>(&amp;self) -&gt; <a class="type"
                 href="https://docs.rs/secrecy/0.8.0/secrecy/string/type.SecretString.html" title="type secrecy::string::SecretString">SecretString</a></h4>
               </section>
@@ -174,7 +180,7 @@
         <div id="trait-implementations-list">
           <details class="toggle implementors-toggle" open="">
             <section id="impl-SshContextTrait-for-SshContext" class="impl">
-              <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#170-273">source</a><a href=
+              <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#171-274">source</a><a href=
               "#impl-SshContextTrait-for-SshContext" class="anchor">§</a>
               <h3 class="code-header">impl SshContextTrait for <a class="struct" href="struct.SshContext.html" title=
               "struct podman_ssh_auth_lib::secrets_always_local_mod::ssh_mod::SshContext">SshContext</a></h3>
@@ -182,9 +188,10 @@
             <div class="impl-items">
               <details class="toggle method-toggle" open="">
                 <section id="method.decrypt_from_file_data" class="method trait-impl">
-                  <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#172-176">source</a><a href=
+                  <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#173-177">source</a><a href=
                   "#method.decrypt_from_file_data" class="anchor">§</a>
-                  <h4 class="code-header">fn <a class="fn">decrypt_from_file_data</a>(&amp;mut self, encrypted_string: &amp;EncryptedString)</h4>
+                  <h4 class="code-header">fn <a class="fn">decrypt_from_file_data</a>(&amp;mut self, encrypted_string: &<a class="struct" href=
+                  "../struct.EncryptedString.html" title="struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a>)</h4>
                 </section>
                 <div class="docblock">
                   <p>decrypt from file data and write the decrypted secret in private field for later use in this crate, not in external library crates</p>
@@ -192,17 +199,18 @@
               </details>
               <details class="toggle method-toggle" open="">
                 <section id="method.get_secret_token_and_encrypt" class="method trait-impl">
-                  <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#179-209">source</a><a href=
+                  <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#180-210">source</a><a href=
                   "#method.get_secret_token_and_encrypt" class="anchor">§</a>
-                  <h4 class="code-header">fn <a class="fn">get_secret_token_and_encrypt</a>(&amp;self) -&gt; EncryptedString</h4>
+                  <h4 class="code-header">fn <a class="fn">get_secret_token_and_encrypt</a>(&amp;self) -&gt; <a class="struct" href=
+                  "../struct.EncryptedString.html" title="struct podman_ssh_auth_lib::secrets_always_local_mod::EncryptedString">EncryptedString</a></h4>
                 </section>
                 <div class="docblock">
-                  <p>get secret secret_token and encrypt</p>
+                  <p>get secret_token and encrypt</p>
                 </div>
               </details>
               <details class="toggle method-toggle" open="">
                 <section id="method.sign_with_ssh_agent_or_identity_file" class="method trait-impl">
-                  <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#215-272">source</a><a href=
+                  <a class="src rightside" href="../../../src/podman_ssh_auth_lib/secrets_always_local_mod.rs.html#216-273">source</a><a href=
                   "#method.sign_with_ssh_agent_or_identity_file" class="anchor">§</a>
                   <h4 class="code-header">fn <a class="fn">sign_with_ssh_agent_or_identity_file</a>( &amp;mut self, identity_private_file_path: &amp;Utf8Path,
                   seed_bytes_not_a_secret: &amp;[<a class="primitive" href="https://doc.rust-lang.org/1.77.2/std/primitive.u8.html">u8</a>; <a class=
@@ -352,6 +360,33 @@
             </div>
           </details>
           <details class="toggle implementors-toggle">
+            <section id="impl-Instrument-for-T" class="impl">
+              <a href="#impl-Instrument-for-T" class="anchor">§</a>
+              <h3 class="code-header">impl&lt;T&gt; Instrument for T</h3>
+            </section>
+            <div class="impl-items">
+              <details class="toggle method-toggle" open="">
+                <section id="method.instrument" class="method trait-impl">
+                  <a href="#method.instrument" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">instrument</a>(self, span: Span) -&gt; Instrumented&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Instruments this type with the provided [<code>Span</code>], returning an <code>Instrumented</code> wrapper. <a>Read more</a>
+                </div>
+              </details>
+              <details class="toggle method-toggle" open="">
+                <section id="method.in_current_span" class="method trait-impl">
+                  <a href="#method.in_current_span" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">in_current_span</a>(self) -&gt; Instrumented&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Instruments this type with the <a href="super::Span::current()">current</a> <a href="crate::Span"><code>Span</code></a>, returning an
+                  <code>Instrumented</code> wrapper. <a>Read more</a>
+                </div>
+              </details>
+            </div>
+          </details>
+          <details class="toggle implementors-toggle">
             <section id="impl-Into%3CU%3E-for-T" class="impl">
               <a class="src rightside" href="https://doc.rust-lang.org/1.77.2/src/core/convert/mod.rs.html#747-749">source</a><a href="#impl-Into%3CU%3E-for-T"
               class="anchor">§</a>
@@ -493,6 +528,38 @@
                 <a href="#method.vzip" class="anchor">§</a>
                 <h4 class="code-header">fn <a class="fn">vzip</a>(self) -&gt; V</h4>
               </section>
+            </div>
+          </details>
+          <details class="toggle implementors-toggle">
+            <section id="impl-WithSubscriber-for-T" class="impl">
+              <a href="#impl-WithSubscriber-for-T" class="anchor">§</a>
+              <h3 class="code-header">impl&lt;T&gt; WithSubscriber for T</h3>
+            </section>
+            <div class="impl-items">
+              <details class="toggle method-toggle" open="">
+                <section id="method.with_subscriber" class="method trait-impl">
+                  <a href="#method.with_subscriber" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">with_subscriber</a>&lt;S&gt;(self, subscriber: S) -&gt; WithDispatch&lt;Self&gt;</h4>
+                  <div class="where">
+                    <h4 class="code-header">where S: <a class="trait" href="https://doc.rust-lang.org/1.77.2/core/convert/trait.Into.html" title=
+                    "trait core::convert::Into">Into</a>&lt;Dispatch&gt;,</h4>
+                  </div>
+                </section>
+                <div class='docblock'>
+                  Attaches the provided <a href="super::Subscriber"><code>Subscriber</code></a> to this type, returning a [<code>WithDispatch</code>] wrapper.
+                  <a>Read more</a>
+                </div>
+              </details>
+              <details class="toggle method-toggle" open="">
+                <section id="method.with_current_subscriber" class="method trait-impl">
+                  <a href="#method.with_current_subscriber" class="anchor">§</a>
+                  <h4 class="code-header">fn <a class="fn">with_current_subscriber</a>(self) -&gt; WithDispatch&lt;Self&gt;</h4>
+                </section>
+                <div class='docblock'>
+                  Attaches the current <a href="crate::dispatcher#setting-the-default-subscriber">default</a> <a href=
+                  "super::Subscriber"><code>Subscriber</code></a> to this type, returning a [<code>WithDispatch</code>] wrapper. <a>Read more</a>
+                </div>
+              </details>
             </div>
           </details>
         </div>
