@@ -162,9 +162,9 @@ checksum = "c59e92b5a388f549b863a7bea62612c09f24c8393560709a54558a9abdfb3b9c"
 
 [[package]]
 name = "cargo_auto_encrypt_secret_lib"
-version = "1.0.7"
+version = "1.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97ea82d252cf1d5cac69ef0528d403d93c075d9c938068cdd02ad4c7e1a20e8c"
+checksum = "18d0e8d1d3e75ef911b955605da6a4e0712e8f6d6d7630efdb92a182cbbe3500"
 dependencies = [
  "aes-gcm",
  "argon2",
@@ -874,7 +874,7 @@ checksum = "db23d408679286588f4d4644f965003d056e3dd5abcaaa938116871d7ce2fee7"
 
 [[package]]
 name = "podman_ssh_auth"
-version = "0.0.27"
+version = "1.0.1"
 dependencies = [
  "aes-gcm",
  "anyhow",

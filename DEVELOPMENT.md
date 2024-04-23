@@ -57,20 +57,7 @@ I added one module `podman_mod.rs` just to showcase how modules are used in sepa
 
 README.md and all the doc-comments are in markdown. To separate paragraphs in markdown use an empty line between them.
 I tried other variants like double-space or backslash, but an empty line is the most used in the wild.
-
-## tests
-
-I added a unit-test, just to show how it looks. And an integration-test. So it is "ready-to-go".
-Run them with `cargo test`.
-
-## examples
-
-In the directory `examples` every rs file is a bin-executable.
-Run it with:
-
-```bash
-cargo run --example example_1
-```
+I cannot stop to use double-space at the end of the line. I just like it more than double new-line.  
 
 ## Error handling thiserror and anyhow
 

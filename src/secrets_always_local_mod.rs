@@ -1,6 +1,6 @@
 // secrets_always_local_mod.rs
 
-/// Secrets like GitHub API token, docker hub token, SSH private key passphrase and similar
+/// Secrets like GitHub API secret_token, docker hub secret_token, SSH private key passphrase and similar
 /// must never go out of this crate. Never pass any secret to an external crate library as much as possible.
 /// The user has the source code under his fingers in this crate. So he knows nobody will mess with this code
 /// once he inspected and reviewed it.
@@ -175,22 +175,22 @@ pub(crate) mod ssh_mod {
             self.decrypted_string = decryptor.return_secret_string().clone();
         }
 
-        /// get token and encrypt
-        fn get_token_and_encrypt(&self) -> cargo_auto_encrypt_secret_lib::EncryptedString {
+        /// get secret secret_token and encrypt
+        fn get_secret_token_and_encrypt(&self) -> cargo_auto_encrypt_secret_lib::EncryptedString {
             /// Internal function used only for test configuration
             ///
             /// It is not interactive, but reads from a env var.
             #[cfg(test)]
-            fn get_token() -> secrecy::SecretString {
+            fn get_secret_token() -> secrecy::SecretString {
                 secrecy::SecretString::new(std::env::var("TEST_TOKEN").unwrap())
             }
             /// Internal function get_passphrase interactively ask user to type the passphrase
             ///
             /// This is used for normal code execution.
             #[cfg(not(test))]
-            fn get_token() -> secrecy::SecretString {
+            fn get_secret_token() -> secrecy::SecretString {
                 eprintln!(" ");
-                eprintln!("   {BLUE}Enter the secret token to encrypt:{RESET}");
+                eprintln!("   {BLUE}Enter the secret_token to encrypt:{RESET}");
                 secrecy::SecretString::new(
                     inquire::Password::new("")
                         .without_confirmation()
@@ -199,9 +199,9 @@ pub(crate) mod ssh_mod {
                         .unwrap(),
                 )
             }
-            let token_is_a_secret = get_token();
+            let secret_token = get_secret_token();
             // use this signed as password for symmetric encryption
-            let encryptor = encrypt_mod::Encryptor::new_for_encrypt(token_is_a_secret, &self.signed_passcode_is_a_secret);
+            let encryptor = encrypt_mod::Encryptor::new_for_encrypt(secret_token, &self.signed_passcode_is_a_secret);
 
             let encrypted_token = encryptor.encrypt_symmetric().unwrap();
             // return
@@ -250,7 +250,7 @@ pub(crate) mod ssh_mod {
                 }
                 None => {
                     // ask user to think about adding with ssh-add
-                    eprintln!("   {YELLOW}SSH key for encrypted token is not found in the ssh-agent.{RESET}");
+                    eprintln!("   {YELLOW}SSH key for encrypted secret_token is not found in the ssh-agent.{RESET}");
                     eprintln!("   {YELLOW}Without ssh-agent, you will have to type the private key passphrase every time. This is more secure, but inconvenient.{RESET}");
                     eprintln!("   {YELLOW}You can manually add the SSH identity to ssh-agent for 1 hour:{RESET}");
                     eprintln!("   {YELLOW}WARNING: using ssh-agent is less secure, because there is no need for user interaction.{RESET}");
@@ -280,11 +280,11 @@ pub(crate) mod ssh_mod {
             eprintln!("{RED}Identity file {identity_private_file_path_expanded} that contains the SSH private key does not exist! {RESET}");
             eprintln!("    {YELLOW}Create the SSH key manually in bash with this command:{RESET}");
             if identity_private_file_path_expanded.as_str().contains("github_api") {
-                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "github api token"{RESET}"#);
+                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "github api secret_token"{RESET}"#);
             } else if identity_private_file_path_expanded.as_str().contains("crate_io") {
-                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "crates io token"{RESET}"#);
+                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "crates io secret_token"{RESET}"#);
             } else if identity_private_file_path_expanded.as_str().contains("docker_hub") {
-                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "docker hub token"{RESET}"#);
+                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "docker hub secret_token"{RESET}"#);
             }
             eprintln!(" ");
             panic!("{RED}Error: File {identity_private_file_path_expanded} does not exist! {RESET}");
@@ -295,11 +295,11 @@ pub(crate) mod ssh_mod {
 
 pub(crate) mod docker_hub_mod {
 
-    //! Push to docker-hub needs the docker hub token. This is a secret important just like a password.
+    //! Push to docker-hub needs the docker hub secret_token. This is a secret important just like a password.
     //! I don't want to pass this secret to an "obscure" library crate that is difficult to review.
     //! This secret will stay here in this codebase that every developer can easily inspect.
-    //! Instead of the token, I will pass the struct DockerHubClient with the trait SendToDockerHub.
-    //! This way, the secret token will be encapsulated.
+    //! Instead of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub.
+    //! This way, the secret_token will be encapsulated.
 
     use crate::shell_mod::ShellCommandLimitedDoubleQuotesSanitizerTrait;
     use crate::BLUE;
@@ -310,7 +310,7 @@ pub(crate) mod docker_hub_mod {
     /// Struct DockerHubClient contains only private fields
     /// This fields are accessible only to methods in implementation of traits.
     pub struct DockerHubClient {
-        /// Passcode for encrypt the token_is_a_secret to encrypted_token in memory.
+        /// Passcode for encrypt the secret_token to encrypted_token in memory.
         /// So that the secret is in memory as little as possible as plain text.
         /// For every session (program start) a new random passcode is created.
         session_passcode: secrecy::SecretVec<u8>,
@@ -322,12 +322,12 @@ pub(crate) mod docker_hub_mod {
     impl DockerHubClient {
         /// Create new DockerHub client
         ///
-        /// Interactively ask the user to input the docker hub token.
+        /// Interactively ask the user to input the docker hub secret_token.
         #[allow(dead_code)]
-        pub fn new_interactive_input_token() -> Self {
-            let mut docker_hub_client = Self::new_wo_token();
+        pub fn new_interactive_input_secret_token() -> Self {
+            let mut docker_hub_client = Self::new_wo_secret_token();
 
-            println!("{BLUE}Enter the docker hub token:{RESET}");
+            println!("{BLUE}Enter the docker hub secret_token:{RESET}");
             docker_hub_client.encrypted_token =
                 super::secrecy_mod::SecretEncryptedString::new_with_string(inquire::Password::new("").without_confirmation().prompt().unwrap(), &docker_hub_client.session_passcode);
 
@@ -335,9 +335,9 @@ pub(crate) mod docker_hub_mod {
             docker_hub_client
         }
 
-        /// Create new DockerHub client without token
+        /// Create new DockerHub client without secret_token
         #[allow(dead_code)]
-        fn new_wo_token() -> Self {
+        fn new_wo_secret_token() -> Self {
             /// Internal function Generate a random password
             fn random_byte_passcode() -> [u8; 32] {
                 let mut password = [0_u8; 32];
@@ -352,20 +352,20 @@ pub(crate) mod docker_hub_mod {
             DockerHubClient { session_passcode, encrypted_token }
         }
 
-        /// Use the stored docker hub token
+        /// Use the stored docker hub secret_token
         ///
-        /// If the token not exists ask user to interactively input the token.
-        /// To decrypt it, use the SSH passphrase. That is much easier to type than typing the token.
+        /// If the secret_token not exists ask user to interactively input the secret_token.
+        /// To decrypt it, use the SSH passphrase. That is much easier to type than typing the secret_token.
         /// It is then possible also to have the ssh key in ssh-agent and write the passphrase only once.
-        /// But this great user experience comes with security concerns. The token is accessible if the attacker is very dedicated.
+        /// But this great user experience comes with security concerns. The secret_token is accessible if the attacker is very dedicated.
         #[allow(dead_code)]
-        pub fn new_with_stored_token(user_name: &str, registry: &str) -> Self {
+        pub fn new_with_stored_secret_token(user_name: &str, registry: &str) -> Self {
             /// Internal function for DRY Don't Repeat Yourself
-            fn read_token_and_decrypt_return_docker_hub_client(mut ssh_context: super::ssh_mod::SshContext, encrypted_string_file_path: &camino::Utf8Path) -> DockerHubClient {
+            fn read_secret_token_and_decrypt_return_docker_hub_client(mut ssh_context: super::ssh_mod::SshContext, encrypted_string_file_path: &camino::Utf8Path) -> DockerHubClient {
                 cargo_auto_encrypt_secret_lib::decrypt_with_ssh_interactive_from_file(&mut ssh_context, encrypted_string_file_path);
-                let token_is_a_secret = ssh_context.get_decrypted_string();
-                let mut docker_hub_client = DockerHubClient::new_wo_token();
-                docker_hub_client.encrypted_token = super::secrecy_mod::SecretEncryptedString::new_with_secret_string(token_is_a_secret, &docker_hub_client.session_passcode);
+                let secret_token = ssh_context.get_decrypted_string();
+                let mut docker_hub_client = DockerHubClient::new_wo_secret_token();
+                docker_hub_client.encrypted_token = super::secrecy_mod::SecretEncryptedString::new_with_secret_string(secret_token, &docker_hub_client.session_passcode);
                 docker_hub_client
             }
 
@@ -376,50 +376,50 @@ pub(crate) mod docker_hub_mod {
             let encrypted_string_file_path = camino::Utf8Path::new(&encrypted_string_file_path);
             let encrypted_string_file_path_expanded = cargo_auto_encrypt_secret_lib::file_path_home_expand(encrypted_string_file_path);
 
-            let identity_private_file_path = camino::Utf8Path::new("~/.ssh/docker_hub_token_ssh_1");
+            let identity_private_file_path = camino::Utf8Path::new("~/.ssh/docker_hub_secret_token_ssh_1");
             let _identity_private_file_path_expanded = crate::secrets_always_local_mod::ssh_mod::expand_path_check_private_key_exists(identity_private_file_path);
 
             if !encrypted_string_file_path_expanded.exists() {
                 // ask interactive
-                println!("    {BLUE}Do you want to store the docker hub token encrypted with an SSH key? (y/n){RESET}");
+                println!("    {BLUE}Do you want to store the docker hub secret_token encrypted with an SSH key? (y/n){RESET}");
                 let answer = inquire::Text::new("").prompt().unwrap();
                 if answer.to_lowercase() != "y" {
-                    // enter the token manually, not storing
-                    return Self::new_interactive_input_token();
+                    // enter the secret_token manually, not storing
+                    return Self::new_interactive_input_secret_token();
                 } else {
-                    // get the passphrase and token interactively
+                    // get the passphrase and secret_token interactively
                     let mut ssh_context = super::ssh_mod::SshContext::new();
-                    // encrypt and save the encrypted token
+                    // encrypt and save the encrypted secret_token
                     cargo_auto_encrypt_secret_lib::encrypt_with_ssh_interactive_save_file(&mut ssh_context, identity_private_file_path, encrypted_string_file_path);
-                    // read the token and decrypt, return DockerHubClient
-                    read_token_and_decrypt_return_docker_hub_client(ssh_context, encrypted_string_file_path)
+                    // read the secret_token and decrypt, return DockerHubClient
+                    read_secret_token_and_decrypt_return_docker_hub_client(ssh_context, encrypted_string_file_path)
                 }
             } else {
                 // file exists
                 let ssh_context = super::ssh_mod::SshContext::new();
-                // read the token and decrypt, return DockerHubClient
-                read_token_and_decrypt_return_docker_hub_client(ssh_context, encrypted_string_file_path)
+                // read the secret_token and decrypt, return DockerHubClient
+                read_secret_token_and_decrypt_return_docker_hub_client(ssh_context, encrypted_string_file_path)
             }
         }
 
-        /// decrypts the secret token in memory
+        /// decrypts the secret secret_token in memory
         #[allow(dead_code)]
-        pub fn decrypt_token_in_memory(&self) -> secrecy::SecretString {
+        pub fn decrypt_secret_token_in_memory(&self) -> secrecy::SecretString {
             self.encrypted_token.expose_decrypted_secret(&self.session_passcode)
         }
 
         /// Push to docker hub
         ///
-        /// This function encapsulates the secret docker hub token.
-        /// The client can be passed to the library. It will not reveal the secret token.
+        /// This function encapsulates the secret docker hub secret_token.
+        /// The client can be passed to the library. It will not reveal the secret_token.
         #[allow(dead_code)]
         pub fn push_to_docker_hub(&self, image_url: &str, user_name: &str) {
-            // the token can be used in place of the password in --cred
+            // the secret_token can be used in place of the password in --cred
             crate::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"podman push --creds "{user_name}:{secret_token}" "{image_url}" "#)
                 .unwrap_or_else(|e| panic!("{e}"))
                 .arg("{user_name}", user_name)
                 .unwrap_or_else(|e| panic!("{e}"))
-                .arg_secret("{secret_token}", &self.decrypt_token_in_memory())
+                .arg_secret("{secret_token}", &self.decrypt_secret_token_in_memory())
                 .unwrap_or_else(|e| panic!("{e}"))
                 .arg("{image_url}", image_url)
                 .unwrap_or_else(|e| panic!("{e}"))

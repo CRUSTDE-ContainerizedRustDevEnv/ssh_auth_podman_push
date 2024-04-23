@@ -3,8 +3,8 @@
 // region: auto_md_to_doc_comments include README.md A //!
 //! # podman_ssh_auth
 //!
-//! **Store and use encrypted docker-hub token with SSH key**  
-//! ***version: 0.0.27 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
+//! **Store and use encrypted docker-hub secret_token with SSH key**  
+//! ***version: 1.0.1 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
 //!
 //!  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
 //!  ![rustlang](https://img.shields.io/badge/rustlang-orange)
@@ -13,9 +13,9 @@
 //!   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/blob/main/LICENSE)
 //!   [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //!
-//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-396-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
-//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-299-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
-//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-62-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-390-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-312-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-61-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-183-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 //!
@@ -25,28 +25,34 @@
 //!
 //! ## Motivation
 //!
-//! To access docker-hub you need a username+password or an access token.  
-//! IMPORTANT: Treat access tokens like your password and keep them secret. Store your tokens securely in a credential manager for example.  
-//! Access tokens are impossible to remember for an average human. We need to store them somewhere.  
+//! To access docker-hub you need a username+password or an access secret_token.  
+//! IMPORTANT: Treat access secret_tokens like your password and keep them secret. Store your secret_tokens securely in a credential manager for example.  
+//! Access secret_tokens are impossible to remember for an average human. We need to store them somewhere.  
 //! FYI: Podman is an alternative "drop-in replacement" for Docker.  
-//! I am sure they both store the docker-hub token for login with the command:
+//! I am sure they both store the docker-hub secret_token for login with the command:
 //!
 //! ```bash
 //! podman login --username user_name docker.io
 //! docker login --username user_name docker.io
 //! ```
 //!
-//!
-//!
-//! WARNING: Be aware that they store the token in "plain-text" in the file: `${XDG_RUNTIME_DIR}/containers/auth.json`.  
+//! WARNING: Be aware that they store the secret_token in "plain-text" in the file: `${XDG_RUNTIME_DIR}/containers/auth.json`.  
 //! Ok, it is not really plain-text, but base64 encoding is not a security feature.  
 //! This means that every attacker that can get to this well-known file, can log in to our Docker Hub account. No bueno!!!
 //!
-//! I want to secure this token with encryption with an SSH key.  
-//! We have already a lot of experience creating, managing and securing our SSH keys. The private key is secured by a passphrase we can remember and type. Every use of the token will need user interaction to type the passphrase. Very secure.  
+//! I want to secure this secret_token with encryption with an SSH key.  
+//! We have already a lot of experience creating, managing and securing our SSH keys. The private key is secured by a passphrase we can remember and type. Every use of the secret_token will need user interaction to type the passphrase. Very secure.  
 //!
 //! If we are very self-confident in our current session, we can store the SSH key in ssh-agent and write our passphrase only once.  
-//! WARNING: a dedicated attacker could read from ssh-agent and discover the access token without our user interaction. Use this at your discretion.  
+//! WARNING: a dedicated attacker could read from ssh-agent and discover the access secret_token without our user interaction. Use this at your discretion.  
+//!
+//! ## Replacement command
+//!
+//! Put the executable `podman_ssh_auth` into the folder you intend to use it.  
+//! After copying, make it executable with `chmod +x podman_ssh_auth`.  
+//! Instead of `podman push...` use `podman_ssh_auth push`.  
+//! If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.
+//! Else it will ask you to store the secret_token.
 //!
 //! ## Development details
 //!
@@ -85,7 +91,6 @@ mod secrets_always_local_mod;
 mod shell_mod;
 
 // `pub use` allows the caller of the lib to access modules functions, structs or all(*)
-pub use podman_mod::login;
 pub use podman_mod::push;
 
 // // https://github.com/shiena/ansicolor/blob/master/README.md

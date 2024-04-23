@@ -150,18 +150,18 @@ fn print_help() {
     {YELLOW}It is preferred to use SSH for git push to GitHub.{RESET}
     {YELLOW}<https://github.com/CRUSTDE-ContainerizedRustDevEnv/crustde_cnt_img_pod/blob/main/ssh_easy.md>{YELLOW}
     {YELLOW}On the very first commit, this task will initialize a new local git repository and create a remote GitHub repo.{RESET}
-    {YELLOW}For the GitHub API the task needs the Personal Access Token Classic from <https://github.com/settings/tokens>{RESET}
-    {YELLOW}You can choose to type the token every time or to store it in a file encrypted with an SSH key.{RESET}
+    {YELLOW}For the GitHub API the task needs the Personal Access secret_token Classic from <https://github.com/settings/tokens>{RESET}
+    {YELLOW}You can choose to type the secret_token every time or to store it in a file encrypted with an SSH key.{RESET}
     {YELLOW}Then you can type the passphrase of the private key every time. This is pretty secure.{RESET}
     {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
 {GREEN}cargo auto push_to_crates_io{RESET} - {YELLOW}publish to crates.io, git tag{RESET}
-    {YELLOW}You need the API token for publishing. Get the token on <https://crates.io/settings/tokens>.{RESET}
-    {YELLOW}You can choose to type the token every time or to store it in a file encrypted with an SSH key.{RESET}
+    {YELLOW}You need the API secret_token for publishing. Get the secret_token on <https://crates.io/settings/tokens>.{RESET}
+    {YELLOW}You can choose to type the secret_token every time or to store it in a file encrypted with an SSH key.{RESET}
     {YELLOW}Then you can type the passphrase of the private key every time. This is pretty secure.{RESET}
     {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
 {GREEN}cargo auto github_new_release{RESET} - {YELLOW}creates new release on GitHub{RESET}
-    {YELLOW}For the GitHub API the task needs the Personal Access Token Classic from <https://github.com/settings/tokens>{RESET}
-    {YELLOW}You can choose to type the token every time or to store it in a file encrypted with an SSH key.{RESET}
+    {YELLOW}For the GitHub API the task needs the Personal Access secret_token Classic from <https://github.com/settings/tokens>{RESET}
+    {YELLOW}You can choose to type the secret_token every time or to store it in a file encrypted with an SSH key.{RESET}
     {YELLOW}Then you can type the passphrase of the private key every time. This is pretty secure.{RESET}
     {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
 
@@ -215,8 +215,6 @@ fn task_build() {
     println!(
         r#"
     {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
-{GREEN}./target/debug/{package_name} login --username bestiadev docker.io {RESET}
-    {YELLOW}If ok then{RESET}
 {GREEN}./target/debug/{package_name} push docker.io/bestiadev/hello_world_img:hello_world_label{RESET}
     {YELLOW}If ok then{RESET}
 {GREEN}cargo auto release{RESET}
@@ -246,8 +244,6 @@ fn task_release() {
     println!(
         r#"
     {YELLOW}After `cargo auto release`, run the compiled binary, examples and/or tests{RESET}
-{GREEN}./target/release/{package_name} login --username bestiadev docker.io {RESET}
-    {YELLOW}If ok then{RESET}
 {GREEN}./target/release/{package_name} push docker.io/bestiadev/hello_world_img:hello_world_label{RESET}
     {YELLOW}if ok then{RESET}
 {GREEN}cargo auto doc{RESET}
@@ -321,11 +317,11 @@ fn task_commit_and_push(arg_2: Option<String>) {
 
     // If needed, ask to create a GitHub remote repository
     if !cgl::git_has_remote() || !cgl::git_has_upstream() {
-        let github_client = github_mod::GitHubClient::new_with_stored_token();
+        let github_client = github_mod::GitHubClient::new_with_stored_secret_token();
         cgl::new_remote_github_repository(&github_client).unwrap();
         cgl::description_and_topics_to_github(&github_client);
     } else {
-        let github_client = github_mod::GitHubClient::new_with_stored_token();
+        let github_client = github_mod::GitHubClient::new_with_stored_secret_token();
         // if description or topics/keywords/tags have changed
         cgl::description_and_topics_to_github(&github_client);
 
@@ -362,8 +358,8 @@ fn task_push_to_crates_io() {
     // take care of tags
     let tag_name_version = cl::git_tag_sync_check_create_push(&version);
 
-    // cargo publish with encrypted secret token
-    let crates_io_client = crates_io_mod::CratesIoClient::new_with_stored_token();
+    // cargo publish with encrypted secret_token
+    let crates_io_client = crates_io_mod::CratesIoClient::new_with_stored_secret_token();
     crates_io_client.publish_to_crates_io();
 
     println!(
@@ -397,7 +393,7 @@ fn task_github_new_release() {
     // Then the automation task will copy the content to GitHub release
     let body_md_text = cl::body_text_from_releases_md().unwrap();
 
-    let github_client = github_mod::GitHubClient::new_with_stored_token();
+    let github_client = github_mod::GitHubClient::new_with_stored_secret_token();
     let json_value = github_client.send_to_github_api(cgl::github_api_create_new_release(&github_owner, &repo_name, &tag_name_version, &release_name, branch, &body_md_text));
     // early exit on error
     if let Some(error_message) = json_value.get("message") {
