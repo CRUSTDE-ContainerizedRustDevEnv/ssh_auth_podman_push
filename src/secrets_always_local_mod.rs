@@ -1,6 +1,6 @@
 // secrets_always_local_mod.rs
 
-/// Secrets like GitHub API secret_token, docker hub secret_token, SSH private key passphrase and similar
+/// Secrets like GitHub API secret_token, crates.io secret token, docker hub secret_token, SSH private key passphrase and similar
 /// must never go out of this crate. Never pass any secret to an external crate library as much as possible.
 /// The user has the source code under his fingers in this crate. So he knows nobody will mess with this code
 /// once he inspected and reviewed it.
@@ -8,11 +8,27 @@
 /// The simple program flow of functions that need secrets is butchered to avoid secrets leaving this crate.
 /// Now it looks like a mess, but the goal is achieved. The secrets never leave this crate.
 
+// region: Public API constants
+// ANSI colors for Linux terminal
+// https://github.com/shiena/ansicolor/blob/master/README.md
+/// ANSI color
+pub const RED: &str = "\x1b[31m";
+/// ANSI color
+pub const GREEN: &str = "\x1b[32m";
+/// ANSI color
+pub const YELLOW: &str = "\x1b[33m";
+/// ANSI color
+pub const BLUE: &str = "\x1b[34m";
+/// ANSI color
+pub const RESET: &str = "\x1b[0m";
+// endregion: Public API constants
+
+pub use cargo_auto_encrypt_secret_lib::EncryptedString;
+pub use secrecy::ExposeSecret;
+
 pub(crate) mod decrypt_mod {
 
-    use crate::RED;
-    use crate::RESET;
-    use secrecy::ExposeSecret;
+    use crate::secrets_always_local_mod::*;
 
     /// The secrets must not leave this crate.
     /// They are never going into an external library crate.
@@ -58,12 +74,7 @@ pub(crate) mod decrypt_mod {
 }
 
 pub(crate) mod encrypt_mod {
-
-    use crate::RED;
-    use crate::RESET;
-
-    // bring trait to scope
-    use secrecy::ExposeSecret;
+    use crate::secrets_always_local_mod::*;
 
     /// The secrets must not leave this crate.
     /// They are never going into an external library crate.
@@ -109,7 +120,7 @@ pub(crate) mod secrecy_mod {
     //! But I want to encrypt the content, so I will make a wrapper.
     //! The secrets must always be moved to secrecy types as soon as possible.
 
-    use cargo_auto_encrypt_secret_lib::EncryptedString;
+    use crate::secrets_always_local_mod::*;
 
     pub struct SecretEncryptedString {
         encrypted_string: EncryptedString,
@@ -138,17 +149,7 @@ pub(crate) mod secrecy_mod {
 
 pub(crate) mod ssh_mod {
 
-    #[allow(unused_imports)]
-    use crate::BLUE;
-    use crate::GREEN;
-    use crate::RED;
-    use crate::RESET;
-    use crate::YELLOW;
-
     use crate::secrets_always_local_mod::*;
-
-    // bring trait into scope
-    use secrecy::ExposeSecret;
 
     pub struct SshContext {
         signed_passcode_is_a_secret: secrecy::SecretVec<u8>,
@@ -175,7 +176,7 @@ pub(crate) mod ssh_mod {
             self.decrypted_string = decryptor.return_secret_string().clone();
         }
 
-        /// get secret secret_token and encrypt
+        /// get secret_token and encrypt
         fn get_secret_token_and_encrypt(&self) -> cargo_auto_encrypt_secret_lib::EncryptedString {
             /// Internal function used only for test configuration
             ///
@@ -271,6 +272,7 @@ pub(crate) mod ssh_mod {
             }
         }
     }
+
     /// Expand path and check if identity file exists
     ///
     /// Inform the user how to generate identity file.
@@ -281,7 +283,7 @@ pub(crate) mod ssh_mod {
             eprintln!("    {YELLOW}Create the SSH key manually in bash with this command:{RESET}");
             if identity_private_file_path_expanded.as_str().contains("github_api") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "github api secret_token"{RESET}"#);
-            } else if identity_private_file_path_expanded.as_str().contains("crate_io") {
+            } else if identity_private_file_path_expanded.as_str().contains("crates_io") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "crates io secret_token"{RESET}"#);
             } else if identity_private_file_path_expanded.as_str().contains("docker_hub") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "docker hub secret_token"{RESET}"#);
@@ -301,11 +303,9 @@ pub(crate) mod docker_hub_mod {
     //! Instead of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub.
     //! This way, the secret_token will be encapsulated.
 
-    use crate::shell_mod::ShellCommandLimitedDoubleQuotesSanitizerTrait;
-    use crate::BLUE;
-    use crate::RESET;
-
-    // bring trait into scope
+    use crate::secrets_always_local_mod::*;
+    use cargo_auto_lib::ShellCommandLimitedDoubleQuotesSanitizer;
+    use cargo_auto_lib::ShellCommandLimitedDoubleQuotesSanitizerTrait;
 
     /// Struct DockerHubClient contains only private fields
     /// This fields are accessible only to methods in implementation of traits.
@@ -402,7 +402,7 @@ pub(crate) mod docker_hub_mod {
             }
         }
 
-        /// decrypts the secret secret_token in memory
+        /// decrypts the secret_token in memory
         #[allow(dead_code)]
         pub fn decrypt_secret_token_in_memory(&self) -> secrecy::SecretString {
             self.encrypted_token.expose_decrypted_secret(&self.session_passcode)
@@ -415,7 +415,7 @@ pub(crate) mod docker_hub_mod {
         #[allow(dead_code)]
         pub fn push_to_docker_hub(&self, image_url: &str, user_name: &str) {
             // the secret_token can be used in place of the password in --cred
-            crate::shell_mod::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"podman push --creds "{user_name}:{secret_token}" "{image_url}" "#)
+            ShellCommandLimitedDoubleQuotesSanitizer::new(r#"podman push --creds "{user_name}:{secret_token}" "{image_url}" "#)
                 .unwrap_or_else(|e| panic!("{e}"))
                 .arg("{user_name}", user_name)
                 .unwrap_or_else(|e| panic!("{e}"))

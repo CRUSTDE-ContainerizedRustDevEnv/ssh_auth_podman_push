@@ -20,6 +20,7 @@ pub enum LibError {
     #[error("ParseIntError: {0}")]
     ParseIntError(#[from] std::num::ParseIntError),
 
+    #[allow(dead_code)]
     #[error("{0}")]
     ErrorFromString(String),
 
@@ -33,4 +34,5 @@ pub enum LibError {
 /// Result type alias with fixed LibError using thiserror
 ///
 /// It makes simpler to write returns from functions.
+#[allow(dead_code)]
 pub type ResultWithLibError<T, E = LibError> = core::result::Result<T, E>;

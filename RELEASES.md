@@ -10,6 +10,8 @@ The TODO section is part of the [README.md](https://github.com/CRUSTDE-Container
 
 ## Unreleased
 
+- cargo_auto_lib
+
 ## Version 1.0.1 (2024-04-23)
 
 - secret_token only push
