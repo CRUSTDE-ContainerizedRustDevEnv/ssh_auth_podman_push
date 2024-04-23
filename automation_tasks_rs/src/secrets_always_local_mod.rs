@@ -283,8 +283,6 @@ pub(crate) mod ssh_mod {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "github api token"{RESET}"#);
             } else if identity_private_file_path_expanded.as_str().contains("crates_io") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "crates io token"{RESET}"#);
-            } else if identity_private_file_path_expanded.as_str().contains("docker_hub") {
-                eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "docker hub token"{RESET}"#);
             }
             eprintln!(" ");
             panic!("{RED}Error: File {identity_private_file_path_expanded} does not exist! {RESET}");
@@ -484,12 +482,12 @@ pub(crate) mod github_mod {
     }
 }
 
-pub(crate) mod docker_hub_mod {
+pub(crate) mod crates_io_mod {
 
     //! Publish to crates.io needs the crates.io token. This is a secret important just like a password.
     //! I don't want to pass this secret to an "obscure" library crate that is difficult to review.
     //! This secret will stay here in this codebase that every developer can easily inspect.
-    //! Instead of the token, I will pass the struct DockerHubClient with the trait SendToDockerHub.
+    //! Instead of the token, I will pass the struct CratesIoClient with the trait SendToCratesIo.
     //! This way, the secret token will be encapsulated.
 
     use cargo_auto_lib::BLUE;
@@ -500,9 +498,9 @@ pub(crate) mod docker_hub_mod {
     // bring trait into scope
     use secrecy::ExposeSecret;
 
-    /// Struct DockerHubClient contains only private fields
+    /// Struct CratesIoClient contains only private fields
     /// This fields are accessible only to methods in implementation of traits.
-    pub struct DockerHubClient {
+    pub struct CratesIoClient {
         /// Passcode for encrypt the token_is_a_secret to encrypted_token in memory.
         /// So that the secret is in memory as little as possible as plain text.
         /// For every session (program start) a new random passcode is created.
@@ -512,8 +510,8 @@ pub(crate) mod docker_hub_mod {
         encrypted_token: super::secrecy_mod::SecretEncryptedString,
     }
 
-    impl DockerHubClient {
-        /// Create new DockerHub client
+    impl CratesIoClient {
+        /// Create new CratesIo client
         ///
         /// Interactively ask the user to input the crates.io token.
         #[allow(dead_code)]
@@ -528,7 +526,7 @@ pub(crate) mod docker_hub_mod {
             crates_io_client
         }
 
-        /// Create new DockerHub client without token
+        /// Create new CratesIo client without token
         #[allow(dead_code)]
         fn new_wo_token() -> Self {
             /// Internal function Generate a random password
@@ -542,7 +540,7 @@ pub(crate) mod docker_hub_mod {
             let session_passcode = secrecy::SecretVec::new(random_byte_passcode().to_vec());
             let encrypted_token = super::secrecy_mod::SecretEncryptedString::new_with_string("".to_string(), &session_passcode);
 
-            DockerHubClient { session_passcode, encrypted_token }
+            CratesIoClient { session_passcode, encrypted_token }
         }
 
         /// Use the stored crates.io token
@@ -554,10 +552,10 @@ pub(crate) mod docker_hub_mod {
         #[allow(dead_code)]
         pub fn new_with_stored_token() -> Self {
             /// Internal function for DRY Don't Repeat Yourself
-            fn read_token_and_decrypt_return_crate_io_client(mut ssh_context: super::ssh_mod::SshContext, encrypted_string_file_path: &camino::Utf8Path) -> DockerHubClient {
+            fn read_token_and_decrypt_return_crates_io_client(mut ssh_context: super::ssh_mod::SshContext, encrypted_string_file_path: &camino::Utf8Path) -> CratesIoClient {
                 cargo_auto_encrypt_secret_lib::decrypt_with_ssh_interactive_from_file(&mut ssh_context, encrypted_string_file_path);
                 let token_is_a_secret = ssh_context.get_decrypted_string();
-                let mut crates_io_client = DockerHubClient::new_wo_token();
+                let mut crates_io_client = CratesIoClient::new_wo_token();
                 crates_io_client.encrypted_token = super::secrecy_mod::SecretEncryptedString::new_with_secret_string(token_is_a_secret, &crates_io_client.session_passcode);
                 crates_io_client
             }
@@ -566,7 +564,7 @@ pub(crate) mod docker_hub_mod {
             let encrypted_string_file_path_expanded = cargo_auto_encrypt_secret_lib::file_path_home_expand(encrypted_string_file_path);
 
             let identity_private_file_path = camino::Utf8Path::new("~/.ssh/crates_io_token_ssh_1");
-            
+
             let _identity_private_file_path_expanded = crate::secrets_always_local_mod::ssh_mod::expand_path_check_private_key_exists(identity_private_file_path);
 
             if !encrypted_string_file_path_expanded.exists() {
@@ -581,14 +579,14 @@ pub(crate) mod docker_hub_mod {
                     let mut ssh_context = super::ssh_mod::SshContext::new();
                     // encrypt and save the encrypted token
                     cargo_auto_encrypt_secret_lib::encrypt_with_ssh_interactive_save_file(&mut ssh_context, identity_private_file_path, encrypted_string_file_path);
-                    // read the token and decrypt, return DockerHubClient
-                    read_token_and_decrypt_return_crate_io_client(ssh_context, encrypted_string_file_path)
+                    // read the token and decrypt, return CratesIoClient
+                    read_token_and_decrypt_return_crates_io_client(ssh_context, encrypted_string_file_path)
                 }
             } else {
                 // file exists
                 let ssh_context = super::ssh_mod::SshContext::new();
-                // read the token and decrypt, return DockerHubClient
-                read_token_and_decrypt_return_crate_io_client(ssh_context, encrypted_string_file_path)
+                // read the token and decrypt, return CratesIoClient
+                read_token_and_decrypt_return_crates_io_client(ssh_context, encrypted_string_file_path)
             }
         }
 
@@ -603,7 +601,7 @@ pub(crate) mod docker_hub_mod {
         /// This function encapsulates the secret crates.io token.
         /// The client can be passed to the library. It will not reveal the secret token.
         #[allow(dead_code)]
-        pub fn push_to_docker_hub(&self) {
+        pub fn publish_to_crates_io(&self) {
             // print command without the token
             println!("{YELLOW}cargo publish --token [REDACTED]{RESET}");
             let shell_command = format!("cargo publish --token {}", self.decrypt_token_in_memory().expose_secret());

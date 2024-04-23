@@ -5,7 +5,7 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **Store and use encrypted the docker hub token with SSH key**  
-***version: 0.0.25 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
+***version: 0.0.26 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
 
  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
  ![rustlang](https://img.shields.io/badge/rustlang-orange)
@@ -17,8 +17,8 @@
   [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 
 [//]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-397-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
-[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-224-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-396-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
+[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-299-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-62-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)
 [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-183-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth/)

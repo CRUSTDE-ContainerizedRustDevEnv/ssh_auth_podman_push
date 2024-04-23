@@ -1,6 +1,6 @@
 [package]
 name = "podman_ssh_auth"
-version = "0.0.25"
+version = "0.0.26"
 description = "Store and use encrypted the docker hub token with SSH key"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"

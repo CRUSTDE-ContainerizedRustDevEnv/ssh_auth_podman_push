@@ -12,6 +12,8 @@ The TODO section is part of the [README.md](https://github.com/CRUSTDE-Container
 
 - docs
 
+- auto
+
 ## Version 0.0.1
 
 - Rust project created with `cargo auto new_cli podman_ssh_auth`

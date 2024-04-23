@@ -4,7 +4,7 @@
 
 // for projects that don't use GitHub, delete all the mentions of GitHub
 mod secrets_always_local_mod;
-use crate::secrets_always_local_mod::docker_hub_mod;
+use crate::secrets_always_local_mod::crates_io_mod;
 use crate::secrets_always_local_mod::github_mod;
 
 use cargo_auto_github_lib as cgl;
@@ -121,8 +121,8 @@ fn match_arguments_and_call_tasks(mut args: std::env::Args) {
                 } else if &task == "commit_and_push" {
                     let arg_2 = args.next();
                     task_commit_and_push(arg_2);
-                } else if &task == "push_to_docker_hub" {
-                    task_push_to_docker_hub();
+                } else if &task == "push_to_crates_io" {
+                    task_push_to_crates_io();
                 } else if &task == "github_new_release" {
                     task_github_new_release();
                 } else {
@@ -154,7 +154,7 @@ fn print_help() {
     {YELLOW}You can choose to type the token every time or to store it in a file encrypted with an SSH key.{RESET}
     {YELLOW}Then you can type the passphrase of the private key every time. This is pretty secure.{RESET}
     {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
-{GREEN}cargo auto push_to_docker_hub{RESET} - {YELLOW}publish to crates.io, git tag{RESET}
+{GREEN}cargo auto push_to_crates_io{RESET} - {YELLOW}publish to crates.io, git tag{RESET}
     {YELLOW}You need the API token for publishing. Get the token on <https://crates.io/settings/tokens>.{RESET}
     {YELLOW}You can choose to type the token every time or to store it in a file encrypted with an SSH key.{RESET}
     {YELLOW}Then you can type the passphrase of the private key every time. This is pretty secure.{RESET}
@@ -173,14 +173,14 @@ fn print_help() {
 
 /// all example commands in one place
 fn print_examples_cmd() {
-/*
-    println!(
-        r#"
-    {YELLOW}run examples:{RESET}
-{GREEN}cargo run --example plantuml1{RESET}
-"#
-    );
-*/
+    /*
+        println!(
+            r#"
+        {YELLOW}run examples:{RESET}
+    {GREEN}cargo run --example plantuml1{RESET}
+    "#
+        );
+    */
 }
 
 /// sub-command for bash auto-completion of `cargo auto` using the crate `dev_bestia_cargo_completion`
@@ -190,7 +190,7 @@ fn completion() {
     let last_word = args[3].as_str();
 
     if last_word == "cargo-auto" || last_word == "auto" {
-        let sub_commands = vec!["build", "release", "doc", "test", "commit_and_push", "push_to_docker_hub", "github_new_release"];
+        let sub_commands = vec!["build", "release", "doc", "test", "commit_and_push", "push_to_crates_io", "github_new_release"];
         cl::completion_return_one_or_more_sub_commands(sub_commands, word_being_completed);
     }
     /*
@@ -236,9 +236,12 @@ fn task_release() {
     cl::run_shell_command_static("cargo fmt").unwrap_or_else(|e| panic!("{e}"));
     cl::run_shell_command_static("cargo build --release").unwrap_or_else(|e| panic!("{e}"));
 
-    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"strip "target/release/{package_name}" "#).unwrap_or_else(|e| panic!("{e}"))
-    .arg("{package_name}", &cargo_toml.package_name()).unwrap_or_else(|e| panic!("{e}"))
-    .run().unwrap_or_else(|e| panic!("{e}"));
+    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"strip "target/release/{package_name}" "#)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .arg("{package_name}", &cargo_toml.package_name())
+        .unwrap_or_else(|e| panic!("{e}"))
+        .run()
+        .unwrap_or_else(|e| panic!("{e}"));
 
     println!(
         r#"
@@ -268,9 +271,12 @@ fn task_doc() {
     cl::run_shell_command_static("rsync -a --info=progress2 --delete-after target/doc/ docs/").unwrap_or_else(|e| panic!("{e}"));
 
     // Create simple index.html file in docs directory
-    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"printf "<meta http-equiv=\"refresh\" content=\"0; url={url_sanitized_for_double_quote}/index.html\" />\n" > docs/index.html"#).unwrap_or_else(|e| panic!("{e}"))
-    .arg("{url_sanitized_for_double_quote}", &cargo_toml.package_name().replace("-", "_")).unwrap_or_else(|e| panic!("{e}"))
-    .run().unwrap_or_else(|e| panic!("{e}"));
+    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"printf "<meta http-equiv=\"refresh\" content=\"0; url={url_sanitized_for_double_quote}/index.html\" />\n" > docs/index.html"#)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .arg("{url_sanitized_for_double_quote}", &cargo_toml.package_name().replace("-", "_"))
+        .unwrap_or_else(|e| panic!("{e}"))
+        .run()
+        .unwrap_or_else(|e| panic!("{e}"));
 
     // pretty html
     cl::auto_doc_tidy_html().unwrap_or_else(|e| panic!("{e}"));
@@ -330,9 +336,12 @@ fn task_commit_and_push(arg_2: Option<String>) {
 
         cl::add_message_to_unreleased(&message);
         // the real commit of code
-        cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"git add -A && git diff --staged --quiet || git commit -m "{message_sanitized_for_double_quote}" "#).unwrap_or_else(|e| panic!("{e}"))
-        .arg("{message_sanitized_for_double_quote}", &message).unwrap_or_else(|e| panic!("{e}"))
-        .run().unwrap_or_else(|e| panic!("{e}"));
+        cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"git add -A && git diff --staged --quiet || git commit -m "{message_sanitized_for_double_quote}" "#)
+            .unwrap_or_else(|e| panic!("{e}"))
+            .arg("{message_sanitized_for_double_quote}", &message)
+            .unwrap_or_else(|e| panic!("{e}"))
+            .run()
+            .unwrap_or_else(|e| panic!("{e}"));
 
         cl::run_shell_command_static("git push").unwrap_or_else(|e| panic!("{e}"));
     }
@@ -340,13 +349,13 @@ fn task_commit_and_push(arg_2: Option<String>) {
     println!(
         r#"
     {YELLOW}After `cargo auto commit_and_push "message"`{RESET}
-{GREEN}cargo auto push_to_docker_hub{RESET}
+{GREEN}cargo auto push_to_crates_io{RESET}
 "#
     );
 }
 
 /// publish to crates.io and git tag
-fn task_push_to_docker_hub() {
+fn task_push_to_crates_io() {
     let cargo_toml = cl::CargoToml::read();
     let package_name = cargo_toml.package_name();
     let version = cargo_toml.package_version();
@@ -354,12 +363,12 @@ fn task_push_to_docker_hub() {
     let tag_name_version = cl::git_tag_sync_check_create_push(&version);
 
     // cargo publish with encrypted secret token
-    let crate_io_client = docker_hub_mod::DockerHubClient::new_with_stored_token();
-    crate_io_client.push_to_docker_hub();
+    let crates_io_client = crates_io_mod::CratesIoClient::new_with_stored_token();
+    crates_io_client.publish_to_crates_io();
 
     println!(
         r#"
-    {YELLOW}After `cargo auto push_to_docker_hub`, check in browser{RESET}
+    {YELLOW}After `cargo auto push_to_crates_io`, check in browser{RESET}
 {GREEN}https://crates.io/crates/{package_name}{RESET}
     {YELLOW}Add the dependency to your Rust project and check how it works.{RESET}
 {GREEN}{package_name} = "{version}"{RESET}
@@ -424,17 +433,24 @@ fn task_github_new_release() {
     // compress files tar.gz
     let tar_name = format!("{repo_name}-{tag_name_version}-x86_64-unknown-linux-gnu.tar.gz");
 
-    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"tar -zcvf "{tar_name_sanitized_for_double_quote}" "target/release/{repo_name_sanitized_for_double_quote}" "#).unwrap_or_else(|e| panic!("{e}"))
-    .arg("{tar_name_sanitized_for_double_quote}", &tar_name).unwrap_or_else(|e| panic!("{e}"))
-    .arg("{repo_name_sanitized_for_double_quote}", &repo_name).unwrap_or_else(|e| panic!("{e}"))
-    .run().unwrap_or_else(|e| panic!("{e}"));
+    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"tar -zcvf "{tar_name_sanitized_for_double_quote}" "target/release/{repo_name_sanitized_for_double_quote}" "#)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .arg("{tar_name_sanitized_for_double_quote}", &tar_name)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .arg("{repo_name_sanitized_for_double_quote}", &repo_name)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .run()
+        .unwrap_or_else(|e| panic!("{e}"));
 
     // upload asset
     cgl::github_api_upload_asset_to_release(&github_client, &github_owner, &repo_name, &release_id, &tar_name);
 
-    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"rm "{tar_name_sanitized_for_double_quote}" "#).unwrap_or_else(|e| panic!("{e}"))
-    .arg("{tar_name_sanitized_for_double_quote}", &tar_name).unwrap_or_else(|e| panic!("{e}"))
-    .run().unwrap_or_else(|e| panic!("{e}"));
+    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"rm "{tar_name_sanitized_for_double_quote}" "#)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .arg("{tar_name_sanitized_for_double_quote}", &tar_name)
+        .unwrap_or_else(|e| panic!("{e}"))
+        .run()
+        .unwrap_or_else(|e| panic!("{e}"));
 
     println!(
         r#"
