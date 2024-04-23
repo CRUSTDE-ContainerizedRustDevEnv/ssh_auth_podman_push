@@ -4,8 +4,8 @@
 
 [//]: # (auto_cargo_toml_to_md start)
 
-**Store and use encrypted the docker hub token with SSH key**  
-***version: 0.0.26 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
+**Store and use encrypted docker-hub token with SSH key**  
+***version: 0.0.27 date: 2024-04-23 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth)***
 
  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
  ![rustlang](https://img.shields.io/badge/rustlang-orange)

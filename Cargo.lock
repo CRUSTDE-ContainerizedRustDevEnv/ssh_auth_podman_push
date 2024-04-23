@@ -874,7 +874,7 @@ checksum = "db23d408679286588f4d4644f965003d056e3dd5abcaaa938116871d7ce2fee7"
 
 [[package]]
 name = "podman_ssh_auth"
-version = "0.0.26"
+version = "0.0.27"
 dependencies = [
  "aes-gcm",
  "anyhow",
