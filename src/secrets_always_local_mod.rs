@@ -281,7 +281,7 @@ pub(crate) mod ssh_mod {
             eprintln!("    {YELLOW}Create the SSH key manually in bash with this command:{RESET}");
             if identity_private_file_path_expanded.as_str().contains("github_api") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "github api secret_token"{RESET}"#);
-            } else if identity_private_file_path_expanded.as_str().contains("crate_io") {
+            } else if identity_private_file_path_expanded.as_str().contains("crates_io") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "crates io secret_token"{RESET}"#);
             } else if identity_private_file_path_expanded.as_str().contains("docker_hub") {
                 eprintln!(r#"{GREEN}ssh-keygen -t ed25519 -f "{identity_private_file_path_expanded}" -C "docker hub secret_token"{RESET}"#);
