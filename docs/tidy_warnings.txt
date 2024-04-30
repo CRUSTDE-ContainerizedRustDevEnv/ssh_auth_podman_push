@@ -1752,10 +1752,10 @@ Document: "2" is not a file!
 line 9 column 1844 - Warning: missing </summary> before <section>
 line 9 column 2342 - Warning: discarding unexpected </summary>
 line 9 column 2419 - Warning: missing </summary> before <section>
-line 9 column 3068 - Warning: discarding unexpected </summary>
-line 9 column 3321 - Warning: missing </summary> before <section>
-line 9 column 3829 - Warning: discarding unexpected </summary>
-line 9 column 3906 - Warning: missing </summary> before <section>
+line 9 column 3064 - Warning: discarding unexpected </summary>
+line 9 column 3317 - Warning: missing </summary> before <section>
+line 9 column 3825 - Warning: discarding unexpected </summary>
+line 9 column 3902 - Warning: missing </summary> before <section>
 line 9 column 4563 - Warning: discarding unexpected </summary>
 line 9 column 4818 - Warning: missing </summary> before <section>
 line 9 column 5320 - Warning: discarding unexpected </summary>
@@ -1864,8 +1864,8 @@ line 1 column 2263 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 line 9 column 1844 - Warning: trimming empty <summary>
 line 9 column 2419 - Warning: trimming empty <summary>
-line 9 column 3321 - Warning: trimming empty <summary>
-line 9 column 3906 - Warning: trimming empty <summary>
+line 9 column 3317 - Warning: trimming empty <summary>
+line 9 column 3902 - Warning: trimming empty <summary>
 line 9 column 4818 - Warning: trimming empty <summary>
 line 9 column 5397 - Warning: trimming empty <summary>
 line 9 column 6289 - Warning: trimming empty <summary>
