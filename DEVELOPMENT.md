@@ -47,7 +47,7 @@ A separate `lib.rs` enables one to make good tests and examples without worrying
 
 ## super simple argument parsing
 
-I use a super simple code to parse CLI arguments inside the `src/bin/podman_ssh_auth/main.rs`. There are crate libraries that enable very complex argument parsing if needed.
+I use a super simple code to parse CLI arguments inside the `src/bin/ssh_auth_podman_push/main.rs`. There are crate libraries that enable very complex argument parsing if needed.
 
 ## Modules
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="rustdoc">
+  <meta name="description" content=
+  "Push to docker-hub needs the docker hub secret_token. This is a secret important just like a password. I don’t want to pass this secret to an “obscure” library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret_token will be encapsulated.">
+  <title>ssh_auth_podman_push_lib::secrets_always_local_mod::docker_hub_mod - Rust</title>
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">
+  <link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css">
+  <link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css">
+  <meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="ssh_auth_podman_push_lib"
+  data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.2 (25ef9e3d8 2024-04-09)" data-channel="1.77.2" data-search-js="search-dd67cee4cfa65049.js"
+  data-settings-js="settings-4313503d2e1961c2.js">
+  <script src="../../../static.files/storage-4c98445ec4002617.js"></script>
+  <script defer src="../sidebar-items.js"></script>
+  <script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript>
+  <link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript>
+  <link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png">
+  <link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png">
+  <link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg">
+</head>
+<body class="rustdoc mod">
+  <!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+  <nav class="mobile-topbar"></nav>
+  <nav class="sidebar">
+    <div class="sidebar-crate">
+      <h2><a href="../../../ssh_auth_podman_push_lib/index.html">ssh_auth_podman_push_lib</a><span class="version">1.0.5</span></h2>
+    </div>
+    <h2 class="location"><a href="#">Module docker_hub_mod</a></h2>
+    <div class="sidebar-elems">
+      <section>
+        <ul class="block">
+          <li>
+            <a href="#structs">Structs</a>
+          </li>
+        </ul>
+      </section>
+      <h2><a href="../index.html">In ssh_auth_podman_push_lib::secrets_always_local_mod</a></h2>
+    </div>
+  </nav>
+  <div class="sidebar-resizer"></div>
+  <main>
+    <div class="width-limiter">
+      <nav class="sub">
+        <form class="search-form">
+          <div id="sidebar-button" tabindex="-1">
+            <a href="../../../ssh_auth_podman_push_lib/all.html" title="show sidebar"></a>
+          </div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder=
+          "Click or press ‘S’ to search, ‘?’ for more options…" type="search">
+          <div id="help-button" tabindex="-1">
+            <a href="../../../help.html" title="help">?</a>
+          </div>
+          <div id="settings-menu" tabindex="-1">
+            <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src=
+            "../../../static.files/wheel-7b819b6101059cd0.svg"></a>
+          </div>
+        </form>
+      </nav>
+      <section id="main-content" class="content">
+        <div class="main-heading">
+          <h1>Module <a href="../../index.html">ssh_auth_podman_push_lib</a>::<wbr><a href="../index.html">secrets_always_local_mod</a>::<wbr><a class="mod"
+          href="#">docker_hub_mod</a><button id="copy-path" title="Copy item path to clipboard"><img src="../../../static.files/clipboard-7571035ce49a181d.svg"
+          width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="src" href=
+          "../../../src/ssh_auth_podman_push_lib/secrets_always_local_mod.rs.html#298">source</a> · <button id="toggle-all-docs" title=
+          "collapse all docs">[<span>−</span>]</button></span>
+        </div>
+        <details class="toggle top-doc" open="">
+          <summary class="hideme">
+            <span>Expand description</span>
+          </summary>
+          <div class="docblock">
+            <p>Push to docker-hub needs the docker hub secret_token. This is a secret important just like a password. I don’t want to pass this secret to an
+            “obscure” library crate that is difficult to review. This secret will stay here in this codebase that every developer can easily inspect. Instead
+            of the secret_token, I will pass the struct DockerHubClient with the trait SendToDockerHub. This way, the secret_token will be encapsulated.</p>
+          </div>
+        </details>
+        <h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2>
+        <ul class="item-table">
+          <li>
+            <div class="item-name">
+              <a class="struct" href="struct.DockerHubClient.html" title=
+              "struct ssh_auth_podman_push_lib::secrets_always_local_mod::docker_hub_mod::DockerHubClient">DockerHubClient</a>
+            </div>
+            <div class="desc docblock-short">
+              Struct DockerHubClient contains only private fields This fields are accessible only to methods in implementation of traits.
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

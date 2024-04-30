@@ -1,7 +1,7 @@
 ./docs/help.html
 Document: "2" is not a file!
 
-line 1 column 2085 - Warning: trimming empty <button>
+line 1 column 2090 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 ./docs/podman_ssh_auth_lib/secrets_always_local_mod/constant.RED.html
 Document: "2" is not a file!
@@ -972,10 +972,975 @@ line 3 column 54 - Warning: trimming empty <span>
 Document: "2" is not a file!
 
 line 3 column 54 - Warning: trimming empty <span>
+./docs/src/ssh_auth_podman_push/main.rs.html
+Document: "2" is not a file!
+
+line 3 column 54 - Warning: trimming empty <span>
+./docs/src/ssh_auth_podman_push_lib/error_mod.rs.html
+Document: "2" is not a file!
+
+line 3 column 54 - Warning: trimming empty <span>
+./docs/src/ssh_auth_podman_push_lib/lib.rs.html
+Document: "2" is not a file!
+
+line 3 column 54 - Warning: trimming empty <span>
+./docs/src/ssh_auth_podman_push_lib/secrets_always_local_mod.rs.html
+Document: "2" is not a file!
+
+line 3 column 54 - Warning: trimming empty <span>
+./docs/src/ssh_auth_podman_push_lib/podman_mod.rs.html
+Document: "2" is not a file!
+
+line 3 column 54 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push/all.html
+Document: "2" is not a file!
+
+line 1 column 2138 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push/fn.tracing_init.html
+Document: "2" is not a file!
+
+line 1 column 2215 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push/fn.panic_set_hook.html
+Document: "2" is not a file!
+
+line 1 column 2224 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push/fn.main.html
+Document: "2" is not a file!
+
+line 1 column 2187 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push/fn.print_help.html
+Document: "2" is not a file!
+
+line 1 column 2168 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push/index.html
+Document: "2" is not a file!
+
+line 1 column 2183 - Warning: trimming empty <button>
+line 3 column 81 - Warning: trimming empty <span>
 ./docs/settings.html
 Document: "2" is not a file!
 
-line 1 column 2083 - Warning: trimming empty <button>
+line 1 column 2088 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/constant.RED.html
+Document: "2" is not a file!
+
+line 1 column 2895 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/constant.YELLOW.html
+Document: "2" is not a file!
+
+line 1 column 2249 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/struct.EncryptedString.html
+Document: "2" is not a file!
+
+line 3 column 3170 - Warning: missing </summary> before <section>
+line 3 column 3528 - Warning: <div> isn't allowed in <h3> elements
+line 4 column 149 - Warning: discarding unexpected </div>
+line 4 column 170 - Warning: discarding unexpected </summary>
+line 4 column 247 - Warning: missing </summary> before <section>
+line 4 column 752 - Warning: discarding unexpected </summary>
+line 4 column 1008 - Warning: missing </summary> before <section>
+line 4 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 5 column 139 - Warning: discarding unexpected </div>
+line 5 column 160 - Warning: discarding unexpected </summary>
+line 5 column 237 - Warning: missing </summary> before <section>
+line 5 column 718 - Warning: discarding unexpected </summary>
+line 5 column 967 - Warning: missing </summary> before <section>
+line 5 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 6 column 139 - Warning: discarding unexpected </div>
+line 6 column 160 - Warning: discarding unexpected </summary>
+line 6 column 237 - Warning: missing </summary> before <section>
+line 6 column 745 - Warning: discarding unexpected </summary>
+line 6 column 999 - Warning: missing </summary> before <section>
+line 6 column 1416 - Warning: discarding unexpected </summary>
+line 6 column 1493 - Warning: missing </summary> before <section>
+line 6 column 1866 - Warning: discarding unexpected </summary>
+line 7 column 77 - Warning: missing </summary> before <section>
+line 7 column 257 - Warning: discarding unexpected </summary>
+line 7 column 334 - Warning: missing </summary> before <section>
+line 7 column 569 - Warning: discarding unexpected </summary>
+line 8 column 111 - Warning: missing </summary> before <section>
+line 8 column 349 - Warning: discarding unexpected </summary>
+line 9 column 128 - Warning: missing </summary> before <section>
+line 9 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 10 column 146 - Warning: discarding unexpected </div>
+line 10 column 167 - Warning: discarding unexpected </summary>
+line 10 column 244 - Warning: missing </summary> before <section>
+line 10 column 617 - Warning: discarding unexpected </summary>
+line 13 column 77 - Warning: missing </summary> before <section>
+line 13 column 492 - Warning: discarding unexpected </summary>
+line 13 column 555 - Warning: missing </summary> before <section>
+line 13 column 870 - Warning: discarding unexpected </summary>
+line 13 column 1012 - Warning: missing </summary> before <section>
+line 13 column 1436 - Warning: <div> isn't allowed in <h3> elements
+line 14 column 146 - Warning: discarding unexpected </div>
+line 14 column 167 - Warning: discarding unexpected </summary>
+line 14 column 230 - Warning: missing </summary> before <section>
+line 14 column 682 - Warning: discarding unexpected </summary>
+line 14 column 826 - Warning: missing </summary> before <section>
+line 14 column 1693 - Warning: discarding unexpected </summary>
+line 14 column 1825 - Warning: missing </summary> before <section>
+line 14 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 15 column 155 - Warning: discarding unexpected </div>
+line 15 column 176 - Warning: discarding unexpected </summary>
+line 15 column 239 - Warning: missing </summary> before <section>
+line 15 column 876 - Warning: discarding unexpected </summary>
+line 15 column 1020 - Warning: missing </summary> before <section>
+line 15 column 1883 - Warning: discarding unexpected </summary>
+line 15 column 2015 - Warning: missing </summary> before <section>
+line 15 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 16 column 27 - Warning: discarding unexpected </div>
+line 16 column 48 - Warning: discarding unexpected </summary>
+line 16 column 315 - Warning: missing </summary> before <section>
+line 16 column 507 - Warning: discarding unexpected </summary>
+line 16 column 584 - Warning: missing </summary> before <section>
+line 16 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 17 column 153 - Warning: discarding unexpected </div>
+line 17 column 174 - Warning: discarding unexpected </summary>
+line 18 column 113 - Warning: missing </summary> before <section>
+line 18 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2334 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 3 column 3170 - Warning: trimming empty <summary>
+line 4 column 247 - Warning: trimming empty <summary>
+line 4 column 1008 - Warning: trimming empty <summary>
+line 5 column 237 - Warning: trimming empty <summary>
+line 5 column 967 - Warning: trimming empty <summary>
+line 6 column 237 - Warning: trimming empty <summary>
+line 6 column 999 - Warning: trimming empty <summary>
+line 6 column 1493 - Warning: trimming empty <summary>
+line 7 column 77 - Warning: trimming empty <summary>
+line 7 column 334 - Warning: trimming empty <summary>
+line 8 column 111 - Warning: trimming empty <summary>
+line 9 column 128 - Warning: trimming empty <summary>
+line 10 column 244 - Warning: trimming empty <summary>
+line 13 column 77 - Warning: trimming empty <summary>
+line 13 column 555 - Warning: trimming empty <summary>
+line 13 column 1012 - Warning: trimming empty <summary>
+line 14 column 230 - Warning: trimming empty <summary>
+line 14 column 826 - Warning: trimming empty <summary>
+line 14 column 1825 - Warning: trimming empty <summary>
+line 15 column 239 - Warning: trimming empty <summary>
+line 15 column 1020 - Warning: trimming empty <summary>
+line 15 column 2015 - Warning: trimming empty <summary>
+line 16 column 315 - Warning: trimming empty <summary>
+line 16 column 584 - Warning: trimming empty <summary>
+line 18 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/ssh_mod/struct.SshContext.html
+Document: "2" is not a file!
+
+line 5 column 1078 - Warning: missing </summary> before <section>
+line 5 column 1491 - Warning: discarding unexpected </summary>
+line 5 column 2492 - Warning: missing </summary> before <section>
+line 5 column 2965 - Warning: discarding unexpected </summary>
+line 5 column 3042 - Warning: missing </summary> before <section>
+line 5 column 3583 - Warning: discarding unexpected </summary>
+line 6 column 60 - Warning: missing </summary> before <section>
+line 6 column 597 - Warning: discarding unexpected </summary>
+line 7 column 60 - Warning: missing </summary> before <section>
+line 11 column 17 - Warning: discarding unexpected </summary>
+line 14 column 2740 - Warning: missing </summary> before <section>
+line 14 column 3098 - Warning: <div> isn't allowed in <h3> elements
+line 15 column 149 - Warning: discarding unexpected </div>
+line 15 column 170 - Warning: discarding unexpected </summary>
+line 15 column 247 - Warning: missing </summary> before <section>
+line 15 column 752 - Warning: discarding unexpected </summary>
+line 15 column 1008 - Warning: missing </summary> before <section>
+line 15 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 16 column 139 - Warning: discarding unexpected </div>
+line 16 column 160 - Warning: discarding unexpected </summary>
+line 16 column 237 - Warning: missing </summary> before <section>
+line 16 column 718 - Warning: discarding unexpected </summary>
+line 16 column 967 - Warning: missing </summary> before <section>
+line 16 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 17 column 139 - Warning: discarding unexpected </div>
+line 17 column 160 - Warning: discarding unexpected </summary>
+line 17 column 237 - Warning: missing </summary> before <section>
+line 17 column 745 - Warning: discarding unexpected </summary>
+line 17 column 999 - Warning: missing </summary> before <section>
+line 17 column 1416 - Warning: discarding unexpected </summary>
+line 17 column 1493 - Warning: missing </summary> before <section>
+line 17 column 1866 - Warning: discarding unexpected </summary>
+line 18 column 77 - Warning: missing </summary> before <section>
+line 18 column 257 - Warning: discarding unexpected </summary>
+line 18 column 334 - Warning: missing </summary> before <section>
+line 18 column 569 - Warning: discarding unexpected </summary>
+line 19 column 111 - Warning: missing </summary> before <section>
+line 19 column 349 - Warning: discarding unexpected </summary>
+line 20 column 128 - Warning: missing </summary> before <section>
+line 20 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 21 column 146 - Warning: discarding unexpected </div>
+line 21 column 167 - Warning: discarding unexpected </summary>
+line 21 column 244 - Warning: missing </summary> before <section>
+line 21 column 617 - Warning: discarding unexpected </summary>
+line 24 column 77 - Warning: missing </summary> before <section>
+line 24 column 492 - Warning: discarding unexpected </summary>
+line 24 column 555 - Warning: missing </summary> before <section>
+line 24 column 870 - Warning: discarding unexpected </summary>
+line 24 column 1012 - Warning: missing </summary> before <section>
+line 24 column 1436 - Warning: <div> isn't allowed in <h3> elements
+line 25 column 146 - Warning: discarding unexpected </div>
+line 25 column 167 - Warning: discarding unexpected </summary>
+line 25 column 230 - Warning: missing </summary> before <section>
+line 25 column 682 - Warning: discarding unexpected </summary>
+line 25 column 826 - Warning: missing </summary> before <section>
+line 25 column 1693 - Warning: discarding unexpected </summary>
+line 25 column 1825 - Warning: missing </summary> before <section>
+line 25 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 26 column 155 - Warning: discarding unexpected </div>
+line 26 column 176 - Warning: discarding unexpected </summary>
+line 26 column 239 - Warning: missing </summary> before <section>
+line 26 column 876 - Warning: discarding unexpected </summary>
+line 26 column 1020 - Warning: missing </summary> before <section>
+line 26 column 1883 - Warning: discarding unexpected </summary>
+line 26 column 2015 - Warning: missing </summary> before <section>
+line 26 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 27 column 27 - Warning: discarding unexpected </div>
+line 27 column 48 - Warning: discarding unexpected </summary>
+line 27 column 315 - Warning: missing </summary> before <section>
+line 27 column 507 - Warning: discarding unexpected </summary>
+line 27 column 584 - Warning: missing </summary> before <section>
+line 27 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 28 column 153 - Warning: discarding unexpected </div>
+line 28 column 174 - Warning: discarding unexpected </summary>
+line 29 column 113 - Warning: missing </summary> before <section>
+line 29 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2382 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 5 column 1078 - Warning: trimming empty <summary>
+line 5 column 2492 - Warning: trimming empty <summary>
+line 5 column 3042 - Warning: trimming empty <summary>
+line 6 column 60 - Warning: trimming empty <summary>
+line 7 column 60 - Warning: trimming empty <summary>
+line 14 column 2740 - Warning: trimming empty <summary>
+line 15 column 247 - Warning: trimming empty <summary>
+line 15 column 1008 - Warning: trimming empty <summary>
+line 16 column 237 - Warning: trimming empty <summary>
+line 16 column 967 - Warning: trimming empty <summary>
+line 17 column 237 - Warning: trimming empty <summary>
+line 17 column 999 - Warning: trimming empty <summary>
+line 17 column 1493 - Warning: trimming empty <summary>
+line 18 column 77 - Warning: trimming empty <summary>
+line 18 column 334 - Warning: trimming empty <summary>
+line 19 column 111 - Warning: trimming empty <summary>
+line 20 column 128 - Warning: trimming empty <summary>
+line 21 column 244 - Warning: trimming empty <summary>
+line 24 column 77 - Warning: trimming empty <summary>
+line 24 column 555 - Warning: trimming empty <summary>
+line 24 column 1012 - Warning: trimming empty <summary>
+line 25 column 230 - Warning: trimming empty <summary>
+line 25 column 826 - Warning: trimming empty <summary>
+line 25 column 1825 - Warning: trimming empty <summary>
+line 26 column 239 - Warning: trimming empty <summary>
+line 26 column 1020 - Warning: trimming empty <summary>
+line 26 column 2015 - Warning: trimming empty <summary>
+line 27 column 315 - Warning: trimming empty <summary>
+line 27 column 584 - Warning: trimming empty <summary>
+line 29 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/ssh_mod/fn.expand_path_check_private_key_exists.html
+Document: "2" is not a file!
+
+line 1 column 2362 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/ssh_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2362 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/constant.GREEN.html
+Document: "2" is not a file!
+
+line 1 column 2248 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/secrecy_mod/struct.SecretEncryptedString.html
+Document: "2" is not a file!
+
+line 4 column 642 - Warning: missing </summary> before <section>
+line 4 column 1114 - Warning: discarding unexpected </summary>
+line 13 column 3192 - Warning: missing </summary> before <section>
+line 13 column 3550 - Warning: <div> isn't allowed in <h3> elements
+line 14 column 149 - Warning: discarding unexpected </div>
+line 14 column 170 - Warning: discarding unexpected </summary>
+line 14 column 247 - Warning: missing </summary> before <section>
+line 14 column 752 - Warning: discarding unexpected </summary>
+line 14 column 1008 - Warning: missing </summary> before <section>
+line 14 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 15 column 139 - Warning: discarding unexpected </div>
+line 15 column 160 - Warning: discarding unexpected </summary>
+line 15 column 237 - Warning: missing </summary> before <section>
+line 15 column 718 - Warning: discarding unexpected </summary>
+line 15 column 967 - Warning: missing </summary> before <section>
+line 15 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 16 column 139 - Warning: discarding unexpected </div>
+line 16 column 160 - Warning: discarding unexpected </summary>
+line 16 column 237 - Warning: missing </summary> before <section>
+line 16 column 745 - Warning: discarding unexpected </summary>
+line 16 column 999 - Warning: missing </summary> before <section>
+line 16 column 1416 - Warning: discarding unexpected </summary>
+line 16 column 1493 - Warning: missing </summary> before <section>
+line 16 column 1866 - Warning: discarding unexpected </summary>
+line 17 column 77 - Warning: missing </summary> before <section>
+line 17 column 257 - Warning: discarding unexpected </summary>
+line 17 column 334 - Warning: missing </summary> before <section>
+line 17 column 569 - Warning: discarding unexpected </summary>
+line 18 column 111 - Warning: missing </summary> before <section>
+line 18 column 349 - Warning: discarding unexpected </summary>
+line 19 column 128 - Warning: missing </summary> before <section>
+line 19 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 20 column 146 - Warning: discarding unexpected </div>
+line 20 column 167 - Warning: discarding unexpected </summary>
+line 20 column 244 - Warning: missing </summary> before <section>
+line 20 column 617 - Warning: discarding unexpected </summary>
+line 23 column 77 - Warning: missing </summary> before <section>
+line 23 column 492 - Warning: discarding unexpected </summary>
+line 23 column 555 - Warning: missing </summary> before <section>
+line 23 column 870 - Warning: discarding unexpected </summary>
+line 23 column 1012 - Warning: missing </summary> before <section>
+line 23 column 1436 - Warning: <div> isn't allowed in <h3> elements
+line 24 column 146 - Warning: discarding unexpected </div>
+line 24 column 167 - Warning: discarding unexpected </summary>
+line 24 column 230 - Warning: missing </summary> before <section>
+line 24 column 682 - Warning: discarding unexpected </summary>
+line 24 column 826 - Warning: missing </summary> before <section>
+line 24 column 1693 - Warning: discarding unexpected </summary>
+line 24 column 1825 - Warning: missing </summary> before <section>
+line 24 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 25 column 155 - Warning: discarding unexpected </div>
+line 25 column 176 - Warning: discarding unexpected </summary>
+line 25 column 239 - Warning: missing </summary> before <section>
+line 25 column 876 - Warning: discarding unexpected </summary>
+line 25 column 1020 - Warning: missing </summary> before <section>
+line 25 column 1883 - Warning: discarding unexpected </summary>
+line 25 column 2015 - Warning: missing </summary> before <section>
+line 25 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 26 column 27 - Warning: discarding unexpected </div>
+line 26 column 48 - Warning: discarding unexpected </summary>
+line 26 column 315 - Warning: missing </summary> before <section>
+line 26 column 507 - Warning: discarding unexpected </summary>
+line 26 column 584 - Warning: missing </summary> before <section>
+line 26 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 27 column 153 - Warning: discarding unexpected </div>
+line 27 column 174 - Warning: discarding unexpected </summary>
+line 28 column 113 - Warning: missing </summary> before <section>
+line 28 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2408 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 4 column 642 - Warning: trimming empty <summary>
+line 13 column 3192 - Warning: trimming empty <summary>
+line 14 column 247 - Warning: trimming empty <summary>
+line 14 column 1008 - Warning: trimming empty <summary>
+line 15 column 237 - Warning: trimming empty <summary>
+line 15 column 967 - Warning: trimming empty <summary>
+line 16 column 237 - Warning: trimming empty <summary>
+line 16 column 999 - Warning: trimming empty <summary>
+line 16 column 1493 - Warning: trimming empty <summary>
+line 17 column 77 - Warning: trimming empty <summary>
+line 17 column 334 - Warning: trimming empty <summary>
+line 18 column 111 - Warning: trimming empty <summary>
+line 19 column 128 - Warning: trimming empty <summary>
+line 20 column 244 - Warning: trimming empty <summary>
+line 23 column 77 - Warning: trimming empty <summary>
+line 23 column 555 - Warning: trimming empty <summary>
+line 23 column 1012 - Warning: trimming empty <summary>
+line 24 column 230 - Warning: trimming empty <summary>
+line 24 column 826 - Warning: trimming empty <summary>
+line 24 column 1825 - Warning: trimming empty <summary>
+line 25 column 239 - Warning: trimming empty <summary>
+line 25 column 1020 - Warning: trimming empty <summary>
+line 25 column 2015 - Warning: trimming empty <summary>
+line 26 column 315 - Warning: trimming empty <summary>
+line 26 column 584 - Warning: trimming empty <summary>
+line 28 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/secrecy_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2453 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/decrypt_mod/struct.Decryptor.html
+Document: "2" is not a file!
+
+line 8 column 1061 - Warning: missing </summary> before <section>
+line 8 column 1507 - Warning: discarding unexpected </summary>
+line 8 column 2624 - Warning: missing </summary> before <section>
+line 8 column 3125 - Warning: discarding unexpected </summary>
+line 11 column 2915 - Warning: missing </summary> before <section>
+line 11 column 3273 - Warning: <div> isn't allowed in <h3> elements
+line 12 column 149 - Warning: discarding unexpected </div>
+line 12 column 170 - Warning: discarding unexpected </summary>
+line 12 column 247 - Warning: missing </summary> before <section>
+line 12 column 752 - Warning: discarding unexpected </summary>
+line 12 column 1008 - Warning: missing </summary> before <section>
+line 12 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 13 column 139 - Warning: discarding unexpected </div>
+line 13 column 160 - Warning: discarding unexpected </summary>
+line 13 column 237 - Warning: missing </summary> before <section>
+line 13 column 718 - Warning: discarding unexpected </summary>
+line 13 column 967 - Warning: missing </summary> before <section>
+line 13 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 14 column 139 - Warning: discarding unexpected </div>
+line 14 column 160 - Warning: discarding unexpected </summary>
+line 14 column 237 - Warning: missing </summary> before <section>
+line 14 column 745 - Warning: discarding unexpected </summary>
+line 14 column 999 - Warning: missing </summary> before <section>
+line 14 column 1416 - Warning: discarding unexpected </summary>
+line 14 column 1493 - Warning: missing </summary> before <section>
+line 14 column 1866 - Warning: discarding unexpected </summary>
+line 15 column 77 - Warning: missing </summary> before <section>
+line 15 column 257 - Warning: discarding unexpected </summary>
+line 15 column 334 - Warning: missing </summary> before <section>
+line 15 column 569 - Warning: discarding unexpected </summary>
+line 16 column 111 - Warning: missing </summary> before <section>
+line 16 column 349 - Warning: discarding unexpected </summary>
+line 17 column 128 - Warning: missing </summary> before <section>
+line 17 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 18 column 146 - Warning: discarding unexpected </div>
+line 18 column 167 - Warning: discarding unexpected </summary>
+line 18 column 244 - Warning: missing </summary> before <section>
+line 18 column 617 - Warning: discarding unexpected </summary>
+line 21 column 77 - Warning: missing </summary> before <section>
+line 21 column 492 - Warning: discarding unexpected </summary>
+line 21 column 555 - Warning: missing </summary> before <section>
+line 21 column 870 - Warning: discarding unexpected </summary>
+line 21 column 1012 - Warning: missing </summary> before <section>
+line 21 column 1436 - Warning: <div> isn't allowed in <h3> elements
+line 22 column 146 - Warning: discarding unexpected </div>
+line 22 column 167 - Warning: discarding unexpected </summary>
+line 22 column 230 - Warning: missing </summary> before <section>
+line 22 column 682 - Warning: discarding unexpected </summary>
+line 22 column 826 - Warning: missing </summary> before <section>
+line 22 column 1693 - Warning: discarding unexpected </summary>
+line 22 column 1825 - Warning: missing </summary> before <section>
+line 22 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 23 column 155 - Warning: discarding unexpected </div>
+line 23 column 176 - Warning: discarding unexpected </summary>
+line 23 column 239 - Warning: missing </summary> before <section>
+line 23 column 876 - Warning: discarding unexpected </summary>
+line 23 column 1020 - Warning: missing </summary> before <section>
+line 23 column 1883 - Warning: discarding unexpected </summary>
+line 23 column 2015 - Warning: missing </summary> before <section>
+line 23 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 24 column 27 - Warning: discarding unexpected </div>
+line 24 column 48 - Warning: discarding unexpected </summary>
+line 24 column 315 - Warning: missing </summary> before <section>
+line 24 column 507 - Warning: discarding unexpected </summary>
+line 24 column 584 - Warning: missing </summary> before <section>
+line 24 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 25 column 153 - Warning: discarding unexpected </div>
+line 25 column 174 - Warning: discarding unexpected </summary>
+line 26 column 113 - Warning: missing </summary> before <section>
+line 26 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2450 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 8 column 1061 - Warning: trimming empty <summary>
+line 8 column 2624 - Warning: trimming empty <summary>
+line 11 column 2915 - Warning: trimming empty <summary>
+line 12 column 247 - Warning: trimming empty <summary>
+line 12 column 1008 - Warning: trimming empty <summary>
+line 13 column 237 - Warning: trimming empty <summary>
+line 13 column 967 - Warning: trimming empty <summary>
+line 14 column 237 - Warning: trimming empty <summary>
+line 14 column 999 - Warning: trimming empty <summary>
+line 14 column 1493 - Warning: trimming empty <summary>
+line 15 column 77 - Warning: trimming empty <summary>
+line 15 column 334 - Warning: trimming empty <summary>
+line 16 column 111 - Warning: trimming empty <summary>
+line 17 column 128 - Warning: trimming empty <summary>
+line 18 column 244 - Warning: trimming empty <summary>
+line 21 column 77 - Warning: trimming empty <summary>
+line 21 column 555 - Warning: trimming empty <summary>
+line 21 column 1012 - Warning: trimming empty <summary>
+line 22 column 230 - Warning: trimming empty <summary>
+line 22 column 826 - Warning: trimming empty <summary>
+line 22 column 1825 - Warning: trimming empty <summary>
+line 23 column 239 - Warning: trimming empty <summary>
+line 23 column 1020 - Warning: trimming empty <summary>
+line 23 column 2015 - Warning: trimming empty <summary>
+line 24 column 315 - Warning: trimming empty <summary>
+line 24 column 584 - Warning: trimming empty <summary>
+line 26 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/decrypt_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2370 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/constant.RESET.html
+Document: "2" is not a file!
+
+line 1 column 2248 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/docker_hub_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2716 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/docker_hub_mod/struct.DockerHubClient.html
+Document: "2" is not a file!
+
+line 11 column 202 - Warning: missing </summary> before <section>
+line 11 column 647 - Warning: discarding unexpected </summary>
+line 11 column 724 - Warning: missing </summary> before <section>
+line 11 column 1086 - Warning: discarding unexpected </summary>
+line 13 column 60 - Warning: missing </summary> before <section>
+line 13 column 373 - Warning: discarding unexpected </summary>
+line 14 column 60 - Warning: missing </summary> before <section>
+line 14 column 619 - Warning: discarding unexpected </summary>
+line 19 column 60 - Warning: missing </summary> before <section>
+line 19 column 565 - Warning: discarding unexpected </summary>
+line 20 column 60 - Warning: missing </summary> before <section>
+line 20 column 590 - Warning: discarding unexpected </summary>
+line 23 column 2900 - Warning: missing </summary> before <section>
+line 23 column 3258 - Warning: <div> isn't allowed in <h3> elements
+line 24 column 149 - Warning: discarding unexpected </div>
+line 24 column 170 - Warning: discarding unexpected </summary>
+line 24 column 247 - Warning: missing </summary> before <section>
+line 24 column 752 - Warning: discarding unexpected </summary>
+line 24 column 1008 - Warning: missing </summary> before <section>
+line 24 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 25 column 139 - Warning: discarding unexpected </div>
+line 25 column 160 - Warning: discarding unexpected </summary>
+line 25 column 237 - Warning: missing </summary> before <section>
+line 25 column 718 - Warning: discarding unexpected </summary>
+line 25 column 967 - Warning: missing </summary> before <section>
+line 25 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 26 column 139 - Warning: discarding unexpected </div>
+line 26 column 160 - Warning: discarding unexpected </summary>
+line 26 column 237 - Warning: missing </summary> before <section>
+line 26 column 745 - Warning: discarding unexpected </summary>
+line 26 column 999 - Warning: missing </summary> before <section>
+line 26 column 1416 - Warning: discarding unexpected </summary>
+line 26 column 1493 - Warning: missing </summary> before <section>
+line 26 column 1866 - Warning: discarding unexpected </summary>
+line 27 column 77 - Warning: missing </summary> before <section>
+line 27 column 257 - Warning: discarding unexpected </summary>
+line 27 column 334 - Warning: missing </summary> before <section>
+line 27 column 569 - Warning: discarding unexpected </summary>
+line 28 column 111 - Warning: missing </summary> before <section>
+line 28 column 349 - Warning: discarding unexpected </summary>
+line 29 column 128 - Warning: missing </summary> before <section>
+line 29 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 30 column 146 - Warning: discarding unexpected </div>
+line 30 column 167 - Warning: discarding unexpected </summary>
+line 30 column 244 - Warning: missing </summary> before <section>
+line 30 column 617 - Warning: discarding unexpected </summary>
+line 33 column 77 - Warning: missing </summary> before <section>
+line 33 column 492 - Warning: discarding unexpected </summary>
+line 33 column 555 - Warning: missing </summary> before <section>
+line 33 column 870 - Warning: discarding unexpected </summary>
+line 33 column 1012 - Warning: missing </summary> before <section>
+line 33 column 1436 - Warning: <div> isn't allowed in <h3> elements
+line 34 column 146 - Warning: discarding unexpected </div>
+line 34 column 167 - Warning: discarding unexpected </summary>
+line 34 column 230 - Warning: missing </summary> before <section>
+line 34 column 682 - Warning: discarding unexpected </summary>
+line 34 column 826 - Warning: missing </summary> before <section>
+line 34 column 1693 - Warning: discarding unexpected </summary>
+line 34 column 1825 - Warning: missing </summary> before <section>
+line 34 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 35 column 155 - Warning: discarding unexpected </div>
+line 35 column 176 - Warning: discarding unexpected </summary>
+line 35 column 239 - Warning: missing </summary> before <section>
+line 35 column 876 - Warning: discarding unexpected </summary>
+line 35 column 1020 - Warning: missing </summary> before <section>
+line 35 column 1883 - Warning: discarding unexpected </summary>
+line 35 column 2015 - Warning: missing </summary> before <section>
+line 35 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 36 column 27 - Warning: discarding unexpected </div>
+line 36 column 48 - Warning: discarding unexpected </summary>
+line 36 column 315 - Warning: missing </summary> before <section>
+line 36 column 507 - Warning: discarding unexpected </summary>
+line 36 column 584 - Warning: missing </summary> before <section>
+line 36 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 37 column 153 - Warning: discarding unexpected </div>
+line 37 column 174 - Warning: discarding unexpected </summary>
+line 38 column 113 - Warning: missing </summary> before <section>
+line 38 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2430 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 11 column 202 - Warning: trimming empty <summary>
+line 11 column 724 - Warning: trimming empty <summary>
+line 13 column 60 - Warning: trimming empty <summary>
+line 14 column 60 - Warning: trimming empty <summary>
+line 19 column 60 - Warning: trimming empty <summary>
+line 20 column 60 - Warning: trimming empty <summary>
+line 23 column 2900 - Warning: trimming empty <summary>
+line 24 column 247 - Warning: trimming empty <summary>
+line 24 column 1008 - Warning: trimming empty <summary>
+line 25 column 237 - Warning: trimming empty <summary>
+line 25 column 967 - Warning: trimming empty <summary>
+line 26 column 237 - Warning: trimming empty <summary>
+line 26 column 999 - Warning: trimming empty <summary>
+line 26 column 1493 - Warning: trimming empty <summary>
+line 27 column 77 - Warning: trimming empty <summary>
+line 27 column 334 - Warning: trimming empty <summary>
+line 28 column 111 - Warning: trimming empty <summary>
+line 29 column 128 - Warning: trimming empty <summary>
+line 30 column 244 - Warning: trimming empty <summary>
+line 33 column 77 - Warning: trimming empty <summary>
+line 33 column 555 - Warning: trimming empty <summary>
+line 33 column 1012 - Warning: trimming empty <summary>
+line 34 column 230 - Warning: trimming empty <summary>
+line 34 column 826 - Warning: trimming empty <summary>
+line 34 column 1825 - Warning: trimming empty <summary>
+line 35 column 239 - Warning: trimming empty <summary>
+line 35 column 1020 - Warning: trimming empty <summary>
+line 35 column 2015 - Warning: trimming empty <summary>
+line 36 column 315 - Warning: trimming empty <summary>
+line 36 column 584 - Warning: trimming empty <summary>
+line 38 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2325 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/constant.BLUE.html
+Document: "2" is not a file!
+
+line 1 column 2247 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/trait.ExposeSecret.html
+Document: "2" is not a file!
+
+line 6 column 199 - Warning: missing </summary> before <section>
+line 6 column 582 - Warning: discarding unexpected </summary>
+line 7 column 732 - Warning: <div> isn't allowed in <h3> elements
+line 8 column 16 - Warning: discarding unexpected </div>
+line 1 column 2279 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 6 column 199 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/encrypt_mod/struct.Encryptor.html
+Document: "2" is not a file!
+
+line 8 column 1061 - Warning: missing </summary> before <section>
+line 8 column 1508 - Warning: discarding unexpected </summary>
+line 11 column 71 - Warning: missing </summary> before <section>
+line 11 column 688 - Warning: discarding unexpected </summary>
+line 14 column 2915 - Warning: missing </summary> before <section>
+line 14 column 3273 - Warning: <div> isn't allowed in <h3> elements
+line 15 column 149 - Warning: discarding unexpected </div>
+line 15 column 170 - Warning: discarding unexpected </summary>
+line 15 column 247 - Warning: missing </summary> before <section>
+line 15 column 752 - Warning: discarding unexpected </summary>
+line 15 column 1008 - Warning: missing </summary> before <section>
+line 15 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 16 column 139 - Warning: discarding unexpected </div>
+line 16 column 160 - Warning: discarding unexpected </summary>
+line 16 column 237 - Warning: missing </summary> before <section>
+line 16 column 718 - Warning: discarding unexpected </summary>
+line 16 column 967 - Warning: missing </summary> before <section>
+line 16 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 17 column 139 - Warning: discarding unexpected </div>
+line 17 column 160 - Warning: discarding unexpected </summary>
+line 17 column 237 - Warning: missing </summary> before <section>
+line 17 column 745 - Warning: discarding unexpected </summary>
+line 17 column 999 - Warning: missing </summary> before <section>
+line 17 column 1416 - Warning: discarding unexpected </summary>
+line 17 column 1493 - Warning: missing </summary> before <section>
+line 17 column 1866 - Warning: discarding unexpected </summary>
+line 18 column 77 - Warning: missing </summary> before <section>
+line 18 column 257 - Warning: discarding unexpected </summary>
+line 18 column 334 - Warning: missing </summary> before <section>
+line 18 column 569 - Warning: discarding unexpected </summary>
+line 19 column 111 - Warning: missing </summary> before <section>
+line 19 column 349 - Warning: discarding unexpected </summary>
+line 20 column 128 - Warning: missing </summary> before <section>
+line 20 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 21 column 146 - Warning: discarding unexpected </div>
+line 21 column 167 - Warning: discarding unexpected </summary>
+line 21 column 244 - Warning: missing </summary> before <section>
+line 21 column 617 - Warning: discarding unexpected </summary>
+line 24 column 77 - Warning: missing </summary> before <section>
+line 24 column 492 - Warning: discarding unexpected </summary>
+line 24 column 555 - Warning: missing </summary> before <section>
+line 24 column 870 - Warning: discarding unexpected </summary>
+line 24 column 1012 - Warning: missing </summary> before <section>
+line 24 column 1436 - Warning: <div> isn't allowed in <h3> elements
+line 25 column 146 - Warning: discarding unexpected </div>
+line 25 column 167 - Warning: discarding unexpected </summary>
+line 25 column 230 - Warning: missing </summary> before <section>
+line 25 column 682 - Warning: discarding unexpected </summary>
+line 25 column 826 - Warning: missing </summary> before <section>
+line 25 column 1693 - Warning: discarding unexpected </summary>
+line 25 column 1825 - Warning: missing </summary> before <section>
+line 25 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 26 column 155 - Warning: discarding unexpected </div>
+line 26 column 176 - Warning: discarding unexpected </summary>
+line 26 column 239 - Warning: missing </summary> before <section>
+line 26 column 876 - Warning: discarding unexpected </summary>
+line 26 column 1020 - Warning: missing </summary> before <section>
+line 26 column 1883 - Warning: discarding unexpected </summary>
+line 26 column 2015 - Warning: missing </summary> before <section>
+line 26 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 27 column 27 - Warning: discarding unexpected </div>
+line 27 column 48 - Warning: discarding unexpected </summary>
+line 27 column 315 - Warning: missing </summary> before <section>
+line 27 column 507 - Warning: discarding unexpected </summary>
+line 27 column 584 - Warning: missing </summary> before <section>
+line 27 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 28 column 153 - Warning: discarding unexpected </div>
+line 28 column 174 - Warning: discarding unexpected </summary>
+line 29 column 113 - Warning: missing </summary> before <section>
+line 29 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2450 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 8 column 1061 - Warning: trimming empty <summary>
+line 11 column 71 - Warning: trimming empty <summary>
+line 14 column 2915 - Warning: trimming empty <summary>
+line 15 column 247 - Warning: trimming empty <summary>
+line 15 column 1008 - Warning: trimming empty <summary>
+line 16 column 237 - Warning: trimming empty <summary>
+line 16 column 967 - Warning: trimming empty <summary>
+line 17 column 237 - Warning: trimming empty <summary>
+line 17 column 999 - Warning: trimming empty <summary>
+line 17 column 1493 - Warning: trimming empty <summary>
+line 18 column 77 - Warning: trimming empty <summary>
+line 18 column 334 - Warning: trimming empty <summary>
+line 19 column 111 - Warning: trimming empty <summary>
+line 20 column 128 - Warning: trimming empty <summary>
+line 21 column 244 - Warning: trimming empty <summary>
+line 24 column 77 - Warning: trimming empty <summary>
+line 24 column 555 - Warning: trimming empty <summary>
+line 24 column 1012 - Warning: trimming empty <summary>
+line 25 column 230 - Warning: trimming empty <summary>
+line 25 column 826 - Warning: trimming empty <summary>
+line 25 column 1825 - Warning: trimming empty <summary>
+line 26 column 239 - Warning: trimming empty <summary>
+line 26 column 1020 - Warning: trimming empty <summary>
+line 26 column 2015 - Warning: trimming empty <summary>
+line 27 column 315 - Warning: trimming empty <summary>
+line 27 column 584 - Warning: trimming empty <summary>
+line 29 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/secrets_always_local_mod/encrypt_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2370 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/constant.RED.html
+Document: "2" is not a file!
+
+line 1 column 2175 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/all.html
+Document: "2" is not a file!
+
+line 1 column 2142 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/constant.YELLOW.html
+Document: "2" is not a file!
+
+line 1 column 2178 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/error_mod/type.ResultWithLibError.html
+Document: "2" is not a file!
+
+line 1 column 2285 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/error_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2256 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/error_mod/enum.LibError.html
+Document: "2" is not a file!
+
+line 9 column 1844 - Warning: missing </summary> before <section>
+line 9 column 2342 - Warning: discarding unexpected </summary>
+line 9 column 2419 - Warning: missing </summary> before <section>
+line 9 column 3068 - Warning: discarding unexpected </summary>
+line 9 column 3321 - Warning: missing </summary> before <section>
+line 9 column 3829 - Warning: discarding unexpected </summary>
+line 9 column 3906 - Warning: missing </summary> before <section>
+line 9 column 4563 - Warning: discarding unexpected </summary>
+line 9 column 4818 - Warning: missing </summary> before <section>
+line 9 column 5320 - Warning: discarding unexpected </summary>
+line 9 column 5397 - Warning: missing </summary> before <section>
+line 9 column 6054 - Warning: discarding unexpected </summary>
+line 9 column 6289 - Warning: missing </summary> before <section>
+line 9 column 6877 - Warning: discarding unexpected </summary>
+line 9 column 6887 - Warning: missing </span> before <div>
+line 9 column 6940 - Warning: inserting implicit <span>
+line 9 column 7047 - Warning: discarding unexpected </span>
+line 9 column 7239 - Warning: missing </summary> before <section>
+line 9 column 7980 - Warning: discarding unexpected </summary>
+line 9 column 7990 - Warning: missing </span> before <div>
+line 9 column 8043 - Warning: inserting implicit <span>
+line 9 column 8171 - Warning: discarding unexpected </span>
+line 9 column 8231 - Warning: missing </summary> before <section>
+line 9 column 8783 - Warning: discarding unexpected </summary>
+line 9 column 8793 - Warning: missing </span> before <div>
+line 9 column 8844 - Warning: inserting implicit <span>
+line 9 column 8974 - Warning: discarding unexpected </span>
+line 9 column 9249 - Warning: missing </summary> before <section>
+line 9 column 9915 - Warning: discarding unexpected </summary>
+line 9 column 9992 - Warning: missing </summary> before <section>
+line 9 column 10497 - Warning: discarding unexpected </summary>
+line 9 column 10652 - Warning: missing </summary> before <section>
+line 9 column 11336 - Warning: discarding unexpected </summary>
+line 9 column 11413 - Warning: missing </summary> before <section>
+line 9 column 11930 - Warning: discarding unexpected </summary>
+line 9 column 12085 - Warning: missing </summary> before <section>
+line 9 column 12795 - Warning: discarding unexpected </summary>
+line 9 column 12872 - Warning: missing </summary> before <section>
+line 9 column 13409 - Warning: discarding unexpected </summary>
+line 9 column 16024 - Warning: missing </summary> before <section>
+line 9 column 16382 - Warning: <div> isn't allowed in <h3> elements
+line 10 column 149 - Warning: discarding unexpected </div>
+line 10 column 170 - Warning: discarding unexpected </summary>
+line 10 column 247 - Warning: missing </summary> before <section>
+line 10 column 752 - Warning: discarding unexpected </summary>
+line 10 column 1008 - Warning: missing </summary> before <section>
+line 10 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 11 column 139 - Warning: discarding unexpected </div>
+line 11 column 160 - Warning: discarding unexpected </summary>
+line 11 column 237 - Warning: missing </summary> before <section>
+line 11 column 718 - Warning: discarding unexpected </summary>
+line 11 column 967 - Warning: missing </summary> before <section>
+line 11 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 12 column 139 - Warning: discarding unexpected </div>
+line 12 column 160 - Warning: discarding unexpected </summary>
+line 12 column 237 - Warning: missing </summary> before <section>
+line 12 column 745 - Warning: discarding unexpected </summary>
+line 12 column 999 - Warning: missing </summary> before <section>
+line 12 column 1416 - Warning: discarding unexpected </summary>
+line 12 column 1493 - Warning: missing </summary> before <section>
+line 12 column 1870 - Warning: discarding unexpected </summary>
+line 13 column 77 - Warning: missing </summary> before <section>
+line 13 column 257 - Warning: discarding unexpected </summary>
+line 13 column 334 - Warning: missing </summary> before <section>
+line 13 column 569 - Warning: discarding unexpected </summary>
+line 14 column 111 - Warning: missing </summary> before <section>
+line 14 column 349 - Warning: discarding unexpected </summary>
+line 15 column 128 - Warning: missing </summary> before <section>
+line 15 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 16 column 146 - Warning: discarding unexpected </div>
+line 16 column 167 - Warning: discarding unexpected </summary>
+line 16 column 244 - Warning: missing </summary> before <section>
+line 16 column 617 - Warning: discarding unexpected </summary>
+line 19 column 77 - Warning: missing </summary> before <section>
+line 19 column 492 - Warning: discarding unexpected </summary>
+line 19 column 555 - Warning: missing </summary> before <section>
+line 19 column 870 - Warning: discarding unexpected </summary>
+line 19 column 1012 - Warning: missing </summary> before <section>
+line 19 column 1408 - Warning: <div> isn't allowed in <h3> elements
+line 20 column 271 - Warning: discarding unexpected </div>
+line 20 column 292 - Warning: discarding unexpected </summary>
+line 20 column 369 - Warning: missing </summary> before <section>
+line 20 column 912 - Warning: discarding unexpected </summary>
+line 20 column 1179 - Warning: missing </summary> before <section>
+line 20 column 1603 - Warning: <div> isn't allowed in <h3> elements
+line 21 column 146 - Warning: discarding unexpected </div>
+line 21 column 167 - Warning: discarding unexpected </summary>
+line 21 column 230 - Warning: missing </summary> before <section>
+line 21 column 682 - Warning: discarding unexpected </summary>
+line 21 column 826 - Warning: missing </summary> before <section>
+line 21 column 1693 - Warning: discarding unexpected </summary>
+line 21 column 1825 - Warning: missing </summary> before <section>
+line 21 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 22 column 155 - Warning: discarding unexpected </div>
+line 22 column 176 - Warning: discarding unexpected </summary>
+line 22 column 239 - Warning: missing </summary> before <section>
+line 22 column 876 - Warning: discarding unexpected </summary>
+line 22 column 1020 - Warning: missing </summary> before <section>
+line 22 column 1883 - Warning: discarding unexpected </summary>
+line 22 column 2015 - Warning: missing </summary> before <section>
+line 22 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 23 column 27 - Warning: discarding unexpected </div>
+line 23 column 48 - Warning: discarding unexpected </summary>
+line 23 column 315 - Warning: missing </summary> before <section>
+line 23 column 507 - Warning: discarding unexpected </summary>
+line 23 column 584 - Warning: missing </summary> before <section>
+line 23 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 24 column 153 - Warning: discarding unexpected </div>
+line 24 column 174 - Warning: discarding unexpected </summary>
+line 25 column 113 - Warning: missing </summary> before <section>
+line 25 column 375 - Warning: discarding unexpected </summary>
+line 1 column 2263 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+line 9 column 1844 - Warning: trimming empty <summary>
+line 9 column 2419 - Warning: trimming empty <summary>
+line 9 column 3321 - Warning: trimming empty <summary>
+line 9 column 3906 - Warning: trimming empty <summary>
+line 9 column 4818 - Warning: trimming empty <summary>
+line 9 column 5397 - Warning: trimming empty <summary>
+line 9 column 6289 - Warning: trimming empty <summary>
+line 9 column 6887 - Warning: trimming empty <span>
+line 9 column 7239 - Warning: trimming empty <summary>
+line 9 column 7990 - Warning: trimming empty <span>
+line 9 column 8231 - Warning: trimming empty <summary>
+line 9 column 8793 - Warning: trimming empty <span>
+line 9 column 9249 - Warning: trimming empty <summary>
+line 9 column 9992 - Warning: trimming empty <summary>
+line 9 column 10652 - Warning: trimming empty <summary>
+line 9 column 11413 - Warning: trimming empty <summary>
+line 9 column 12085 - Warning: trimming empty <summary>
+line 9 column 12872 - Warning: trimming empty <summary>
+line 9 column 16024 - Warning: trimming empty <summary>
+line 10 column 247 - Warning: trimming empty <summary>
+line 10 column 1008 - Warning: trimming empty <summary>
+line 11 column 237 - Warning: trimming empty <summary>
+line 11 column 967 - Warning: trimming empty <summary>
+line 12 column 237 - Warning: trimming empty <summary>
+line 12 column 999 - Warning: trimming empty <summary>
+line 12 column 1493 - Warning: trimming empty <summary>
+line 13 column 77 - Warning: trimming empty <summary>
+line 13 column 334 - Warning: trimming empty <summary>
+line 14 column 111 - Warning: trimming empty <summary>
+line 15 column 128 - Warning: trimming empty <summary>
+line 16 column 244 - Warning: trimming empty <summary>
+line 19 column 77 - Warning: trimming empty <summary>
+line 19 column 555 - Warning: trimming empty <summary>
+line 19 column 1012 - Warning: trimming empty <summary>
+line 20 column 369 - Warning: trimming empty <summary>
+line 20 column 1179 - Warning: trimming empty <summary>
+line 21 column 230 - Warning: trimming empty <summary>
+line 21 column 826 - Warning: trimming empty <summary>
+line 21 column 1825 - Warning: trimming empty <summary>
+line 22 column 239 - Warning: trimming empty <summary>
+line 22 column 1020 - Warning: trimming empty <summary>
+line 22 column 2015 - Warning: trimming empty <summary>
+line 23 column 315 - Warning: trimming empty <summary>
+line 23 column 584 - Warning: trimming empty <summary>
+line 25 column 113 - Warning: trimming empty <summary>
+./docs/ssh_auth_podman_push_lib/podman_mod/fn.push.html
+Document: "2" is not a file!
+
+line 1 column 2283 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/podman_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 2297 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/constant.GREEN.html
+Document: "2" is not a file!
+
+line 1 column 2177 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/constant.RESET.html
+Document: "2" is not a file!
+
+line 1 column 2177 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/fn.push.html
+Document: "2" is not a file!
+
+line 1 column 2226 - Warning: trimming empty <button>
+line 2 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/index.html
+Document: "2" is not a file!
+
+line 1 column 2175 - Warning: trimming empty <button>
+line 3 column 81 - Warning: trimming empty <span>
+./docs/ssh_auth_podman_push_lib/constant.BLUE.html
+Document: "2" is not a file!
+
+line 1 column 2176 - Warning: trimming empty <button>
 line 2 column 81 - Warning: trimming empty <span>
 ./docs/index.html
 Document: "2" is not a file!

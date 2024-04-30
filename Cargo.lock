@@ -1508,29 +1508,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "db23d408679286588f4d4644f965003d056e3dd5abcaaa938116871d7ce2fee7"
 
 [[package]]
-name = "podman_ssh_auth"
-version = "1.0.4"
-dependencies = [
- "aes-gcm",
- "anyhow",
- "base64ct",
- "camino",
- "cargo_auto_encrypt_secret_lib",
- "cargo_auto_lib",
- "inquire",
- "log",
- "pretty_env_logger",
- "rsa",
- "secrecy",
- "ssh-key",
- "thiserror",
- "time",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "poly1305"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2129,6 +2106,29 @@ dependencies = [
  "ssh-encoding",
  "subtle",
  "zeroize",
+]
+
+[[package]]
+name = "ssh_auth_podman_push"
+version = "1.0.5"
+dependencies = [
+ "aes-gcm",
+ "anyhow",
+ "base64ct",
+ "camino",
+ "cargo_auto_encrypt_secret_lib",
+ "cargo_auto_lib",
+ "inquire",
+ "log",
+ "pretty_env_logger",
+ "rsa",
+ "secrecy",
+ "ssh-key",
+ "thiserror",
+ "time",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
 ]
 
 [[package]]

@@ -1,3 +1,4 @@
 (function() {var implementors = {
-"podman_ssh_auth_lib":[["impl SshContextTrait for <a class=\"struct\" href=\"podman_ssh_auth_lib/secrets_always_local_mod/ssh_mod/struct.SshContext.html\" title=\"struct podman_ssh_auth_lib::secrets_always_local_mod::ssh_mod::SshContext\">SshContext</a>"]]
+"podman_ssh_auth_lib":[["impl SshContextTrait for <a class=\"struct\" href=\"podman_ssh_auth_lib/secrets_always_local_mod/ssh_mod/struct.SshContext.html\" title=\"struct podman_ssh_auth_lib::secrets_always_local_mod::ssh_mod::SshContext\">SshContext</a>"]],
+"ssh_auth_podman_push_lib":[["impl SshContextTrait for <a class=\"struct\" href=\"ssh_auth_podman_push_lib/secrets_always_local_mod/ssh_mod/struct.SshContext.html\" title=\"struct ssh_auth_podman_push_lib::secrets_always_local_mod::ssh_mod::SshContext\">SshContext</a>"]]
 };if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

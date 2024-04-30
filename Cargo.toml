@@ -1,13 +1,13 @@
 [package]
-name = "podman_ssh_auth"
-version = "1.0.4"
+name = "ssh_auth_podman_push"
+version = "1.0.5"
 description = "Store and use encrypted docker-hub secret_token with SSH key"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"
 edition = "2021"
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/CRUSTDE-ContainerizedRustDevEnv/podman_ssh_auth"
+repository = "https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push"
 # Keyword must be only one word: lowercase letters, hyphens(-) or numbers, less then 35 characters, at most 5 keywords per crate
 keywords = ["work-in-progress", "rustlang", "docker-hub"]
 categories = ["command-line-interface"]
@@ -42,13 +42,13 @@ tracing-appender="0.2.2"
 time = {version="0.3.36", features=["macros","local-offset"]}
 
 [lib]
-name = "podman_ssh_auth_lib"
+name = "ssh_auth_podman_push_lib"
 path = "src/lib.rs"
 # A flag for enabling documentation of this target. This is used by `cargo doc`.
 doc = true
 
 [[bin]]
-name = "podman_ssh_auth"
-path = "src/bin/podman_ssh_auth/main.rs"
+name = "ssh_auth_podman_push"
+path = "src/bin/ssh_auth_podman_push/main.rs"
 # A flag for enabling documentation of this target. This is used by `cargo doc`.
 doc = true
