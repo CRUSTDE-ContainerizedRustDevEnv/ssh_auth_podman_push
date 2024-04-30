@@ -57,8 +57,8 @@ WARNING: a dedicated attacker could read from ssh-agent and discover the access 
 Put the executable `ssh_auth_podman_push` into the folder you intend to use it.  
 After copying, make it executable with `chmod +x ssh_auth_podman_push`.  
 Instead of `podman push...` use `ssh_auth_podman_push`.  
-If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.
-Else it will ask you to store the secret_token.
+If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.  
+Else it will ask you to store the encrypted secret_token with the SSH prvate key. It will be secured behind a passphrase as SSH keys do.
 
 ## Development details
 
