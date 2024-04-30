@@ -4,7 +4,7 @@
 //! # ssh_auth_podman_push
 //!
 //! **Store and use encrypted docker-hub secret_token with SSH key**  
-//! ***version: 1.0.5 date: 2024-04-30 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push)***
+//! ***version: 1.1.1 date: 2024-04-30 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push)***
 //!
 //!  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
 //!  ![rustlang](https://img.shields.io/badge/rustlang-orange)
@@ -13,9 +13,9 @@
 //!   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/blob/main/LICENSE)
 //!   [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //!
-//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-268-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-265-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-270-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-58-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-59-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-193-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //!
@@ -50,7 +50,7 @@
 //!
 //! Put the executable `ssh_auth_podman_push` into the folder you intend to use it.  
 //! After copying, make it executable with `chmod +x ssh_auth_podman_push`.  
-//! Instead of `podman push...` use `ssh_auth_podman_push push`.  
+//! Instead of `podman push...` use `ssh_auth_podman_push`.  
 //! If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.
 //! Else it will ask you to store the secret_token.
 //!
@@ -92,17 +92,15 @@ fn main() {
     std::panic::set_hook(Box::new(|panic_info| panic_set_hook(panic_info)));
     tracing_init();
 
-    let Some(shell_command) = std::env::args().nth(1) else {
-        panic!("The command arguments are not correct. It should look like: 'ssh_auth_podman_push push registry/user_name/image_name:image_label'")
+    let Some(arg_first) = std::env::args().nth(1) else {
+        panic!("The command arguments are not correct. It should look like: 'ssh_auth_podman_push registry/user_name/image_name:image_label'")
     };
-    if shell_command == "push" {
-        // ssh_auth_podman_push push docker.io/bestiadev/crustde_cargo_img:cargo-xxx
-        let Some(image_url) = std::env::args().nth(2) else {
-            panic!("The command arguments are not correct. It should look like: 'ssh_auth_podman_push push registry/user_name/image_name:image_label'")
-        };
-        ssh_auth_podman_push_lib::push(&image_url);
-    } else if shell_command == "--help" || shell_command == "-h" {
+    if arg_first == "--help" || arg_first == "-h" {
+        // ssh_auth_podman_push --help
         print_help();
+    } else {
+        // ssh_auth_podman_push docker.io/bestiadev/crustde_cargo_img:cargo-xxx
+        ssh_auth_podman_push_lib::push(&arg_first);
     }
 }
 
@@ -175,7 +173,7 @@ fn print_help() {
         r#"
     {YELLOW}Use ssh_auth_podman_push to securely store and retrieve docker hub secret_tokens !
 {GREEN}ssh_auth_podman_push --help{RESET}
-{GREEN}ssh_auth_podman_push push docker.io/user_name/image_name:image_label{RESET}
+{GREEN}ssh_auth_podman_push docker.io/user_name/image_name:image_label{RESET}
   
     {YELLOW}© 2024 bestia.dev  MIT License github.com/automation-tasks-rs/cargo-auto{RESET}
 "#

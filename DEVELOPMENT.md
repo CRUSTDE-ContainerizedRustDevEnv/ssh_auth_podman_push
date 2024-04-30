@@ -20,7 +20,7 @@ cargo auto build
 cargo auto release
 cargo auto doc
 cargo auto test
-cargo auto commit_and push
+cargo auto commit_and_push
 cargo auto push_to_docker_hub
 cargo auto github_new_release
 ```

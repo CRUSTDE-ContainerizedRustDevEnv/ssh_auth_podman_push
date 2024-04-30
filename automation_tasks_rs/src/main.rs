@@ -215,7 +215,7 @@ fn task_build() {
     println!(
         r#"
     {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
-{GREEN}./target/debug/{package_name} push docker.io/bestiadev/hello_world_img:hello_world_label{RESET}
+{GREEN}./target/debug/{package_name} docker.io/bestiadev/hello_world_img:hello_world_label{RESET}
     {YELLOW}If ok then{RESET}
 {GREEN}cargo auto release{RESET}
 "#,
@@ -244,7 +244,7 @@ fn task_release() {
     println!(
         r#"
     {YELLOW}After `cargo auto release`, run the compiled binary, examples and/or tests{RESET}
-{GREEN}./target/release/{package_name} push docker.io/bestiadev/hello_world_img:hello_world_label{RESET}
+{GREEN}./target/release/{package_name} docker.io/bestiadev/hello_world_img:hello_world_label{RESET}
     {YELLOW}if ok then{RESET}
 {GREEN}cargo auto doc{RESET}
 "#,
