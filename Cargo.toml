@@ -1,5 +1,6 @@
 [package]
 name = "ssh_auth_podman_push"
+# binary executable does not need to be SemVer, because nobody depends on it
 version = "1.1.1"
 description = "Store and use encrypted docker-hub secret_token with SSH key"
 authors = ["bestia.dev"]
@@ -21,6 +22,9 @@ include = [
 ]
 
 [dependencies]
+# SemVer rules: Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The public API SHOULD NOT be considered stable.
+# WARNING: Although dependecies in Cargo.toml look like a specific version of the crate, they are just like a carret version (^x.y.z) and actually specify 
+# the minimum version and allow automatic SemVer compatible updates up to a MAJOR increment! Always check the true version with `cargo tree`!
 cargo_auto_lib="2.4.3"
 cargo_auto_encrypt_secret_lib = "1.1.4"
 
