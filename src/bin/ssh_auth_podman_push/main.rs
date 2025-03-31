@@ -175,7 +175,7 @@ fn print_help() {
 {GREEN}ssh_auth_podman_push --help{RESET}
 {GREEN}ssh_auth_podman_push docker.io/user_name/image_name:image_label{RESET}
   
-    {YELLOW}© 2024 bestia.dev  MIT License github.com/automation-tasks-rs/cargo-auto{RESET}
+    {YELLOW}© 2025 bestia.dev  MIT License github.com/automation-tasks-rs/cargo-auto{RESET}
 "#
     );
 }
