@@ -107,8 +107,10 @@ pub fn github_api_config_initialize() {
         return;
     }
 
-    let github_api_config_json = std::fs::read_to_string("automation_tasks_rs/github_api_config.json").unwrap();
-    let github_api_config: GithubApiConfig = serde_json::from_str(&github_api_config_json).unwrap();
+    let github_api_config_json = std::fs::read_to_string("automation_tasks_rs/github_api_config.json")
+        .unwrap_or_else(|_| panic!("{RED}Error: The file automation_tasks_rs/github_api_config.json is missing.{RESET}"));
+    let github_api_config: GithubApiConfig = serde_json::from_str(&github_api_config_json)
+        .unwrap_or_else(|_| panic!("{RED}Error: The content of automation_tasks_rs/github_api_config.json is not correct.{RESET}"));
     let _ = GITHUB_API_CONFIG.set(github_api_config);
 }
 

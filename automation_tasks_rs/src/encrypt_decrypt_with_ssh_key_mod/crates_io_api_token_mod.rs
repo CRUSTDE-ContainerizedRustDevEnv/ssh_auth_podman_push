@@ -67,8 +67,10 @@ pub fn crates_io_config_initialize() {
         return;
     }
 
-    let crates_io_config_json = std::fs::read_to_string("automation_tasks_rs/crates_io_config.json").unwrap();
-    let crates_io_config: CratesIoConfig = serde_json::from_str(&crates_io_config_json).unwrap();
+    let crates_io_config_json = std::fs::read_to_string("automation_tasks_rs/crates_io_config.json")
+        .unwrap_or_else(|_| panic!("{RED}Error: The file automation_tasks_rs/crates_io_config.json is missing.{RESET}"));
+    let crates_io_config: CratesIoConfig = serde_json::from_str(&crates_io_config_json)
+        .unwrap_or_else(|_| panic!("{RED}Error: The content of automation_tasks_rs/crates_io_config.json is not correct.{RESET}"));
     let _ = CRATES_IO_CONFIG.set(crates_io_config);
 }
 
