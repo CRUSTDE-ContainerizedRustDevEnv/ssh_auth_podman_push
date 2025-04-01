@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["BLUE","GREEN","RED","RESET","YELLOW"],"mod":["decrypt_mod","docker_hub_mod","encrypt_mod","secrecy_mod","ssh_mod"],"struct":["EncryptedString"],"trait":["ExposeSecret"]};

@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/encrypt_decrypt_with_ssh_key_mod/docker_io_api_token_mod.rs`."><title>docker_io_api_token_mod.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="ssh_auth_podman_push_lib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.0 (4d91de4e4 2025-02-17)" data-channel="1.85.0" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="../../../static.files/src-script-56102188.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1><div class="sub-heading">ssh_auth_podman_push_lib/encrypt_decrypt_with_ssh_key_mod/</div>docker_io_api_token_mod.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers">
+<a href="#1" id="1">1</a>
+<a href="#2" id="2">2</a>
+<a href="#3" id="3">3</a>
+<a href="#4" id="4">4</a>
+<a href="#5" id="5">5</a>
+<a href="#6" id="6">6</a>
+<a href="#7" id="7">7</a>
+<a href="#8" id="8">8</a>
+<a href="#9" id="9">9</a>
+<a href="#10" id="10">10</a>
+<a href="#11" id="11">11</a>
+<a href="#12" id="12">12</a>
+<a href="#13" id="13">13</a>
+<a href="#14" id="14">14</a>
+<a href="#15" id="15">15</a>
+<a href="#16" id="16">16</a>
+<a href="#17" id="17">17</a>
+<a href="#18" id="18">18</a>
+<a href="#19" id="19">19</a>
+<a href="#20" id="20">20</a>
+<a href="#21" id="21">21</a>
+<a href="#22" id="22">22</a>
+<a href="#23" id="23">23</a>
+<a href="#24" id="24">24</a>
+<a href="#25" id="25">25</a>
+<a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
+<a href="#29" id="29">29</a>
+<a href="#30" id="30">30</a>
+<a href="#31" id="31">31</a>
+<a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
+<a href="#35" id="35">35</a>
+<a href="#36" id="36">36</a>
+<a href="#37" id="37">37</a>
+<a href="#38" id="38">38</a>
+<a href="#39" id="39">39</a>
+<a href="#40" id="40">40</a>
+<a href="#41" id="41">41</a>
+<a href="#42" id="42">42</a>
+<a href="#43" id="43">43</a>
+<a href="#44" id="44">44</a>
+<a href="#45" id="45">45</a>
+<a href="#46" id="46">46</a>
+<a href="#47" id="47">47</a>
+<a href="#48" id="48">48</a>
+<a href="#49" id="49">49</a>
+<a href="#50" id="50">50</a>
+<a href="#51" id="51">51</a>
+<a href="#52" id="52">52</a>
+<a href="#53" id="53">53</a>
+<a href="#54" id="54">54</a>
+<a href="#55" id="55">55</a>
+<a href="#56" id="56">56</a>
+<a href="#57" id="57">57</a>
+<a href="#58" id="58">58</a>
+<a href="#59" id="59">59</a>
+<a href="#60" id="60">60</a>
+<a href="#61" id="61">61</a>
+<a href="#62" id="62">62</a>
+<a href="#63" id="63">63</a>
+<a href="#64" id="64">64</a>
+<a href="#65" id="65">65</a>
+<a href="#66" id="66">66</a>
+<a href="#67" id="67">67</a>
+<a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+<a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
+<a href="#73" id="73">73</a>
+<a href="#74" id="74">74</a>
+<a href="#75" id="75">75</a>
+<a href="#76" id="76">76</a>
+<a href="#77" id="77">77</a>
+<a href="#78" id="78">78</a>
+<a href="#79" id="79">79</a>
+<a href="#80" id="80">80</a>
+<a href="#81" id="81">81</a>
+<a href="#82" id="82">82</a>
+<a href="#83" id="83">83</a>
+<a href="#84" id="84">84</a>
+<a href="#85" id="85">85</a>
+<a href="#86" id="86">86</a>
+<a href="#87" id="87">87</a>
+<a href="#88" id="88">88</a>
+<a href="#89" id="89">89</a>
+<a href="#90" id="90">90</a>
+<a href="#91" id="91">91</a>
+<a href="#92" id="92">92</a>
+<a href="#93" id="93">93</a>
+<a href="#94" id="94">94</a>
+<a href="#95" id="95">95</a>
+<a href="#96" id="96">96</a>
+<a href="#97" id="97">97</a>
+<a href="#98" id="98">98</a>
+<a href="#99" id="99">99</a>
+<a href="#100" id="100">100</a>
+<a href="#101" id="101">101</a>
+<a href="#102" id="102">102</a>
+<a href="#103" id="103">103</a>
+<a href="#104" id="104">104</a>
+<a href="#105" id="105">105</a>
+<a href="#106" id="106">106</a>
+<a href="#107" id="107">107</a>
+<a href="#108" id="108">108</a>
+<a href="#109" id="109">109</a>
+<a href="#110" id="110">110</a>
+<a href="#111" id="111">111</a>
+<a href="#112" id="112">112</a>
+<a href="#113" id="113">113</a>
+<a href="#114" id="114">114</a>
+<a href="#115" id="115">115</a>
+<a href="#116" id="116">116</a>
+<a href="#117" id="117">117</a>
+<a href="#118" id="118">118</a>
+<a href="#119" id="119">119</a>
+<a href="#120" id="120">120</a>
+<a href="#121" id="121">121</a>
+<a href="#122" id="122">122</a>
+<a href="#123" id="123">123</a>
+<a href="#124" id="124">124</a>
+<a href="#125" id="125">125</a>
+<a href="#126" id="126">126</a>
+<a href="#127" id="127">127</a>
+<a href="#128" id="128">128</a>
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
+<a href="#161" id="161">161</a>
+<a href="#162" id="162">162</a>
+<a href="#163" id="163">163</a>
+<a href="#164" id="164">164</a>
+<a href="#165" id="165">165</a>
+<a href="#166" id="166">166</a>
+<a href="#167" id="167">167</a>
+<a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
+<a href="#170" id="170">170</a>
+<a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
+<a href="#176" id="176">176</a>
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a>
+<a href="#179" id="179">179</a>
+<a href="#180" id="180">180</a>
+<a href="#181" id="181">181</a>
+<a href="#182" id="182">182</a>
+<a href="#183" id="183">183</a>
+<a href="#184" id="184">184</a>
+<a href="#185" id="185">185</a>
+<a href="#186" id="186">186</a>
+<a href="#187" id="187">187</a>
+<a href="#188" id="188">188</a>
+<a href="#189" id="189">189</a>
+<a href="#190" id="190">190</a>
+<a href="#191" id="191">191</a>
+<a href="#192" id="192">192</a>
+<a href="#193" id="193">193</a>
+<a href="#194" id="194">194</a>
+<a href="#195" id="195">195</a>
+<a href="#196" id="196">196</a>
+<a href="#197" id="197">197</a>
+<a href="#198" id="198">198</a>
+<a href="#199" id="199">199</a>
+<a href="#200" id="200">200</a>
+<a href="#201" id="201">201</a></pre></div><pre class="rust"><code><span class="comment">// docker_io_api_token_mod.rs
+
+</span><span class="doccomment">//! # decrypt docker.io api token from file or ask the user to input the access token, encrypt it and save into file
+//!
+//! Don't change this code, so it can be updated regularly with
+//! cargo auto update_automation_tasks_rs
+//! If you want to customize it, copy the code into main.rs and modify it there.
+//!
+//! Publish to docker.io needs the docker.io secret access_token. This is a secret important just like a password or even more.  
+//! There is the original "cargo login" function that saves this critical secret in plain text in `~/.cargo/credentials.toml`.  Plain-text for secrets in a well-known file is a big no-no. Every malware will just upload it in a millisecond.  
+//!
+//! I don't want to pass secret to an "obscure" library crate that is difficult to review and can change in any point in time to become malicious.  
+//!
+//! Instead of that, copy and paste this module `docker_io_api_token_mod.rs` file into your project.  
+//! The secrets will stay in your codebase that is easy to inspect and guaranteed that will never change without your consent.  
+//!
+//! ## encrypt_decrypt_with_ssh_key_mod
+//!
+//! This module depends on the generic module for encryption `encrypt_decrypt_with_ssh_key_mod.rs`. That module also needs to be copy and paste into your project.
+//!
+//! ## Other dependencies
+//!
+//! In `Cargo.toml` there are a group od dependencies needed for this to work. They are so generic that I don't expect any malware in them to be able to steal some usable secrets.  
+//!
+//! Beware that the versions of docker in `Cargo.toml` are not precisely pinpointed. In rust the symbol '=' means "the same major number equal or newer to". This means from one compilation to another, it can automatically change to a newer version without the programmer even noticing it.
+//!
+//! This is great if the newer version is solving some security issue. But this is super-bad if the newer version is malware supply chain attack. We have no idea how to distinguish one from another.
+//!
+//! Just to mention: there exists the trick to control the `Cargo.lock` file and forbid the change of the version number, but more times than not, you will not want to commit the lock file into the GitHub repository.
+//!
+//! ```toml
+//! [dependencies]
+//! ssh-key = { version = "0.6.7", features = [ "rsa", "encryption","ed25519"] }
+//! ssh_agent_client_rs_git_bash = "0.0.11"
+//! rsa = { version = "0.9.7", features = ["sha2","pem"] }
+//! zeroize = {version="1.8.1", features=["derive"]}
+//! aes-gcm = "0.10.3"
+//! camino = "1.1.6"
+//! base64ct = {version = "1.6.0", features = ["alloc"] }
+//! secrecy = "0.10.3"
+//! ```
+//!
+
+</span><span class="attr">#![allow(dead_code)]
+
+</span><span class="kw">use </span>cargo_auto_lib::{ShellCommandLimitedDoubleQuotesSanitizer, ShellCommandLimitedDoubleQuotesSanitizerTrait};
+<span class="kw">use </span>secrecy::{SecretBox, SecretString};
+
+<span class="kw">use </span><span class="kw">super</span>::encrypt_decrypt_mod <span class="kw">as </span>ende;
+<span class="kw">use crate</span>::{BLUE, GREEN, RED, RESET, YELLOW};
+
+<span class="attr">#[derive(serde::Deserialize, serde::Serialize)]
+</span><span class="kw">pub struct </span>DockerIoConfig {
+    <span class="kw">pub </span>docker_io_private_key_file_name: String,
+}
+
+<span class="doccomment">/// Application state is initialized in the main() function.
+///
+/// And then is accessible all over the code.
+</span><span class="kw">pub static </span>DOCKER_IO_CONFIG: std::sync::OnceLock&lt;DockerIoConfig&gt; = std::sync::OnceLock::new();
+
+<span class="doccomment">/// Application state (static) is initialized only once in the main() function.
+///
+/// And then is accessible all over the code.
+</span><span class="kw">pub fn </span>docker_io_config_initialize() {
+    <span class="kw">if </span>DOCKER_IO_CONFIG.get().is_some() {
+        <span class="kw">return</span>;
+    }
+
+    <span class="kw">let </span>docker_io_config_json = std::fs::read_to_string(<span class="string">"docker_io_config.json"</span>).unwrap();
+    <span class="kw">let </span>docker_io_config: DockerIoConfig = serde_json::from_str(<span class="kw-2">&amp;</span>docker_io_config_json).unwrap();
+    <span class="kw">let _ </span>= DOCKER_IO_CONFIG.set(docker_io_config);
+}
+
+<span class="doccomment">/// get docker.io secret token
+///
+/// If exists, decrypt it from file.  
+/// Else ask user to input the token and encrypt it into a file.  
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>get_docker_io_secret_token(private_key_file_name: <span class="kw-2">&amp;</span>str) -&gt; anyhow::Result&lt;SecretString&gt; {
+    <span class="comment">// check if the plain-text file from `podman login` exists and warn the user
+    // because it is a security vulnerability.
+    // in WSL the var ${XDG_RUNTIME_DIR} = /run/user/1000/
+    </span><span class="kw">let </span>file_credentials = <span class="string">"${XDG_RUNTIME_DIR}/containers/auth.json"</span>;
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(xdg_runtime_dir) = std::env::var_os(<span class="string">"XDG_RUNTIME_DIR"</span>) {
+        <span class="kw">let </span>xdg_runtime_dir = xdg_runtime_dir.to_string_lossy().to_string();
+        <span class="kw">let </span>file_credentials_expanded = file_credentials.replace(<span class="string">"${XDG_RUNTIME_DIR}"</span>, <span class="kw-2">&amp;</span>xdg_runtime_dir);
+        <span class="kw">let </span>file_credentials_expanded = camino::Utf8Path::new(<span class="kw-2">&amp;</span>file_credentials_expanded);
+        <span class="kw">if </span>file_credentials_expanded.exists() {
+            <span class="macro">eprintln!</span>(<span class="string">"{RED}Security vulnerability: Found the docker hub auth.json file with plain-text secret_token: {RESET}"</span>);
+            <span class="macro">eprintln!</span>(<span class="string">"{RED}{file_credentials_expanded}. It would be better to inspect and remove it. {RESET}"</span>);
+            <span class="macro">anyhow::bail!</span>(<span class="string">"Found security vulnerability"</span>);
+        }
+    }
+
+    <span class="macro">println!</span>(<span class="string">"  {YELLOW}Check if the ssh private key exists.{RESET}"</span>);
+    <span class="kw">let </span>private_key_path_struct = ende::PathStructInSshFolder::new(private_key_file_name.to_string())<span class="question-mark">?</span>;
+    <span class="kw">if </span>!private_key_path_struct.exists() {
+        <span class="macro">eprintln!</span>(<span class="string">"{RED}Error: Private key {private_key_path_struct} does not exist.{RESET}"</span>);
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}Create the private key in bash terminal:{RESET}"</span>);
+        <span class="macro">println!</span>(<span class="string">r#"{GREEN}ssh-keygen -t ed25519 -f {private_key_path_struct} -C "docker.io secret_token"{RESET}"#</span>);
+        <span class="macro">anyhow::bail!</span>(<span class="string">"Private key file not found."</span>);
+    }
+
+    <span class="macro">println!</span>(<span class="string">"  {YELLOW}Check if the encrypted file exists.{RESET}"</span>);
+    <span class="kw">let </span>encrypted_path_struct = ende::PathStructInSshFolder::new(<span class="macro">format!</span>(<span class="string">"{private_key_file_name}.enc"</span>))<span class="question-mark">?</span>;
+    <span class="kw">if </span>!encrypted_path_struct.exists() {
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}Encrypted file {encrypted_path_struct} does not exist.{RESET}"</span>);
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}Get your secret token from: https://app.docker.com/settings/personal-access-tokens {RESET}"</span>);
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}Never use 'podman login' to store this secret locally. It will store it in plain-text in the file $XDG_RUNTIME_DIR/containers/auth.json. {RESET}"</span>);
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}Plain-text for secrets in a well-known file is a big no-no. Every malware will just upload it in milliseconds. {RESET}"</span>);
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}This function will encrypt the secret with your ssh private key. {RESET}"</span>);
+        <span class="macro">println!</span>();
+        <span class="macro">println!</span>(<span class="string">"{BLUE}Enter the secret_access_token to encrypt:{RESET}"</span>);
+        <span class="kw">let </span>secret_access_token = secrecy::SecretString::from(
+            inquire::Password::new(<span class="string">""</span>)
+                .without_confirmation()
+                .with_display_mode(inquire::PasswordDisplayMode::Masked)
+                .prompt()<span class="question-mark">?</span>,
+        );
+
+        <span class="comment">// prepare the random bytes, sign it with the private key, that is the true passcode used to encrypt the secret
+        </span><span class="kw">let </span>(plain_seed_bytes_32bytes, plain_seed_string) = ende::random_seed_32bytes_and_string()<span class="question-mark">?</span>;
+        <span class="comment">// first try to use the private key from ssh-agent, else use the private file with user interaction
+        </span><span class="kw">let </span>secret_passcode_32bytes: SecretBox&lt;[u8; <span class="number">32</span>]&gt; =
+            ende::sign_seed_with_ssh_agent_or_private_key_file(<span class="kw-2">&amp;</span>private_key_path_struct, plain_seed_bytes_32bytes)<span class="question-mark">?</span>;
+        <span class="kw">let </span>plain_encrypted_text = ende::encrypt_symmetric(secret_passcode_32bytes, secret_access_token)<span class="question-mark">?</span>;
+
+        <span class="comment">// prepare a struct to save as encoded string
+        </span><span class="kw">let </span>encrypted_text_with_metadata = ende::EncryptedTextWithMetadata {
+            private_key_file_name: private_key_path_struct.get_file_name().to_string(),
+            plain_seed_string,
+            plain_encrypted_text,
+            access_token_expiration: <span class="prelude-val">None</span>,
+            refresh_token_expiration: <span class="prelude-val">None</span>,
+            token_name: <span class="prelude-val">None</span>,
+        };
+        <span class="kw">let </span>file_text = serde_json::to_string_pretty(<span class="kw-2">&amp;</span>encrypted_text_with_metadata)<span class="question-mark">?</span>;
+        <span class="comment">// encode it just to obscure it a little bit
+        </span><span class="kw">let </span>file_text = ende::encode64_from_string_to_string(<span class="kw-2">&amp;</span>file_text);
+
+        <span class="kw">let </span><span class="kw-2">mut </span>file = std::fs::File::create(encrypted_path_struct.get_full_file_path())<span class="question-mark">?</span>;
+        <span class="attr">#[cfg(target_family = <span class="string">"unix"</span>)]
+        </span>{
+            <span class="kw">let </span>metadata = file.metadata()<span class="question-mark">?</span>;
+            <span class="kw">let </span><span class="kw-2">mut </span>permissions = metadata.permissions();
+            std::os::unix::fs::PermissionsExt::set_mode(<span class="kw-2">&amp;mut </span>permissions, <span class="number">0o600</span>);
+        }
+        std::io::Write::write_all(<span class="kw-2">&amp;mut </span>file, file_text.as_bytes())<span class="question-mark">?</span>;
+        <span class="macro">println!</span>(<span class="string">"  {YELLOW}Encrypted text saved to file.{RESET}"</span>);
+    }
+
+    <span class="macro">println!</span>(<span class="string">"  {YELLOW}Open and read the encrypted file.{RESET}"</span>);
+    <span class="kw">let </span>encrypted_text_with_metadata: String = ende::open_file_b64_get_string(encrypted_path_struct.get_full_file_path())<span class="question-mark">?</span>;
+    <span class="comment">// parse json
+    </span><span class="kw">let </span>encrypted_text_with_metadata: ende::EncryptedTextWithMetadata = serde_json::from_str(<span class="kw-2">&amp;</span>encrypted_text_with_metadata)<span class="question-mark">?</span>;
+    <span class="macro">println!</span>(<span class="string">"  {YELLOW}Decrypt the file with ssh-agent or private key.{RESET}"</span>);
+    <span class="comment">// the private key file is written inside the file
+    </span><span class="kw">let </span>private_key_path_struct = ende::PathStructInSshFolder::new(encrypted_text_with_metadata.private_key_file_name.clone())<span class="question-mark">?</span>;
+    <span class="kw">if </span>!camino::Utf8Path::new(private_key_path_struct.get_full_file_path()).exists() {
+        <span class="macro">anyhow::bail!</span>(<span class="string">"{RED}Error: File {private_key_path_struct} does not exist! {RESET}"</span>);
+    }
+
+    <span class="kw">let </span>plain_seed_bytes_32bytes = ende::decode64_from_string_to_32bytes(<span class="kw-2">&amp;</span>encrypted_text_with_metadata.plain_seed_string)<span class="question-mark">?</span>;
+    <span class="kw">let </span>secret_passcode_32bytes: SecretBox&lt;[u8; <span class="number">32</span>]&gt; =
+        ende::sign_seed_with_ssh_agent_or_private_key_file(<span class="kw-2">&amp;</span>private_key_path_struct, plain_seed_bytes_32bytes)<span class="question-mark">?</span>;
+
+    <span class="comment">// decrypt the secret access token string
+    </span><span class="kw">let </span>secret_access_token: SecretString =
+        ende::decrypt_symmetric(secret_passcode_32bytes, encrypted_text_with_metadata.plain_encrypted_text.clone())<span class="question-mark">?</span>;
+
+    <span class="prelude-val">Ok</span>(secret_access_token)
+}
+
+<span class="doccomment">/// Publish to docker.io
+</span><span class="attr">#[allow(dead_code)]
+</span><span class="kw">pub fn </span>push_to_docker_hub(image_url: <span class="kw-2">&amp;</span>str) -&gt; anyhow::Result&lt;()&gt; {
+    <span class="comment">// parse image_url to find the secret_token for registry and user_name
+    // docker.io/bestiadev/crustde_cargo_img:cargo-xxx
+    </span><span class="kw">let </span><span class="kw-2">mut </span>splitted = image_url.split(<span class="string">"/"</span>);
+    <span class="kw">let </span>_registry = splitted.next().unwrap();
+    <span class="kw">let </span>user_name = splitted.next().unwrap();
+
+    <span class="attr">#[derive(serde::Deserialize, serde::Serialize)]
+    </span><span class="kw">struct </span>DockerIoApiConfig {
+        docker_io_secret_token_key: String,
+    }
+
+    <span class="kw">let </span>secret_access_token = get_docker_io_secret_token(<span class="kw-2">&amp;</span>DOCKER_IO_CONFIG.get().unwrap().docker_io_private_key_file_name)<span class="question-mark">?</span>;
+    <span class="comment">// the secret_access_token can be used in place of the password in --cred
+    </span>ShellCommandLimitedDoubleQuotesSanitizer::new(<span class="string">r#"podman push --creds "{user_name}:{secret_access_token}" "{image_url}" "#</span>)
+        .unwrap_or_else(|e| <span class="macro">panic!</span>(<span class="string">"{e}"</span>))
+        .arg(<span class="string">"{user_name}"</span>, user_name)
+        .unwrap_or_else(|e| <span class="macro">panic!</span>(<span class="string">"{e}"</span>))
+        .arg_secret(<span class="string">"{secret_access_token}"</span>, <span class="kw-2">&amp;</span>secret_access_token)
+        .unwrap_or_else(|e| <span class="macro">panic!</span>(<span class="string">"{e}"</span>))
+        .arg(<span class="string">"{image_url}"</span>, image_url)
+        .unwrap_or_else(|e| <span class="macro">panic!</span>(<span class="string">"{e}"</span>))
+        .run()
+        .unwrap_or_else(|e| <span class="macro">panic!</span>(<span class="string">"{e}"</span>));
+    <span class="prelude-val">Ok</span>(())
+}
+</code></pre></div></section></main></body></html>

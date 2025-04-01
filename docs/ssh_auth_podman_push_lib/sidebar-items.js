@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["BLUE","GREEN","RED","RESET","YELLOW"],"fn":["push"],"mod":["error_mod","podman_mod","secrets_always_local_mod"]};
+window.SIDEBAR_ITEMS = {"constant":["BLUE","GREEN","RED","RESET","YELLOW"],"fn":["docker_io_config_initialize","push_to_docker_hub"],"mod":["encrypt_decrypt_with_ssh_key_mod","error_mod"]};

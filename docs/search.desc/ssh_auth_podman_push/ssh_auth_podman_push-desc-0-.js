@@ -1,0 +1,1 @@
+searchState.loadedDescShard("ssh_auth_podman_push", 0, "src/bin/ssh_auth_podman_push/main.rs\nGeneric functions that does not usually change.\nentry point into the bin-executable\nprint help\nANSI color\nANSI color\nANSI color\nANSI color\nANSI color\nThe original Rust report of the panic is ugly for the end …\nInitialize tracing to file logs/automation_tasks_rs.log")
