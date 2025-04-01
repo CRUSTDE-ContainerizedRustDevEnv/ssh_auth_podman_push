@@ -6,7 +6,7 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **Store and use encrypted docker-hub secret_token with SSH key**  
-***version: 1.1.1 date: 2024-04-30 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push)***
+***version: 1.1.9 date: 2025-04-01 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push)***
 
  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
  ![rustlang](https://img.shields.io/badge/rustlang-orange)
@@ -24,11 +24,11 @@
  ![ssh_auth_podman_push](https://bestia.dev/webpage_hit_counter/get_svg_image/1719458563.svg)
 
 [//]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-265-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-270-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-59-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-539-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-306-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-66-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-[![Lines in tests](https://img.shields.io/badge/Lines_in_tests-193-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+[![Lines in tests](https://img.shields.io/badge/Lines_in_tests-1-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 
 [//]: # (auto_lines_of_code end)
 

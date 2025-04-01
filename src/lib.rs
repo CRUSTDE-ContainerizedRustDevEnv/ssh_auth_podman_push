@@ -4,20 +4,26 @@
 //! # ssh_auth_podman_push
 //!
 //! **Store and use encrypted docker-hub secret_token with SSH key**  
-//! ***version: 1.1.1 date: 2024-04-30 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push)***
+//! ***version: 1.1.9 date: 2025-04-01 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push)***
 //!
 //!  ![work-in-progress](https://img.shields.io/badge/work_in_progress-yellow)
 //!  ![rustlang](https://img.shields.io/badge/rustlang-orange)
 //!  ![docker-hub](https://img.shields.io/badge/docker_hub-orange)
 //!
-//!   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/blob/main/LICENSE)
-//!   [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//!  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/blob/main/LICENSE)
+//!  [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//!  [![crates.io](https://img.shields.io/crates/v/ssh_auth_podman_push.svg)](https://crates.io/crates/ssh_auth_podman_push)
+//!  [![Documentation](https://docs.rs/ssh_auth_podman_push/badge.svg)](https://docs.rs/ssh_auth_podman_push/)
+//!  [![Lib.rs](https://img.shields.io/badge/Lib.rs-rust-orange.svg)](https://lib.rs/crates/ssh_auth_podman_push/)  
+//!  [![Rust](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//!  [![Newest docs](https://img.shields.io/badge/newest_docs-blue.svg)](https://CRUSTDE-ContainerizedRustDevEnv.github.io/ssh_auth_podman_push/ssh_auth_podman_push/index.html)
+//!  ![ssh_auth_podman_push](https://bestia.dev/webpage_hit_counter/get_svg_image/1719458563.svg)
 //!
-//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-265-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-270-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-59-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-539-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-306-blue.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-66-purple.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
-//! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-193-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
+//! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-1-orange.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push/)
 //!
 //! Hashtags: #maintained #ready-for-use #rustlang #automation #workflow  
 //! My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).  
@@ -51,8 +57,8 @@
 //! Put the executable `ssh_auth_podman_push` into the folder you intend to use it.  
 //! After copying, make it executable with `chmod +x ssh_auth_podman_push`.  
 //! Instead of `podman push...` use `ssh_auth_podman_push`.  
-//! If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.
-//! Else it will ask you to store the secret_token.
+//! If it finds the encrypted secret_token it will ask you for the passphrase to the private SSH key.  
+//! Else it will ask you to store the encrypted secret_token with the SSH prvate key. It will be secured behind a passphrase as SSH keys do.
 //!
 //! ## Development details
 //!
@@ -85,12 +91,14 @@
 // endregion: auto_md_to_doc_comments include README.md A //!
 
 // access to modules
+mod encrypt_decrypt_with_ssh_key_mod;
 mod error_mod;
-mod podman_mod;
-mod secrets_always_local_mod;
+
+use crate::encrypt_decrypt_with_ssh_key_mod as ende;
 
 // `pub use` allows the caller of the lib to access modules functions, structs or all(*)
-pub use podman_mod::push;
+pub use ende::docker_io_api_token_mod::docker_io_config_initialize;
+pub use ende::docker_io_api_token_mod::push_to_docker_hub;
 
 // // https://github.com/shiena/ansicolor/blob/master/README.md
 
