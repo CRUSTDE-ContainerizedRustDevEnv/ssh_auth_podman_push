@@ -12,8 +12,6 @@ The TODO section is part of the [README.md](https://github.com/CRUSTDE-Container
 
 ## Version 1.1.9 (2025-04-01)
 
-## Version 1.1.9 (2025-04-01)
-
 - update auto, refactor
 
 ## Version 1.1.1 (2024-04-30)
