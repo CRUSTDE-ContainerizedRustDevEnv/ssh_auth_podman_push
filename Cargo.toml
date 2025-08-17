@@ -11,6 +11,7 @@ readme = "README.md"
 repository = "https://github.com/CRUSTDE-ContainerizedRustDevEnv/ssh_auth_podman_push"
 # Keyword must be only one word: lowercase letters, hyphens(-) or numbers, less then 35 characters, at most 5 keywords per crate
 keywords = ["work-in-progress", "rustlang", "docker-hub"]
+# Allowed categories are listed here <https://crates.io/category_slugs>
 categories = ["command-line-interface"]
 # publish as a cargo tool. Only this files.
 publish = true
